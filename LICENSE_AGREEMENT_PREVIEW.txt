@@ -1,0 +1,13 @@
+MCP4SH™ — Experimental Preview Agreement
+====================================
+
+By using this MCP4SH preview build, you agree to the following:
+
+1. This is an experimental preview, not a finished product.
+2. You will not redistribute the DLL, configs, or effects outside the intended private test group.
+3. You will not sell, rent, bundle, or include this plugin in any mod pack or monetized offering.
+4. You may share your driving impressions or subjective feedback publicly, but you may not share the DLL, internal logs, or implementation details without explicit permission.
+5. You understand this build may change, break, or behave unpredictably between versions.
+6. You acknowledge that the names MCP4SH™ and MCP4H™ remain the exclusive property of the author.
+
+If you do not agree to these terms, do not use this preview build.

@@ -1,0 +1,17 @@
+MCP4SH™ Plugin – Limited Use License
+======================================
+© 2025 Dirk Van Echelpoel. All rights reserved.
+
+You are allowed to:
+- Use this plugin for personal, non-commercial sim racing.
+- Share unmodified builds privately as long as they remain free, and only with individuals (no paid packs, no public redistributions).
+
+You are not allowed to:
+- Sell, rent, license, or bundle this plugin into any paid or monetized product, mod pack, subscription, or service.
+- Redistribute the plugin on public platforms (SimHub Discord, RaceDepartment, Nexus, etc.) without written permission.
+- Rebrand, rename, or claim ownership of MCP4SH™, MCP4H™, or their related concepts.
+- Use the plugin’s code, effects, or signal-processing concepts as the basis of a competing commercial haptics product, middleware, or telemetry adapter without explicit written permission.
+
+All rights not expressly granted are reserved by the author (Dirk Van Echelpoel).
+
+MCP4SH™ and MCP4H™ are trademarks of Dirk Van Echelpoel.

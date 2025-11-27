@@ -1,109 +1,151 @@
-MCP4SH™ – Experimental Preview Build
-=====================================
+MCP4SH™ – Read this first (preview testers)
+===========================================
 
-© 2025 Dirk Van Echelpoel. All rights reserved.
+Thank you for helping test the MCP4SH™ SimHub plugin.
 
-1. Thank you & scope
---------------------
+MCP4SH is the SimHub implementation of MCP4H™
+(Multimodal Communications Protocol For Humanity) for sim racing.
+It turns telemetry into a layered haptics stack:
 
-Thanks for your interest in testing this SimHub plugin.
+- Chassis mass and road texture (BST-1s)
+- Engine / drivetrain / gearbox resonance (backrest TT25-16)
+- Brake-domain cues (pedal puck – ABS, slip, brake feel)
 
-This is an experimental preview, not a final product.
-No promises, no magic — just honest, work-in-progress tech.
+This build is a **preview**, non-commercial, and may change between
+versions.
 
-Please read everything before installing.
+------------------------------------------------------------------
+1. Reference hardware layout (Author's flavour)
+------------------------------------------------------------------
 
-2. Safety Notice
-----------------
+The supplied profile and routing are tuned for a 4-transducer rig:
 
-This plugin modifies haptic behaviour and can increase intensity depending on your hardware and settings.
+- Backrest puck (TT25-16) on the seat back
+- Brake pedal puck (TT25-16) on or near the pedal assembly
+- Rear BST-1 on the rear seat frame / main chassis
+- Front BST-1 under the pedal plate
 
-Use at your own risk.
-The author is not responsible for:
-- hardware damage,
-- discomfort or injury,
-- issues caused by extreme gain values,
-- incorrect installation or configuration.
+Amps:
 
-Start low, test gradually, and don’t run this on equipment you’re not comfortable pushing.
+- Amp A (TT25-16s)
+  - Channel A1 → Backrest
+  - Channel A2 → Brake pedal
+- Amp B (BST-1s)
+  - Channel B1 → Rear BST
+  - Channel B2 → Front BST
 
-3. Privacy & Logging
---------------------
+You can adapt this to other layouts, but expect to tweak gains.
 
-When enabled, logs may include:
-- game name,
-- track and car,
-- throttle / brake / clutch input levels,
-- MCP4SH tyre/surface signals.
+------------------------------------------------------------------
+2. Installing the plugin
+------------------------------------------------------------------
 
-Do not enable logging on shared or competition machines without explicit permission.
+1) Copy MCP4SH.dll into your SimHub plugins folder, e.g.:
 
-Logs are for:
-- development,
-- physics comparisons,
-- debugging.
+   SimHub/MCP4SH.dll
 
-Do NOT upload logs publicly if they contain identifiable personal data
-(name, user IDs, league metadata, etc.).
-Send logs privately to the author only.
+2) Start SimHub.
+3) Go to Add/remove features and enable **MCP4SH**.
+4) Restart SimHub if prompted.
 
-Log files are stored in:
+------------------------------------------------------------------
+3. Importing the effects profile
+------------------------------------------------------------------
+
+1) Open **ShakeIt Bass Shakers** in SimHub.
+2) In the profiles list, choose **Import**.
+3) Select the supplied profile:
+
+   Documents/SimHub/Any Game - MCP4SH™ Effects Profile v0.3-preview.siprofile
+
+4) Set it to apply to **Any game**, or to specific sims you want to
+   test (AC, AMS2, PMR, etc.).
+
+Notes:
+
+- The profile does **not** include routing. Routing is stored in
+  separate `.sichannels` files.
+- Global gain is **not** fixed; start low and adjust for your rig.
+
+------------------------------------------------------------------
+4. Loading the routing presets
+------------------------------------------------------------------
+
+Two routing presets are provided (for reference only, modify as needed for your setup):
+
+- Backrest / Brake pedal mapping (Amp A)
+- Rear axle / Front axle mapping (Amp B)
+
+1) Open **Sound Output** in SimHub.
+2) Use the Export / Import button → **Import**.
+3) Load each of:
+
+   SimHub/Routing/Effect_FR_CH1_left_backrest_CH2_rght_brakepedal.sichannels
+   SimHub/Routing/Effect_FR_CH1_left_rearaxle_CH2_rght_frontaxle.sichannels
+
+4) Check that the device/channel assignments match your hardware:
+   - Backrest → TT25-16 on seat back
+   - Brake    → TT25-16 on pedal
+   - Rear axle → Rear BST-1
+   - Front axle → Front BST-1
+
+------------------------------------------------------------------
+5. What you should feel
+------------------------------------------------------------------
+
+MCP4SH is built around a layered “harmonics” model:
+
+- Backrest TT25-16:
+  - Engine note and harmonics
+  - Drivetrain load
+  - Gear shifts and clutch freewheel
+- Brake pedal TT25-16:
+  - Brake feel under your foot
+  - ABS pulses
+  - Brake slip events
+- Rear & Front BST-1s:
+  - Tyre scrub
+  - Road texture (front/rear split)
+  - Suspension impacts and undulation
+  - Base load from engine & drivetrain
+
+Some effects intentionally overlap so the rig feels like a
+*single chassis* instead of isolated shakers.
+
+------------------------------------------------------------------
+6. Logging and debugging
+------------------------------------------------------------------
+
+MCP4SH can optionally log CSV data into:
 
     SimHub/Logs/MCP4SH/
 
-4. Installation
----------------
+There are two main toggles in the plugin settings:
 
-1. Copy MCP4SH.dll into:
+- General debug logging
+- Extra tyre / slip logging
 
-       SimHub/Plugins/
+Use these when something feels off. When sending logs back, include:
 
-2. Restart SimHub.
-3. Open Settings → MCP4SH in SimHub.
-4. Import the included profile/effects (if provided).
-5. Verify the plugin shows as loaded.
+- Game, car, track
+- Short description of what felt wrong
+- Any changes you made to gains or routing
 
-5. Logging Options
-------------------
+See docs/LOGGING.md for more detail.
 
-Inside SimHub → Settings → MCP4SH:
+------------------------------------------------------------------
+7. License reminder
+------------------------------------------------------------------
 
-[ ] Debug mode (auto-save logs)
-    General development log.
-    Only enable when you’re asked to capture an issue.
+By using this preview build you agree to the terms in:
 
-[ ] Extra tyre / slip logging
-    Records per-wheel slip, tyre intensities, throttle/brake/clutch, and MCP4SH-normalized values.
-    Used for cross-sim comparisons (AC/AMS2/PMR/etc.).
-    Files auto-rotate to avoid huge sizes.
+- LICENSE_PLUGIN.txt
+- LICENSE_AGREEMENT_PREVIEW.txt
 
-Keep both options OFF unless needed.
+In short:
 
-6. Usage Rules for Testers
---------------------------
-
-By using this preview build, you agree to:
-
-- Do not redistribute the DLL outside this test group.
-- Do not modify or repackage the plugin.
-- Do not sell or bundle this plugin in paid modpacks.
-- Public posts about the experience are fine — but do not share the DLL or internal logs publicly.
-
-If you don’t agree, don’t use the plugin.
-
-7. Ownership & Trademark Notice
--------------------------------
-
-MCP4SH™ – SimHub implementation of the
-MCP4H™ (Multimodal Communications Protocol For Humanity) haptics layer.
-
-© 2025 Dirk Van Echelpoel.
-All rights reserved.
-
-MCP4H™ and MCP4SH™ are trademarks of Dirk Van Echelpoel.
-Use of these names does not grant ownership or resale rights.
-
-8. Contact
-----------
-
-Bugs, logs, feedback → reach out privately.
+- Personal, non-commercial sim usage only.
+- Do not resell, rent, or bundle the DLL in paid mod packs.
+- Do not publicly redistribute the DLL without permission.
+- You may share impressions and feedback publicly, but not internal
+  logs with personal/league information unless agreed.

@@ -1,7 +1,7 @@
 # MCP4SH™ – Recommended 4-Channel Setup (Author's flavour)
 
 This document describes the reference layout used to tune the
-MCP4SH v0.4-preview profile. It matches the routing presets and the
+MCP4SH v0.4.0-preview1 profile. It matches the routing presets and the
 effect design.
 
 ------------------------------------------------------------

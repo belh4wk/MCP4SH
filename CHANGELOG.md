@@ -1,6 +1,6 @@
 # MCP4SH Changelog
 
-## v0.3.0-preview1
+## v0.4.0-preview1
 
 - Added debug CSV logging.
 - Added extra tyre / slip logging for cross-sim comparisons.

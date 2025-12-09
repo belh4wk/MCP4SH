@@ -1,4 +1,4 @@
-# Known issues – v0.4-preview
+# Known issues – v0.4.0-preview1
 
 * Tuning is optimised for a specific 4-transducer rig
   (2x TT25 pucks, 2x BST-1). Other hardware may require substantial

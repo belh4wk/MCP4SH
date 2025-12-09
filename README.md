@@ -4,6 +4,9 @@ MCP4SH™ is a SimHub plugin that implements the MCP4H™
 (Multimodal Communications Protocol For Humanity) haptics layer  
 for sim racing and driving titles.
 
+It turns game telemetry into a structured, layered haptics stack so that
+different sims can *feel* broadly the same on your rig.
+
 - Translates telemetry into seat-of-the-pants cues
 - Normalises signals across different games
 - Drives haptics, LEDs, and dashboards in a consistent way
@@ -11,66 +14,139 @@ for sim racing and driving titles.
 > ⚠️ This repository is for the **SimHub implementation** only.  
 > The MCP4H protocol (schemas, docs, and reference examples) lives in a separate repo.
 
+---
+
 ## Status
 
-- Stage: Experimental preview
-- Audience: Private testers / early adopters
-- API stability: Not guaranteed. Effects and mappings may change.
+- Stage: **Experimental preview**
+- Target build: **v0.4.0-preview1**
+- Audience: **Private pilot testers / early adopters**
+- Expectation: Things will move, break, and get retuned between builds.
 
-## Installation (SimHub)
+This is *not* a polished public release. It is a working, evolving preview so we can:
 
-1. Build or download the latest `MCP4SH.dll` from the Releases page.
-2. Copy it into your SimHub plugins folder:
+- Validate the MCP4H haptics model across multiple sims and hardware setups.
+- Shake out bugs and edge cases in the flavour engine and effect mappings.
+- Gather structured feedback and logs from real-world rigs.
 
-   ```text
-   SimHub/Plugins/
-   ```
+See `CHANGELOG.md` for the latest high-level changes.
 
-3. Restart SimHub.
-4. In SimHub, open **Settings → Plugins** and enable **MCP4SH**.
-5. (Optional) Import the default profile from `effects/MCP4SH_default.siprofile`.
+---
 
-For detailed steps, see `docs/README_FIRST.txt`.
+## Download & Installation (preview)
 
-## Logging
+There are two typical ways to get the plugin:
 
-MCP4SH can write CSV logs under:
+### 1. From a GitHub pre-release (recommended for testers)
+
+1. Go to the **Releases** section of this repo.
+2. Download the latest pre-release asset, e.g.:  
+   `MCP4SH™ Harmonized Haptic Effects for SimHub.zip`
+3. Unzip it and follow the instructions in `docs/README_FIRST.txt`.
+
+### 2. From source (advanced)
+
+If you are comfortable building from source:
+
+1. Clone this repo.
+2. Build the SimHub plugin project in your usual .NET toolchain.
+3. Copy the resulting DLL into your SimHub `Plugins` folder.
+4. Follow the setup instructions below and in `docs/README_FIRST.txt`.
+
+---
+
+## First steps for pilot testers
+
+Start here:
+
+- `docs/README_FIRST.txt` – **Required reading.**  
+  High-level overview, what this preview is, and what it is not.
+
+Then:
+
+- `docs/SETUP_4CH.md` – Reference 4-channel hardware/layout used for tuning.
+- `docs/KNOWN_ISSUES.md` – Current limitations, caveats, and WIP areas.
+- `docs/LOGGING.md` – How to enable CSV logging for debugging and physics comparisons.
+
+If you only read one thing before driving, make it `README_FIRST.txt`.
+
+---
+
+## Logging & Feedback
+
+MCP4SH can emit CSV logs under:
 
 ```text
 SimHub/Logs/MCP4SH/
 ```
 
-Two main switches (in the MCP4SH settings panel):
+There are two main switches (see `docs/LOGGING.md` for details):
 
-- **Debug mode (auto-save logs):**  
-  General debug CSV for troubleshooting.
+- **Debug mode (auto-save logs)** – for capturing "something feels wrong" sessions.
+- **Extra tyre / slip logging** – for controlled physics / slip comparisons across sims.
 
-- **Extra tyre / slip logging:**  
-  Focused log for cross-sim comparisons (tyre intensities, slip, throttle/brake/clutch).
+### How to be most useful as a pilot tester
 
-See `docs/LOGGING.md` for details and recommended usage.
+When reporting an issue or giving detailed feedback, please include:
 
-## License
+- Game + car + track
+- Brief description of your hardware (transducers, amps, rig)
+- What you expected to feel vs what you actually felt
+- A short debug CSV log (with the relevant switches enabled)
 
-This plugin is not licensed under the same terms as the MCP4H protocol.
+Please avoid sharing logs that contain sensitive league information without prior agreement.
 
-Use is governed by:
+---
 
-- `LICENSE_PLUGIN.txt` – what you can / cannot do with the plugin
-- `LICENSE_AGREEMENT_PREVIEW.txt` – extra terms for preview/test builds
+## Current tuning assumptions
 
-In short:
+The reference tuning and routing are built around:
+
+- 2x TT25-16 pucks (backrest + brake)
+- 2x BST-1 style transducers (chassis / road feel)
+- 2 stereo amps (one for pucks, one for BST-1s)
+
+This corresponds to the layout described in:
+
+- `docs/SETUP_4CH.md`
+
+Other hardware (2-channel, 6–8 channel, different transducers) will work but may require
+substantial gain and routing adjustments. The docs include guidance for scaling up or down.
+
+---
+
+## Licensing at a Glance
+
+This repository contains **plugin binaries/configs** and **supporting docs**.
+
+- The **MCP4SH plugin** (DLL, effect definitions, and flavour engine) is distributed under  
+  `LICENSE_PLUGIN.txt` (limited-use license).
+- Preview access is further governed by `LICENSE_AGREEMENT_PREVIEW.txt`.
+
+In practice:
 
 - Personal, non-commercial sim racing use is allowed.
-- Public redistribution, resale, or inclusion in paid modpacks is not allowed.
+- Public redistribution, resale, or inclusion in paid modpacks is **not** allowed.
+- Do not rebrand, rename, or claim ownership of MCP4SH™, MCP4H™, or their underlying concepts.
+
+See `LICENSE_PLUGIN.txt`, `LICENSE_AGREEMENT_PREVIEW.txt`, and `TRADEMARKS.md` for full details.
+
+---
 
 ## Relationship to MCP4H™
 
+MCP4SH exists to **implement and exercise the MCP4H protocol** in a real sim racing context.
+
 - **MCP4H™ protocol repo (open):**  
-  Specifications, schemas, docs, and reference examples. Code mostly under MIT.
+  Specifications, schemas, docs, and reference examples.  
+  Repo: https://github.com/belh4wk/MCP4H-protocol  
+  Latest protocol release (v0.1.2) DOI: https://doi.org/10.5281/zenodo.17727584
 
 - **MCP4SH™ plugin repo (this repo):**  
-  SimHub implementation, flavour engine, and effects. Distributed under a more restrictive license.
+  SimHub implementation, flavour engine, and haptic effect mappings.  
+  Distributed under a more restrictive license appropriate for a preview / pilot-test plugin.
 
 MCP4H™ and MCP4SH™ are trademarks of Dirk Van Echelpoel.  
 See `TRADEMARKS.md` for details.
+
+---

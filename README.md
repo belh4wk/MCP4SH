@@ -10,6 +10,7 @@ different sims can *feel* broadly the same on your rig.
 - Translates telemetry into seat-of-the-pants cues
 - Normalises signals across different games
 - Drives haptics, LEDs, and dashboards in a consistent way
+- Includes a built-in FOV calculator in the MCP4SH settings UI (single / triples / curved) for quick visual calibration
 
 > ⚠️ This repository is for the **SimHub implementation** only.  
 > The MCP4H protocol (schemas, docs, and reference examples) lives in a separate repo.

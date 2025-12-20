@@ -11,6 +11,8 @@ It turns telemetry into a layered haptics stack:
 - Engine / drivetrain / gearbox resonance (backrest TT25-16)
 - Brake-domain cues (pedal puck – ABS, slip, brake feel)
 
+Bonus: MCP4SH also includes a small built-in FOV calculator in the settings UI (visual calibration helper).
+
 This build is a **preview**, non-commercial, and may change between
 versions.
 

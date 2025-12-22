@@ -19,8 +19,8 @@ different sims can *feel* broadly the same on your rig.
 
 ## Status
 
-- Stage: **Experimental preview**
-- Target build: **v0.4.0-preview1**
+- Stage: **Preview**
+- Target build: **v0.9.0-preview1**
 - Audience: **Private pilot testers / early adopters**
 - Expectation: Things will move, break, and get retuned between builds.
 

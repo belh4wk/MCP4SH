@@ -1,7 +1,7 @@
 MCP4SH™ — Experimental Preview Agreement
 ====================================
 
-By using this MCP4SH preview build, you agree to the following:
+By using this MCP4SH™ preview build, you agree to the following:
 
 1. This is an experimental preview, not a finished product.
 2. You will not redistribute the DLL, configs, or effects outside the intended private test group.

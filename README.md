@@ -21,10 +21,10 @@ different sims can *feel* broadly the same on your rig.
 
 - Stage: **Preview**
 - Target build: **v0.9.0-preview1**
-- Audience: **Private pilot testers / early adopters**
+- Audience: **Public testing / early adopters**
 - Expectation: Things will move, break, and get retuned between builds.
 
-This is *not* a polished public release. It is a working, evolving preview so we can:
+This is *not* a polished release. It is a working, evolving preview so we can:
 
 - Validate the MCP4H haptics model across multiple sims and hardware setups.
 - Shake out bugs and edge cases in the flavour engine and effect mappings.

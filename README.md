@@ -42,21 +42,11 @@ There are two typical ways to get the plugin:
 
 1. Go to the **Releases** section of this repo.
 2. Download the latest pre-release asset, e.g.:  
-   `MCP4SH™ Harmonized Haptic Effects for SimHub.zip`
-3. Unzip it and follow the instructions in `docs/README_FIRST.txt`.
+   `MCP4SH™-preview-v0.9.0.exe`
+3. run the setup and follow the instructions
 
-### 2. From source (advanced)
 
-If you are comfortable building from source:
-
-1. Clone this repo.
-2. Build the SimHub plugin project in your usual .NET toolchain.
-3. Copy the resulting DLL into your SimHub `Plugins` folder.
-4. Follow the setup instructions below and in `docs/README_FIRST.txt`.
-
----
-
-## First steps for pilot testers
+## First steps for testers
 
 Start here:
 

@@ -32,6 +32,18 @@ This is *not* a polished release. It is a working, evolving preview so we can:
 
 See `CHANGELOG.md` for the latest high-level changes.
 
+## Architectural Context
+
+MCP4SH is an implementation built on the architectural principles defined by the MCP4H protocol.
+
+The core system architecture, telemetry abstraction model, and multimodal design principles are intentionally published as prior art to ensure they remain open and unencumbered.
+
+A public prior-art disclosure is available via Zenodo:
+
+**DOI:** https://doi.org/10.5281/zenodo.18223144
+
+This disclosure covers architectural concepts only; MCP4SH’s specific implementation details and signal-processing behavior remain implementation-specific.
+
 ---
 
 ## Download & Installation (preview)

@@ -15,6 +15,44 @@ Bonus: MCP4SH also includes a small built-in FOV calculator in the settings UI (
 
 This build is a **preview**, non-commercial, and may change between
 versions.
+======================================================================
+MCP4SH™ ST Haptics (Preview Build) — v0.9.5 notes
+======================================================================
+
+This profile uses the MCP4SH™ ST Haptics system designed to simulate:
+- Tyre phases (grip, slip, scrub)
+- Suspension compression & undulation
+- Drivetrain & rotational resonance
+- Gearbox harmonics (shift, grind, load)
+- Braking surface cues (feel, slip, ABS)
+- Engine mass + harmonic layers
+
+v0.9.5 focus:
+- Refined / optimized frequency selection and band overlaps
+- Cleaner effect logic and transitions (less noise, more intent)
+- Improved chassis “resonance stack” coherence
+
+Effects are designed to overlap intentionally in some bandwidths to produce a
+coherent chassis “resonance stack.” This makes the rig vibrate as a unified
+mass, similar to how a real car transmits harmonics into the body and seat.
+
+IMPORTANT GAIN RULE:
+- Avoid touching SimHub’s per-effect gains at first.
+- Start with the gains inside the MCP4SH plugin UI.
+- Only after the plugin-side gains feel right, tune SimHub’s global/master output.
+
+Base setup used during development (example 4-channel BST + TT25 system):
+- Front: BST1 under pedal plate, TT25-16 on brake pedal
+- Rear:  BST1 on crossbar of rear seat frame below the seat, TT25-16 in backrest
+- Special: TT25-16 on side of Clubsport Handbrake V1.5
+
+Use the accompanying ROUTING presets suited for a 4-channel BST system.
+Global gain should be tuned per rig.
+
+Tested with: Assetto Corsa (AC, ACE, ACR), AMS2, F1 series, Project Motor Racing,
+DR2.0, PC2, R3E, Forza (Horizons), LMU, GRID:Legends, Wreckfest, EA & KT WRC.
+
+
 
 ------------------------------------------------------------------
 1. Reference hardware layout (Author's flavour)

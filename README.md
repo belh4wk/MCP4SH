@@ -12,6 +12,13 @@ different sims can *feel* broadly the same on your rig.
 - Drives haptics, LEDs, and dashboards in a consistent way
 - Includes a built-in FOV calculator in the MCP4SH settings UI (single / triples / curved) for quick visual calibration
 
+
+## Gain tuning order (important)
+
+- Avoid touching SimHub’s per-effect gains at first.
+- Start with the gains inside the **MCP4SH plugin UI**.
+- Only after that feels right, tune SimHub’s **global/master output** for your rig.
+
 > ⚠️ This repository is for the **SimHub implementation** only.  
 > The MCP4H protocol (schemas, docs, and reference examples) lives in a separate repo.
 
@@ -31,6 +38,18 @@ This is *not* a polished release. It is a working, evolving preview so we can:
 - Gather structured feedback and logs from real-world rigs.
 
 See `CHANGELOG.md` for the latest high-level changes.
+
+## Architectural Context
+
+MCP4SH is an implementation built on the architectural principles defined by the MCP4H protocol.
+
+The core system architecture, telemetry abstraction model, and multimodal design principles are intentionally published as prior art to ensure they remain open and unencumbered.
+
+A public prior-art disclosure is available via Zenodo:
+
+**DOI:** https://doi.org/10.5281/zenodo.18223144
+
+This disclosure covers architectural concepts only; MCP4SH’s specific implementation details and signal-processing behavior remain implementation-specific.
 
 ---
 

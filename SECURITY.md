@@ -10,7 +10,7 @@ Only the most recent release line is supported.
 ## Report a Vulnerability
 If you believe you found a security issue:
 1. **Do not** post exploit details publicly.
-2. Send a report to: **[ADD YOUR SECURITY EMAIL HERE]**
+2. Send a report to me via DM or in the appropriate discussions
 3. Include:
    - Affected version
    - Repro steps / PoC (if available)

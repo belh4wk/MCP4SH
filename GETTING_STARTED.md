@@ -5,7 +5,7 @@ This page covers install + activation in 2 minutes.
 
 ## 1) Download / Install
 - Download the latest installer from the Releases page:
-  - (link) **GitHub → Releases**
+  - ([link](https://github.com/belh4wk/MCP4SH/releases)) **GitHub → Releases**
 - Run the installer.
 - Start SimHub.
 

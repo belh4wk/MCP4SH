@@ -5,7 +5,7 @@ This page covers install + activation.
 
 ## 1) Download / Install
 - Download the latest installer from the Releases page:
-  - [link](https://github.com/belh4wk/MCP4SH/releases) **GitHub → Releases**
+  - [**GitHub → Releases**](https://github.com/belh4wk/MCP4SH/releases)
 - Run the installer.
 - Start SimHub.
 
@@ -28,7 +28,7 @@ Your license has a machine limit. If you reinstall Windows or change hardware an
 - Contact support with your key and the email you purchased with.
 
 ## 5) Support / Community
-- Discord: [(your invite link)](https://discord.gg/Vbw5AJC8)
+- Discord: [(belh4wk)](https://discord.gg/Vbw5AJC8)
 
 ## 6) What you bought (tiers)
 ### Pioneer (Launch)

@@ -1,17 +1,21 @@
-MCP4SH™ Plugin – Limited Use License
-======================================
-© 2025 Dirk Van Echelpoel. All rights reserved.
+MCP4SH™ Plugin — Limited Use License
+====================================
+© 2025–2026 Dirk Van Echelpoel. All rights reserved.
 
-You are allowed to:
-- Use this plugin for personal, non-commercial sim racing.
-- Share unmodified builds privately as long as they remain free, and only with individuals (no paid packs, no public redistributions).
+This license applies to the MCP4SH™ plugin and related release materials unless a separate written agreement says otherwise.
 
-You are not allowed to:
-- Sell, rent, license, or bundle this plugin into any paid or monetized product, mod pack, subscription, or service.
-- Redistribute the plugin on public platforms (SimHub Discord, RaceDepartment, Nexus, etc.) without written permission.
-- Rebrand, rename, or claim ownership of MCP4SH™, MCP4H™, or their related concepts.
-- Use the plugin’s code, effects, or signal-processing concepts as the basis of a competing commercial haptics product, middleware, or telemetry adapter without explicit written permission.
+You may:
+- Use MCP4SH for personal sim-racing use
+- Evaluate the plugin on your own hardware
+- Share feedback, impressions, and non-confidential usage experiences publicly
 
-All rights not expressly granted are reserved by the author (Dirk Van Echelpoel).
+You may not:
+- Sell, rent, sublicense, or bundle MCP4SH into any paid or monetized product, pack, subscription, or service
+- Publicly redistribute the plugin, release bundle, configs, or packaged assets without written permission
+- Rebrand, rename, or present MCP4SH™ / MCP4H™ as your own work
+- Use the plugin’s code, effects, or implementation-specific behavior as the basis of a competing commercial haptics product or telemetry middleware without explicit written permission
+- Remove notices relating to authorship, licensing, or trademarks
+
+All rights not expressly granted are reserved.
 
 MCP4SH™ and MCP4H™ are trademarks of Dirk Van Echelpoel.

@@ -1,0 +1,14 @@
+MCP4SH™ — Terms
+============================
+
+By using this MCP4SH™ soft release build, you agree to the following:
+
+1. This is a public-facing soft release, not a claim that tuning and coverage are final.
+2. You may use the build for personal sim-racing use only unless you have separate written permission.
+3. You may not redistribute the DLL, packaged configs, dashboards, or release bundle without permission.
+4. You may share feedback, impressions, screenshots, videos, and subjective commentary publicly.
+5. You may not rehost the installer or present altered builds as official MCP4SH releases.
+6. You understand that effect behavior, supported sims, and tuning guidance may continue to evolve between releases.
+7. You acknowledge that MCP4SH™ and MCP4H™ remain the exclusive marks of the author.
+
+If you do not agree to these terms, do not use the build.

@@ -1,49 +1,76 @@
 # Installer Security Notes (MCP4SH)
 
-You should be cautious with any closed-source executable. This document explains how to verify MCP4SH downloads and what the installer is expected to do.
+You should be cautious with any closed-source executable. This document explains how to verify an MCP4SH installer and what the installer is expected to do.
 
-## Verify the Installer (SHA-256)
+## Verify the installer (SHA-256)
 
 ### Windows (PowerShell)
-1. Open PowerShell in the folder containing the installer.
+
+1. Open PowerShell in the folder containing the installer
 2. Run:
 
-`Get-FileHash .\MCP4SH_Setup_<version>.exe -Algorithm SHA256`
+```powershell
+Get-FileHash .\MCP4SH_Setup_<version>.exe -Algorithm SHA256
+```
 
-3. Compare the displayed hash to the one published in the release `SHA256SUMS` file.
+3. Compare the result to the published checksum file for that release
 
 ### Windows (CMD)
-`certutil -hashfile MCP4SH_Setup_<version>.exe SHA256`
+
+```cmd
+certutil -hashfile MCP4SH_Setup_<version>.exe SHA256
+```
 
 ### macOS / Linux
-`shasum -a 256 MCP4SH_Setup_<version>.exe`
+
+```bash
+shasum -a 256 MCP4SH_Setup_<version>.exe
+```
 
 or
 
-`sha256sum MCP4SH_Setup_<version>.exe`
+```bash
+sha256sum MCP4SH_Setup_<version>.exe
+```
 
-If the hash does not match: **do not run it**.
+If the hash does not match the published checksum, do **not** run the installer.
 
-## What the Installer Does
-Expected actions (may vary by SimHub path and user choice):
-- Copies MCP4SH plugin files into SimHub’s plugin folder (typically under `SimHub\Plugins\...`)
-- Creates/updates MCP4SH configuration defaults under SimHub’s normal user data locations (typically under `Documents\SimHub\...`)
-- Adds uninstall entry (standard Windows behavior for installers)
+## What the installer is expected to do
 
-## What the Installer Does NOT Do (unless release notes say otherwise)
-- Does not install drivers
-- Does not create background services
-- Does not modify Windows security settings
-- Does not transmit telemetry or personal data to a server
-- Does not persist outside SimHub’s plugin/config locations
+Depending on your SimHub path and user choices, a normal MCP4SH installer may:
 
-## Safe Install Practices
-- Download only from the official GitHub Releases page (and/or trusted mirrors you control).
-- Verify SHA-256 checksums before running.
-- Keep SimHub updated.
-- If you are extremely cautious, install and run SimHub/plugins on a separate Windows user account.
+- copy MCP4SH plugin files into the SimHub plugin area
+- place or update MCP4SH defaults in normal SimHub user-data locations
+- create a standard uninstall entry in Windows
 
-## If You Suspect Something Is Off
-- Do not continue installation.
-- Report the issue with the version + checksum + where you downloaded it:
-  - Contact: [ADD YOUR SECURITY EMAIL HERE]
+## What the installer should not do
+
+Unless explicitly documented in release notes, it should **not**:
+
+- install drivers
+- create background services
+- weaken Windows security settings
+- send telemetry or personal data to a remote server
+- persist outside normal SimHub / user-data locations without a clear reason
+
+## Safe installation habits
+
+- download only from the official GitHub release page or another source you personally control
+- verify SHA-256 checksums before running the installer
+- keep SimHub updated
+- if you are extremely cautious, install and test under a separate Windows user account first
+
+## If something looks wrong
+
+Stop.
+
+Do not continue the install.
+
+Capture:
+
+- installer filename
+- checksum
+- release page used
+- screenshots or Windows prompts that looked suspicious
+
+Then report it through the repo’s security contact path described in `SECURITY.md`.

@@ -1,16 +1,20 @@
 MCP4SH™ — Trademark Notice
 ===========================
 
-MCP4SH™ (SimHub implementation of the Multimodal Communications Protocol For Humanity)
-and MCP4H™ itself are trademarks of **Dirk Van Echelpoel**.
+MCP4SH™ and MCP4H™ (Multimodal Communications Protocol For Humanity) are trademarks of **Dirk Van Echelpoel**.
 
-Use of this repository or plugin does not grant any rights to:
+Use of this repository, release bundle, or plugin does **not** grant any right to:
 
-- Use the MCP4SH or MCP4H names or logos in your own branding
-- Present your project as the official MCP4SH or MCP4H implementation
-- Sell products under those marks without written permission
+- use the MCP4SH or MCP4H names or logos in your own branding
+- present your project as the official MCP4SH or MCP4H implementation
+- sell products or services under those marks without written permission
 
-You may describe your setup as "using the MCP4SH plugin" or "compatible with MCP4H"
-if that is accurate.
+You may accurately describe your setup as:
 
-For commercial use of the marks, contact the author.
+- using the MCP4SH plugin
+- compatible with MCP4H
+- built around MCP4H-inspired ideas
+
+You may not imply endorsement, ownership, or official status where none exists.
+
+For commercial or branded use of the marks, contact the author.

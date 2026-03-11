@@ -1,156 +1,144 @@
-MCP4SH™ – Read this first (preview testers)
-===========================================
+MCP4SH™ — Read this first
+==========================
 
-Thank you for helping test the MCP4SH™ SimHub plugin.
+Thank you for trying MCP4SH™.
 
 MCP4SH is the SimHub implementation of MCP4H™
 (Multimodal Communications Protocol For Humanity) for sim racing.
-It turns telemetry into a layered haptics stack:
+It turns telemetry into a layered haptics stack instead of a pile of disconnected vibrations.
 
-- Chassis mass and road texture (BST-1s)
-- Engine / drivetrain / gearbox resonance (backrest TT25-16)
-- Brake-domain cues (pedal puck – ABS, slip, brake feel)
+Typical domains include:
 
-Bonus: MCP4SH also includes a small built-in FOV calculator in the settings UI (visual calibration helper).
+- chassis mass and road texture
+- engine / drivetrain / gearbox resonance
+- braking-domain cues
+- tyre phase and scrub behavior
+- suspension impacts and undulation
 
-This build is a **preview**, non-commercial, and may change between
-versions.
+Bonus: MCP4SH also includes a built-in FOV calculator in the settings UI.
+
+This build is part of the **v1.0 soft release line**.
+That means it is public-facing and meant to be usable, but tuning and coverage are still evolving.
+
 ======================================================================
-MCP4SH™ ST Haptics (Preview Build) — v0.9.5 notes
+MCP4SH™ ST Haptics — soft release notes
 ======================================================================
 
-This profile uses the MCP4SH™ ST Haptics system designed to simulate:
-- Tyre phases (grip, slip, scrub)
-- Suspension compression & undulation
-- Drivetrain & rotational resonance
-- Gearbox harmonics (shift, grind, load)
-- Braking surface cues (feel, slip, ABS)
-- Engine mass + harmonic layers
+This stack is designed to simulate:
+- tyre phases (grip, slip, scrub)
+- suspension compression and undulation
+- drivetrain and rotational resonance
+- gearbox harmonics (shift, grind, load)
+- braking surface cues (feel, slip, ABS)
+- engine mass and harmonic layers
 
-v0.9.5 focus:
-- Refined / optimized frequency selection and band overlaps
-- Cleaner effect logic and transitions (less noise, more intent)
-- Improved chassis “resonance stack” coherence
+Soft-release focus:
+- cleaner public-facing documentation
+- clearer first-run setup guidance
+- preserved layered “single chassis” haptics philosophy
+- continued real-world validation across rigs and sims
 
-Effects are designed to overlap intentionally in some bandwidths to produce a
-coherent chassis “resonance stack.” This makes the rig vibrate as a unified
-mass, similar to how a real car transmits harmonics into the body and seat.
+Effects are designed to overlap intentionally in some bandwidths so the rig behaves like one coherent mass rather than isolated shakers.
 
 IMPORTANT GAIN RULE:
-- Avoid touching SimHub’s per-effect gains at first.
+- Do not start by changing SimHub per-effect gains.
 - Start with the gains inside the MCP4SH plugin UI.
-- Only after the plugin-side gains feel right, tune SimHub’s global/master output.
+- Then tune SimHub global/master output for your rig.
+- Only after that should you touch per-effect gains, if needed.
 
-Base setup used during development (example 4-channel BST + TT25 system):
-- Front: BST1 under pedal plate, TT25-16 on brake pedal
-- Rear:  BST1 on crossbar of rear seat frame below the seat, TT25-16 in backrest
-- Special: TT25-16 on side of Clubsport Handbrake V1.5
+Reference hardware used during development (example 4-channel BST + TT25 system):
+- Front: BST-1 under pedal plate, TT25-16 on brake pedal
+- Rear: BST-1 on rear seat frame / structure, TT25-16 in the backrest
+- Optional extra: TT25-16 on the handbrake side for dedicated use cases
 
-Use the accompanying ROUTING presets suited for a 4-channel BST system.
-Global gain should be tuned per rig.
+Global gain must be tuned per rig.
 
-Tested with: Assetto Corsa (AC, ACE, ACR), AMS2, F1 series, Project Motor Racing,
-DR2.0, PC2, R3E, Forza (Horizons), LMU, GRID:Legends, Wreckfest, EA & KT WRC.
-
-
+Commonly tested with: Assetto Corsa variants, AMS2, F1 titles, Project Motor Racing,
+DR2.0, PC2, R3E, Forza Horizon titles, LMU, GRID Legends, Wreckfest, and multiple WRC titles.
 
 ------------------------------------------------------------------
-1. Reference hardware layout (Author's flavour)
+1. Reference layout philosophy
 ------------------------------------------------------------------
 
-The supplied profile and routing are tuned for a 4-transducer rig:
+The supplied routing logic assumes a layered rig:
 
-- Backrest puck (TT25-16) on the seat back
-- Brake pedal puck (TT25-16) on or near the pedal assembly
-- Rear BST-1 on the rear seat frame / main chassis
-- Front BST-1 under the pedal plate
+- Backrest domain:
+  - engine note and harmonics
+  - drivetrain load
+  - selected gearbox-domain events
+- Brake domain:
+  - brake feel
+  - ABS pulses
+  - brake slip information
+- Chassis domain:
+  - tyre scrub
+  - road texture
+  - suspension impacts and undulation
+  - base load coupling from engine and drivetrain
 
-Amps:
-
-- Amp A (TT25-16s)
-  - Channel A1 → Backrest
-  - Channel A2 → Brake pedal
-- Amp B (BST-1s)
-  - Channel B1 → Rear BST
-  - Channel B2 → Front BST
-
-You can adapt this to other layouts, but expect to tweak gains.
+The point is not “more noise.”
+The point is clarity through structure.
 
 ------------------------------------------------------------------
 2. Installing the plugin
 ------------------------------------------------------------------
 
-1) Copy MCP4SH.dll into your SimHub plugins folder, e.g.:
-
-   SimHub/MCP4SH.dll
-
+1) Install the MCP4SH release package into your SimHub environment.
 2) Start SimHub.
 3) Go to Add/remove features and enable **MCP4SH**.
 4) Restart SimHub if prompted.
 
+If your release package includes an installer, verify its checksum first.
+See:
+- `SECURITY.md`
+- `INSTALLER_SECURITY.md`
+
 ------------------------------------------------------------------
-3. Importing the effects profile
+3. Importing profiles and routing
 ------------------------------------------------------------------
+
+If your release package includes profile backups and routing presets:
 
 1) Open **ShakeIt Bass Shakers** in SimHub.
-2) In the profiles list, choose **Import**.
-3) Select the supplied profile:
+2) Import the supplied effect profile.
+3) Import the supplied routing presets.
+4) Verify the device/channel assignments match your actual hardware.
 
-   Documents/SimHub/Any Game - MCP4SH™ Effects Profile v0.3-preview.siprofile
-
-4) Set it to apply to **Any game**, or to specific sims you want to
-   test (AC, AMS2, PMR, etc.).
-
-Notes:
-
-- The profile does **not** include routing. Routing is stored in
-  separate `.sichannels` files.
-- Global gain is **not** fixed; start low and adjust for your rig.
+Do not assume the profile is perfect for your rig on first import.
+Treat it as a tuned starting point, not gospel.
 
 ------------------------------------------------------------------
-4. Loading the routing presets
+4. What you should feel
 ------------------------------------------------------------------
 
-Two routing presets are provided (for reference only, modify as needed for your setup):
+MCP4SH is built around a layered harmonics model:
 
-- Backrest / Brake pedal mapping (Amp A)
-- Rear axle / Front axle mapping (Amp B)
-
-1) Open **Sound Output** in SimHub.
-2) Use the Export / Import button → **Import**.
-3) Load each of:
-
-   SimHub/Routing/Effect_FR_CH1_left_backrest_CH2_rght_brakepedal.sichannels
-   SimHub/Routing/Effect_FR_CH1_left_rearaxle_CH2_rght_frontaxle.sichannels
-
-4) Check that the device/channel assignments match your hardware:
-   - Backrest → TT25-16 on seat back
-   - Brake    → TT25-16 on pedal
-   - Rear axle → Rear BST-1
-   - Front axle → Front BST-1
-
-------------------------------------------------------------------
-5. What you should feel
-------------------------------------------------------------------
-
-MCP4SH is built around a layered “harmonics” model:
-
-- Backrest TT25-16:
-  - Engine note and harmonics
-  - Drivetrain load
-  - Gear shifts and clutch freewheel
-- Brake pedal TT25-16:
-  - Brake feel under your foot
+- Backrest / seat-back style transducers:
+  - engine harmonics
+  - drivetrain load
+  - selected shift and freewheel behavior
+- Brake-domain transducers:
+  - brake feel under your foot
   - ABS pulses
-  - Brake slip events
-- Rear & Front BST-1s:
-  - Tyre scrub
-  - Road texture (front/rear split)
-  - Suspension impacts and undulation
-  - Base load from engine & drivetrain
+  - brake-slip events
+- Chassis / axle transducers:
+  - tyre scrub
+  - road texture
+  - suspension impacts and undulation
+  - broad chassis load and resonance
 
-Some effects intentionally overlap so the rig feels like a
-*single chassis* instead of isolated shakers.
+Some effects intentionally overlap so the rig feels like one chassis instead of unrelated actuators firing in random order.
+
+------------------------------------------------------------------
+5. Known caveats
+------------------------------------------------------------------
+
+- Hardware matters a lot.
+- Some games expose far better telemetry than others.
+- SimHub in the foreground can hurt FPS on some systems.
+- Certain low-speed or edge-case effects may still feel stronger than ideal depending on rig layout and gains.
+
+That is exactly why the gain order matters.
 
 ------------------------------------------------------------------
 6. Logging and debugging
@@ -160,32 +148,35 @@ MCP4SH can optionally log CSV data into:
 
     SimHub/Logs/MCP4SH/
 
-There are two main toggles in the plugin settings:
+There are two main logging modes:
 
 - General debug logging
 - Extra tyre / slip logging
 
-Use these when something feels off. When sending logs back, include:
+Use them when something feels wrong or when comparing how different sims behave.
 
-- Game, car, track
-- Short description of what felt wrong
-- Any changes you made to gains or routing
+When sending a report, include:
 
-See docs/LOGGING.md for more detail.
+- game
+- car
+- track
+- short description of the issue
+- any gain or routing changes you made
+
+See `docs/LOGGING.md` for more detail.
 
 ------------------------------------------------------------------
 7. License reminder
 ------------------------------------------------------------------
 
-By using this preview build you agree to the terms in:
+By using this build you agree to the terms in:
 
-- LICENSE_PLUGIN.txt
-- LICENSE_AGREEMENT_PREVIEW.txt
+- `LICENSE_PLUGIN.txt`
+- `LICENSE_SOFT_RELEASE.txt`
 
-In short:
+In plain English:
 
-- Personal, non-commercial sim usage only.
-- Do not resell, rent, or bundle the DLL in paid mod packs.
-- Do not publicly redistribute the DLL without permission.
-- You may share impressions and feedback publicly, but not internal
-  logs with personal/league information unless agreed.
+- personal use only unless separately agreed
+- do not redistribute the package or DLL without permission
+- do not rebrand it
+- feedback and impressions are fine to share publicly

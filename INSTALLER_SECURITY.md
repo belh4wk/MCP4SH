@@ -60,13 +60,9 @@ Unless explicitly documented in release notes, it should **not**:
 - keep SimHub updated
 - if you are extremely cautious, install and test under a separate Windows user account first
 
-## If something looks wrong
+## If something looks wrong or you're not sure
 
-Stop.
-
-Do not continue the install.
-
-Capture:
+Stop & Capture:
 
 - installer filename
 - checksum

@@ -12,6 +12,8 @@ It turns raw telemetry into a structured, layered haptics stack so different sim
 > MCP4SH is the **SimHub implementation**.  
 > MCP4H is the broader architectural and protocol layer behind it.
 
+For help/support, either contact me here or on Discord.
+
 ---
 
 ## Release status

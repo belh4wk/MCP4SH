@@ -29,11 +29,11 @@ The goal is simple: make the plugin public-facing, understandable, and usable wi
 - Personal sim-racing use
 - Early supporter / early adopter usage
 - Broader hardware and sim validation in the wild
-- Structured feedback gathering without pretending tuning is “done”
+- Structured feedback gathering without pretending detailed tuning is “done”
 
 ### Notable operational caveats
 
-- Tuning is still hardware-sensitive
+- Tuning is still hardware-sensitive (and always will be)
 - Some games expose incomplete or noisy telemetry
 - SimHub in the foreground may reduce framerate on some systems
 - A few edge-case haptic behaviours may still need refinement on specific rigs and configurations

@@ -104,10 +104,9 @@ If a relevant dependency issue exists, mitigation may require:
 
 ## AI-assisted development note
 
-AI assistance may be used during development and documentation work.
+AI assistance was used during development for iteration and documentation drafting work.
 
 That changes nothing about release responsibility:
-
 - the maintainer is responsible for what ships
 - users should trust verifiable artifacts, not marketing claims
 - checksums, clear release notes, and observable behavior matter more than promises

@@ -1,8 +1,12 @@
-This filename is retained for compatibility only.
+MCP4SH™ — Legacy Preview Agreement (archival)
+=============================================
 
-The preview agreement has been superseded by:
+This file is retained for historical preview-era context only.
 
-- LICENSE_TERMS.txt
+It does **not** define the current v1.0 supported release on its own.
+
+For current usage expectations, see:
 - LICENSE_PLUGIN.txt
+- docs/LICENSING.md
 
-Use those files as the current release terms.
+Older preview builds remain archival and unsupported.

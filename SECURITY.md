@@ -1,112 +1,84 @@
 # Security Policy (MCP4SH)
 
-MCP4SH ships as a Windows installer and a SimHub plugin. Treat any third-party binary with caution.
+This project ships a Windows installer and a SimHub plugin. Treat all third-party binaries with caution. This document explains how to verify releases, what the software does, and how to report security issues.
 
-This document explains what is supported, what the software is expected to do, how to verify releases, and how to report something suspicious.
+## Supported Versions
+Only the most recent release line is supported.
+- Current: latest stable release on GitHub Releases
+- Older builds: not supported (do not use)
 
-## Supported versions
+## Report a Vulnerability
+If you believe you found a security issue:
+1. **Do not** post exploit details publicly.
+2. Send a report via the main support / contact route listed on GitHub or the website.
+3. Include:
+   - Affected version
+   - Repro steps / PoC (if available)
+   - Impact (what can be accessed/modified)
+   - Logs/screenshots (if relevant)
 
-Only the latest public release is supported.
+I’ll acknowledge within **7 days** and aim to ship a fix or mitigation as quickly as practical.
 
-- Currently supported: latest GitHub release for MCP4SH
-- Older preview builds: unsupported
-- Locally modified builds: unsupported unless you know exactly what changed
+## Security Model (What this software is)
+MCP4SH is a SimHub plugin + installer. The plugin runs inside the SimHub environment.
 
-## Reporting a vulnerability
+### What MCP4SH should NOT do
+Unless explicitly stated in release notes, MCP4SH does not:
+- Send telemetry or personal data to external servers
+- Collect analytics or tracking
+- Install drivers
+- Create persistent background services
+- Modify Windows security settings
+- Elevate privileges unnecessarily
 
-Do **not** post exploit details publicly.
+If you observe any of the above, treat it as a security incident and report it.
 
-Preferred path:
+## Data Handling
+- Primary inputs: SimHub / game telemetry exposed through SimHub’s plugin APIs
+- Primary outputs: haptics via SimHub / audio output path
+- Local storage: configuration files, license cache state, and logs in standard SimHub / local app data locations
 
-1. Use GitHub private vulnerability reporting if it is enabled for the repo
-2. If that is not available, contact the maintainer directly through the official repo / release contact path you received the build from
+If a release introduces new local files, it should be documented in release notes.
 
-Include:
+## Supply Chain & Release Integrity
 
-- affected version
-- repro steps or proof of concept if available
-- impact
-- logs or screenshots if relevant
-- checksum of the file you tested if the issue may involve package integrity
+### Verify downloads (strongly recommended)
+Every release should include:
+- the installer (`.exe`)
+- a checksum file (for example `MCP4SH_Setup_v1.0_sha256.txt`)
+- release notes
 
-## What MCP4SH should not do
+Steps to verify:
+1. Download the installer from GitHub Releases.
+2. Compute the SHA-256 checksum locally.
+3. Compare it to the published checksum.
 
-Unless explicitly documented in release notes, MCP4SH should **not**:
+If the checksum does not match: **do not run the installer**.
 
-- send telemetry or personal data to external servers
-- collect analytics or tracking data
-- install drivers
-- create persistent background services
-- modify Windows security settings
-- elevate privileges unnecessarily
+### Checksums (publisher guidance)
+Maintain a consistent format, for example:
 
-If you observe any of the above, treat it as a security issue.
-
-## Data handling
-
-Primary inputs:
-
-- game / SimHub telemetry already available to the SimHub plugin environment
-
-Primary outputs:
-
-- haptic output through SimHub / audio paths
-- local configuration and optional local logs
-
-Local storage is expected under standard SimHub locations, such as `Documents\SimHub\...` and plugin-related folders used by SimHub.
-
-If a release introduces new files or locations, that change should be documented in release notes.
-
-## Release integrity
-
-Every public release should include:
-
-- the installer executable
-- a SHA-256 checksum file
-- release notes matching the published build
-
-### Verifying a download
-
-1. Download the installer from the official GitHub release
-2. Compute the SHA-256 checksum locally
-3. Compare it to the published checksum file
-4. If the checksum does not match, do **not** run the installer
-
-Example checksum format:
-
-```text
-<hex hash>  MCP4SH_<version>_Setup.exe
-```
+`<hex hash>  MCP4SH_v1.0_Setup.exe`
 
 ## Dependencies
-
-MCP4SH depends on SimHub and the plugin environment it provides.
-
-If a relevant dependency issue exists, mitigation may require:
-
+MCP4SH depends on SimHub and the libraries it uses internally. If a dependency vulnerability matters, fixes may require:
 - updating SimHub
-- updating the plugin package
-- changing installation or runtime guidance
+- updating bundled libraries (if any)
+- shipping a plugin update
 
-## Practical hardening advice for users
+## Hardening Recommendations (for users)
+- Install SimHub and plugins from trusted sources only.
+- Prefer verifying checksums/signatures.
+- Keep Windows and SimHub updated.
+- If you run unknown plugins, consider using a dedicated Windows user account for sim racing.
 
-- download only from official release channels you trust
-- verify checksums before running executables
-- keep SimHub and Windows updated
-- avoid mixing unknown plugin builds into the same SimHub environment
-- if you are particularly cautious, use a dedicated Windows user profile for sim-racing tools
+## Disclosure Policy
+- Confirmed security issues will be acknowledged and tracked.
+- Fixes will be released with clear notes.
+- High-impact issues may include mitigations before a full fix.
 
-## Disclosure policy
-
-- confirmed issues should be acknowledged and tracked
-- fixes or mitigations should be documented clearly
-- higher-impact issues should be addressed before broad promotion of a release
-
-## AI-assisted development note
-
-AI assistance was used during development for iteration and documentation drafting work.
-
-That changes nothing about release responsibility:
+## Notes on AI Assistance
+Development may use AI assistance for iteration speed. That does not change the security stance:
 - the maintainer is responsible for what ships
-- users should trust verifiable artifacts, not marketing claims
-- checksums, clear release notes, and observable behavior matter more than promises
+- releases are verified via checksums/signatures
+- users should judge based on verifiable artifacts

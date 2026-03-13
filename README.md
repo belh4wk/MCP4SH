@@ -1,158 +1,148 @@
 # MCP4SH™ — SimHub Haptics Plugin for MCP4H™
 
-MCP4SH™ is a SimHub plugin that applies the MCP4H™ haptics model to sim racing and driving titles.
+MCP4SH™ is a SimHub plugin built to make haptics feel more coherent, more readable, and less like a pile of unrelated vibrations.
 
-It turns raw telemetry into a structured, layered haptics stack so different sims can feel broadly consistent on the same rig.
+Instead of throwing effect spam at the rig, MCP4SH layers telemetry into a more connected chassis feel so grip, scrub, suspension, drivetrain, braking, and weight-transfer style cues are easier to read under load.
 
-- Translates telemetry into seat-of-the-pants cues
-- Normalises signal intent across different games
-- Drives haptics, dashboards, and companion outputs with a shared design language
-- Includes a built-in FOV calculator in the MCP4SH settings UI (single / triples / curved)
-
-> MCP4SH is the **SimHub implementation**.  
-> MCP4H is the broader architectural and protocol layer behind it.
-
-For help/support, either contact me here or on Discord.
+- Turns telemetry into clearer seat-of-the-pants cues
+- Normalises behaviour across different sims
+- Exposes a consistent property layer for haptics, dashboards, and related tooling
+- Includes a built-in FOV calculator in the MCP4SH settings UI
 
 ---
 
-## Release status
+## v1.0 status
 
-- Stage: **Soft release**
-- Current line: **v1.0**
-- Audience: **Public users / early supporters**
-- Expectation: **Usable now, still evolving**
+**MCP4SH v1.0 is the current supported release.**
 
-This is not being presented as a “finished forever” endpoint. It is the first public-facing release line intended to be installable, understandable, and worth using while tuning and coverage continue to improve.
+This is a real release, but still an iterative one. The goal for v1.0 was to get MCP4SH into a state that is installable, stable, usable, and worth wider real-world testing.
 
 That means:
+- the installer is working
+- the public repo is the canonical home for notes, hashes, and updates
+- the plugin is ready for broader use
+- refinement will continue based on real rigs, real sims, and real feedback
 
-- Core haptics philosophy and structure are established
-- Documentation is now release-oriented rather than preview-only
-- Some effect tuning and hardware-specific behavior will continue to be refined
-- Certain game-side telemetry limits still apply
+This is not a “finished forever” build. It is the first proper public release baseline.
 
-See `CHANGELOG.md` for the running change history and `RELEASE_NOTES.md` for the current release summary.
+---
+
+## What makes MCP4SH different
+
+MCP4SH is aimed at drivers who want more than “more shaking.”
+
+The focus is on:
+- clearer separation between useful cues
+- more coherent layering across effects
+- better signal-to-noise behaviour
+- less time wasted retuning every sim from scratch
+
+The guiding idea is simple: haptics should help you understand what the car is doing, not bury you in buzzing.
+
+---
+
+## Free vs licensed use
+
+MCP4SH is usable without a paid license, but the licensed edition unlocks the adaptive layer that gives the plugin more of its “smart” behaviour.
+
+### Base / unlicensed use
+The unlicensed build keeps the core effect stack available for personal sim-racing use.
+
+### Licensed value-add
+The paid version is not about making the rig louder. It is about making the output more context-aware.
+
+In the current implementation, the licensed edition unlocks the premium adaptive tools, including:
+- **ST Tensioner** for priority-aware ducking and promotion of important cues
+- **ST Balancer** for cross-game output rebalancing
+- **ST Learner** for perceptual shaping of scrub and engine/tyre behaviour
+
+The free edition can expose a time-limited preview of part of that behaviour, but the licensed version is the intended full-use path. This is reflected directly in the plugin code and license UI.
+
+See `docs/LICENSING.md` for the public-facing licensing overview.
+
+---
+
+## Licensing roadmap
+
+Current / early-adopter plan:
+- **Pioneer** — 12.99, up to 2 machines
+
+Planned standardisation:
+- **Supporter** — planned at 12.99, 1 machine
+- **Pro** — may follow later, likely 19.99, with a higher machine allowance
+
+Store availability is the source of truth for what is actually live at any given moment.
 
 ---
 
 ## Security & verification
 
-You should treat any third-party binary with caution.
-
-This repo includes:
-
-- `SECURITY.md` — supported release policy, reporting guidance, and verification expectations
+This repo provides:
+- `SECURITY.md` — security policy and release verification guidance
 - `INSTALLER_SECURITY.md` — what the installer is expected to do and how to verify it
-- `TRADEMARKS.md` — branding and mark usage guidance
 
-**Release integrity:** every public release should include a SHA-256 checksum file for the installer. Verify the published hash before running any executable.
+Every public release should include:
+- the installer
+- a SHA-256 checksum file
+- release notes
 
----
-
-## Gain tuning order
-
-This matters more than most people think.
-
-1. Start with the gains inside the **MCP4SH plugin UI**
-2. Then adjust SimHub **global / master output** for the rig
-3. Only touch SimHub per-effect gains last, and only if there is a specific reason
-
-If you start by fighting per-effect gains in SimHub, you can mask the intent of the MCP4SH stack very quickly.
+Verify the installer hash before running it.
 
 ---
 
-## What MCP4SH is trying to do
+## Download & installation
 
-MCP4SH is built around the idea that a rig should feel like **one chassis with layered domains**, not a bag of random vibrations.
+1. Go to **GitHub Releases**
+2. Download the current installer asset
+3. Verify the SHA-256 checksum
+4. Run the installer
+5. Read `docs/GETTING_STARTED.md` and `docs/README_FIRST.txt`
 
-Typical cue groups include:
+GitHub remains the canonical home for:
+- releases
+- checksums / hashes
+- documentation
+- changelog / release notes
 
-- engine and drivetrain resonance
-- tyre phase and scrub behavior
-- braking-domain feedback
-- suspension impacts and undulation
-- road texture and axle timing
-- gearbox and shift-domain events
+---
 
-Some bands intentionally overlap so the rig behaves like one connected mechanical system instead of isolated shakers arguing with each other.
+## First steps
+
+Start here:
+- `docs/GETTING_STARTED.md`
+- `docs/README_FIRST.txt`
+- `docs/KNOWN_ISSUES.md`
+- `docs/LOGGING.md`
+
+Important tuning rule:
+- start with **MCP4SH plugin-side gains first**
+- only then adjust SimHub/global output to suit your rig
 
 ---
 
 ## Architectural context
 
-MCP4SH is an implementation shaped by the architectural principles defined by MCP4H™.
+MCP4SH is an implementation built on the architectural principles defined by MCP4H™.
 
-The broader abstraction model and multimodal design concepts are published separately as prior art so the architectural layer remains visible and timestamped.
-
-Public disclosure:
+A public prior-art disclosure is available via Zenodo:
 
 **DOI:** https://doi.org/10.5281/zenodo.18223144
 
-That disclosure covers the architectural concepts. MCP4SH’s concrete implementation, tuning choices, and signal-processing behavior remain implementation-specific.
+This disclosure covers architectural concepts only. MCP4SH’s specific implementation details and signal-processing behaviour remain implementation-specific.
 
 ---
 
-## Getting started
+## Feedback
 
-Start here:
+Useful feedback is specific feedback.
 
-- `docs/GETTING_STARTED.md` — shortest path from download to first drive
-- `docs/README_FIRST.txt` — practical orientation, expectations, and setup logic
-- `docs/SETUP_4CH.md` — reference rig layout used during tuning
-- `docs/KNOWN_ISSUES.md` — current limitations and caveats
-- `docs/LOGGING.md` — how to capture useful debug data when something feels off
-
-If you only read one file before driving, read `docs/README_FIRST.txt`.
-
----
-
-## Logging & feedback
-
-MCP4SH can emit CSV logs under:
-
-```text
-SimHub/Logs/MCP4SH/
-```
-
-Use logging when:
-
-- a cue feels obviously wrong
-- a specific game behaves differently than expected
-- you are comparing telemetry behavior between sims
-- you want to report a reproducible issue with evidence instead of guesswork
-
-When reporting an issue, include:
-
+Include:
 - game
 - car
 - track
-- short repro steps
-- what you expected vs what you felt
-- whether debug logging or extra tyre/slip logging was enabled
+- rig / transducer layout
+- what you expected to feel
+- what you actually felt
+- any logs if relevant
 
----
-
-## Current limitations worth knowing up front
-
-- Hardware matters a lot; the reference tuning is not universal
-- Some games expose better telemetry than others
-- Manual tuning is still required
-- SimHub being brought to the foreground can hurt framerate on some systems
-- A few edge-case effects may still be stronger or rougher than intended on certain rigs or at very low speed
-
-None of that makes the plugin unusable. It does mean you should approach first-time setup with a bit of method instead of immediately cranking everything.
-
----
-
-## Commercial / redistribution position
-
-MCP4SH is **not** public-domain and **not** open-source software just because documentation is public.
-
-See:
-
-- `LICENSE_PLUGIN.txt`
-- `LICENSE_SOFT_RELEASE.txt`
-- `TRADEMARKS.md`
-
-Do not redistribute, rebrand, bundle, or resell MCP4SH without written permission.
+That is how the next updates get better.

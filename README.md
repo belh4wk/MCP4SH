@@ -19,7 +19,7 @@ For help/support, either contact me here or on Discord.
 ## Release status
 
 - Stage: **Soft release**
-- Current line: **v1.0.-soft**
+- Current line: **v1.0**
 - Audience: **Public users / early supporters**
 - Expectation: **Usable now, still evolving**
 
@@ -156,14 +156,3 @@ See:
 - `TRADEMARKS.md`
 
 Do not redistribute, rebrand, bundle, or resell MCP4SH without written permission.
-
----
-
-## Manual release tasks
-
-This repo patch intentionally leaves these folders alone:
-
-- `installer/`
-- `Profile backups/`
-
-Use `RELEASE_CHECKLIST.md` before publishing a release so the binaries, profile names, and checksum artifacts match the release-facing docs.

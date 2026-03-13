@@ -19,7 +19,7 @@ For help/support, either contact me here or on Discord.
 ## Release status
 
 - Stage: **Soft release**
-- Current line: **v1.0.0-soft**
+- Current line: **v1.0.-soft**
 - Audience: **Public users / early supporters**
 - Expectation: **Usable now, still evolving**
 

@@ -1,4 +1,4 @@
-# MCP4SH™ — SimHub Haptics Plugin for MCP4H™
+# MCP4SH™ — SimHub Haptics Plugin built on MCP4H™
 
 MCP4SH™ is a SimHub plugin built to make haptics feel more coherent, more readable, and less like a pile of unrelated vibrations.
 

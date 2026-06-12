@@ -41,7 +41,7 @@ Soft-release focus:
 Effects are designed to overlap intentionally in some bandwidths so the rig behaves like one coherent mass rather than isolated shakers.
 
 IMPORTANT GAIN RULE:
-- Do not start by changing SimHub per-effect gains.
+- Do not start by changing SimHub ShakeIt Bass Shakers Effect Profile per-effect gains.
 - Start with the gains inside the MCP4SH plugin UI.
 - Then tune SimHub global/master output for your rig.
 - Only after that should you touch per-effect gains, if needed.

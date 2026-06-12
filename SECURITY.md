@@ -45,7 +45,7 @@ If a release introduces new local files, it should be documented in release note
 ### Verify downloads (strongly recommended)
 Every release should include:
 - the installer (`.exe`)
-- a checksum file (for example `MCP4SH_Setup_v1.0_sha256.txt`)
+- a checksum file (for example `MCP4SH_Setup_vX.X_sha256.txt`)
 - release notes
 
 Steps to verify:
@@ -58,7 +58,7 @@ If the checksum does not match: **do not run the installer**.
 ### Checksums (publisher guidance)
 Maintain a consistent format, for example:
 
-`<hex hash>  MCP4SH_v1.0_Setup.exe`
+`<hex hash>  MCP4SH_vX.X_Setup.exe`
 
 ## Dependencies
 MCP4SH depends on SimHub and the libraries it uses internally. If a dependency vulnerability matters, fixes may require:

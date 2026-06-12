@@ -12,7 +12,7 @@
         {
           "ContainerType": "CustomEffectContainer",
           "IsEnabled": true,
-          "Gain": 75.0,
+          "Gain": 80.0,
           "Description": "Engine & Tyres",
           "FrontLeftFormula": {
             "JSExt": 2,
@@ -59,12 +59,12 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 72,
+            "HighFrequency": 47,
             "WhiteNoise": 8,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
             "UsePrehemptiveMode": false,
-            "Frequency": 27,
+            "Frequency": 74,
             "AssignToChannelGroup": true,
             "ChannelGroupName": "Engine & Tyres",
             "OutputType": "ToneOutput"
@@ -73,7 +73,7 @@
         {
           "ContainerType": "CustomEffectContainer",
           "IsEnabled": true,
-          "Gain": 59.71428571428585,
+          "Gain": 30.476190476190339,
           "Description": "Brake Feel",
           "FrontLeftFormula": {
             "JSExt": 2,
@@ -120,12 +120,12 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 144,
+            "HighFrequency": 92,
             "WhiteNoise": 34,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
             "UsePrehemptiveMode": false,
-            "Frequency": 181,
+            "Frequency": 129,
             "AssignToChannelGroup": true,
             "ChannelGroupName": "Brake Feel",
             "OutputType": "ToneOutput"
@@ -134,7 +134,7 @@
         {
           "ContainerType": "CustomEffectContainer",
           "IsEnabled": true,
-          "Gain": 100.0,
+          "Gain": 89.714285714285737,
           "Description": "ABS/Lock",
           "FrontLeftFormula": {
             "JSExt": 2,
@@ -181,12 +181,12 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 42,
+            "HighFrequency": 40,
             "WhiteNoise": 10,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
             "UsePrehemptiveMode": false,
-            "Frequency": 34,
+            "Frequency": 45,
             "AssignToChannelGroup": true,
             "ChannelGroupName": "ABS/Lock",
             "OutputType": "ToneOutput"
@@ -195,7 +195,7 @@
         {
           "ContainerType": "CustomEffectContainer",
           "IsEnabled": true,
-          "Gain": 33.904761904762317,
+          "Gain": 80.0,
           "Description": "TC",
           "FrontLeftFormula": {
             "JSExt": 2,
@@ -242,12 +242,12 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 112,
+            "HighFrequency": 100,
             "WhiteNoise": 8,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
             "UsePrehemptiveMode": false,
-            "Frequency": 89,
+            "Frequency": 50,
             "AssignToChannelGroup": true,
             "ChannelGroupName": "TC",
             "OutputType": "ToneOutput"
@@ -267,7 +267,68 @@
         {
           "ContainerType": "CustomEffectContainer",
           "IsEnabled": true,
-          "Gain": 60.285714285713951,
+          "Gain": 30.428571428571395,
+          "Description": "Chassis Load",
+          "FrontLeftFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": "// FL - Chassis Load\r\nreturn 100 * ($prop('MCP4SHPlugin.MCP4SH.ChassisLoad.FrontIntensity') || 0);"
+          },
+          "FrontRightFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": "// FR - Chassis Load\r\nreturn 100 * ($prop('MCP4SHPlugin.MCP4SH.ChassisLoad.FrontIntensity') || 0);"
+          },
+          "RearLeftFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": "// RL - Chassis Load\r\nreturn 100 * ($prop('MCP4SHPlugin.MCP4SH.ChassisLoad.RearIntensity') || 0);"
+          },
+          "RearRightFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": "// RR - Chassis Load\r\nreturn 100 * ($prop('MCP4SHPlugin.MCP4SH.ChassisLoad.RearIntensity') || 0);"
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "0dbbca0d-0610-49e5-8cc9-eae689215a0f",
+          "AggregationMode": "Front/Rear",
+          "Filter": {
+            "GammaValue": 1.0,
+            "InputGain": 100.0,
+            "MinimumForce": 0,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 25,
+            "WhiteNoise": 10,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 150,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "Chassis Load",
+            "OutputType": "ToneOutput"
+          }
+        },
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 74.904761904761884,
           "Description": "Tyre Scrub",
           "FrontLeftFormula": {
             "JSExt": 2,
@@ -314,12 +375,12 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 68,
+            "HighFrequency": 50,
             "WhiteNoise": 10,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
             "UsePrehemptiveMode": false,
-            "Frequency": 55,
+            "Frequency": 65,
             "AssignToChannelGroup": true,
             "ChannelGroupName": "Tyre Scrub",
             "OutputType": "ToneOutput"
@@ -328,7 +389,7 @@
         {
           "ContainerType": "CustomEffectContainer",
           "IsEnabled": true,
-          "Gain": 90.0,
+          "Gain": 100.0,
           "Description": "Suspension Impacts",
           "FrontLeftFormula": {
             "JSExt": 2,
@@ -375,12 +436,12 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 29,
+            "HighFrequency": 37,
             "WhiteNoise": 10,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
             "UsePrehemptiveMode": false,
-            "Frequency": 24,
+            "Frequency": 27,
             "AssignToChannelGroup": true,
             "ChannelGroupName": "Suspension Impacts",
             "OutputType": "ToneOutput"
@@ -388,8 +449,8 @@
         },
         {
           "ContainerType": "CustomEffectContainer",
-          "IsEnabled": false,
-          "Gain": 50.0,
+          "IsEnabled": true,
+          "Gain": 74.904761904761827,
           "Description": "Suspension vibration",
           "FrontLeftFormula": {
             "JSExt": 2,
@@ -436,12 +497,12 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 55,
+            "HighFrequency": 56,
             "WhiteNoise": 10,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
             "UsePrehemptiveMode": false,
-            "Frequency": 34,
+            "Frequency": 65,
             "AssignToChannelGroup": true,
             "ChannelGroupName": "Suspension Vibration",
             "OutputType": "ToneOutput"
@@ -449,8 +510,8 @@
         },
         {
           "ContainerType": "CustomEffectContainer",
-          "IsEnabled": false,
-          "Gain": 25.000000000000114,
+          "IsEnabled": true,
+          "Gain": 20.333333333333243,
           "Description": "Road Feel - Front",
           "FrontLeftFormula": {
             "JSExt": 2,
@@ -497,7 +558,7 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 89,
+            "HighFrequency": 125,
             "WhiteNoise": 10,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
@@ -510,8 +571,8 @@
         },
         {
           "ContainerType": "CustomEffectContainer",
-          "IsEnabled": false,
-          "Gain": 49.761904761904674,
+          "IsEnabled": true,
+          "Gain": 29.714285714285772,
           "Description": "Road Feel - Rear",
           "FrontLeftFormula": {
             "JSExt": 0,
@@ -558,12 +619,12 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 55,
+            "HighFrequency": 95,
             "WhiteNoise": 10,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
             "UsePrehemptiveMode": false,
-            "Frequency": 34,
+            "Frequency": 45,
             "AssignToChannelGroup": true,
             "ChannelGroupName": "Road Feel - Rear",
             "OutputType": "ToneOutput"
@@ -582,9 +643,9 @@
       "EffectsContainers": [
         {
           "ContainerType": "CustomEffectContainer",
-          "IsEnabled": false,
-          "Gain": 100.0,
-          "Description": "Clutch Freewheel",
+          "IsEnabled": true,
+          "Gain": 75.0,
+          "Description": "Clutch Engagement",
           "FrontLeftFormula": {
             "JSExt": 2,
             "Interpreter": 1,
@@ -630,14 +691,14 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 72,
+            "HighFrequency": 24,
             "WhiteNoise": 10,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
             "UsePrehemptiveMode": false,
-            "Frequency": 24,
+            "Frequency": 42,
             "AssignToChannelGroup": true,
-            "ChannelGroupName": "Clutch Freewheel",
+            "ChannelGroupName": "Clutch Engagement",
             "OutputType": "ToneOutput"
           }
         },
@@ -691,12 +752,12 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 89,
+            "HighFrequency": 33,
             "WhiteNoise": 10,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
             "UsePrehemptiveMode": false,
-            "Frequency": 55,
+            "Frequency": 90,
             "Delay": 10,
             "AssignToChannelGroup": true,
             "ChannelGroupName": "Gearbox - Shifts",
@@ -706,7 +767,7 @@
         {
           "ContainerType": "CustomEffectContainer",
           "IsEnabled": true,
-          "Gain": 75.142857142856826,
+          "Gain": 100.0,
           "Description": "Drivetrain",
           "FrontLeftFormula": {
             "JSExt": 2,
@@ -753,12 +814,12 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 42,
+            "HighFrequency": 93,
             "WhiteNoise": 10,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
             "UsePrehemptiveMode": false,
-            "Frequency": 55,
+            "Frequency": 39,
             "AssignToChannelGroup": true,
             "ChannelGroupName": "Drivetrain",
             "OutputType": "ToneOutput"
@@ -766,8 +827,8 @@
         },
         {
           "ContainerType": "CustomEffectContainer",
-          "IsEnabled": false,
-          "Gain": 49.904761904761656,
+          "IsEnabled": true,
+          "Gain": 35.0,
           "Description": "Engine",
           "FrontLeftFormula": {
             "JSExt": 2,
@@ -814,12 +875,12 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 89,
+            "HighFrequency": 95,
             "WhiteNoise": 10,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
             "UsePrehemptiveMode": false,
-            "Frequency": 34,
+            "Frequency": 45,
             "AssignToChannelGroup": true,
             "ChannelGroupName": "Engine",
             "OutputType": "ToneOutput"
@@ -836,9 +897,9 @@
   "GlobalGain": 50.0,
   "UseProfileGain": false,
   "LastLoaded": "0001-01-01T00:00:00",
-  "Description": "======================================================================\r\nMCP4SH™ ST Haptics — v1.0 Standard\r\n======================================================================\r\n\r\nThis profile uses the MCP4SH™ ST Haptics system designed to simulate:\r\n- Tyre phases (grip, slip, scrub)\r\n- Suspension compression & undulation\r\n- Drivetrain & rotational resonance\r\n- Gearbox harmonics (shift, grind, load)\r\n- Braking surface cues (feel, slip, ABS)\r\n- Engine mass + harmonic layers\r\n\r\nStandard profile focus:\r\n- Balanced, proven frequency layout\r\n- Strong readability across the full effect stack\r\n- Natural overlap between layers without over-structuring the chassis feel\r\n- A reliable “daily driver” tuning baseline for most rigs\r\n\r\nEffects are designed to overlap intentionally in some bandwidths to produce a\r\ncoherent chassis sensation rather than isolated buzz points.\r\n\r\nThis profile aims for:\r\n- Clear signal separation where it matters\r\n- Enough blending to preserve immersion and mechanical cohesion\r\n- Good compatibility across a wide range of transducer layouts and hardware\r\n\r\nBest suited for:\r\n- General use\r\n- First-time setup / baseline tuning\r\n- Users who want the intended MCP4SH balance of detail, weight, and feel\r\n\r\nIn short:\r\nStandard is the reference profile — balanced, readable, and broadly compatible.\r\n======================================================================",
-  "Name": "MCP4SH™ ST Haptics v1.0 - Rear Only - Standard",
-  "ProfileId": "c70fe676-addd-4f8b-9579-43ae837d7f4d",
+  "Description": "MCP4SH® ST Haptics v1.1 standard profile.\r\n\r\nA ready-to-use ShakeIt profile for MCP4SH String Theory Haptics. Designed as a balanced starting point for common shaker and haptic-pad setups, with routed effects for engine, drivetrain, tyre scrub, road feel, suspension, braking, ABS, TC, clutch, gearshift, and chassis load.\r\n\r\nUse this profile as your baseline, then run the MCP4SH Setup Assistant to map your physical shakers and generate a matching sound output profile.",
+  "Name": "MCP4SH® ST Haptics v1.1 - Standard",
+  "ProfileId": "953d85b0-6d46-41a5-a323-812634a98f6c",
   "GameCode": null,
   "CarChoice": null
 }

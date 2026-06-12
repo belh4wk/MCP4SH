@@ -1,96 +1,121 @@
-# MCP4SH™ v1.0 — Soft Release
+# MCP4SH® v1.1 ::: Setup Assistant Release
 
-MCP4SH™ v1.0 is the first proper public release baseline of the plugin.
+MCP4SH v1.1 is the new supported public baseline.
 
-After a long cycle of iteration, tuning, cleanup, and “one more tweak” syndrome, this build is now in a state that is installable, usable, and ready for broader real-world use.
+The headline change is simple:
+
+**Free gets you driving. The Setup Assistant helps you get there without wrestling SimHub routing for half the evening.**
 
 ## What MCP4SH is
 
-MCP4SH is a SimHub plugin built to make haptics feel more coherent, more readable, and less chaotic.
+MCP4SH is a SimHub haptics plugin built to make feedback feel more coherent, more readable, and less chaotic.
 
-The aim is not just more effects.
+The aim is not just more effects.  
 It is better translation.
 
-- cleaner grip and scrub cues
+- clearer grip and scrub cues
 - more connected suspension and drivetrain feel
 - more readable braking behaviour
 - less noise, less overlap for the sake of overlap
 - a rig that feels more like one chassis and less like several unrelated buzzers
 
-## What v1.0 means
+## What is new in v1.1
 
-This is a **soft release**.
+### Setup Assistant
 
-That means:
-- the installer is working
-- the repo is in public-release shape
-- the plugin is ready to be used outside the dev loop
-- refinement will continue based on real feedback
+The new Setup Assistant is included with the free version.
 
-It does **not** mean the project is frozen.
+It lets you:
 
-MCP4SH will keep evolving as more people use it across different rigs, sims, and transducer layouts.
+- choose the shakers physically installed on your rig
+- test-pulse output channels
+- answer what you actually felt
+- generate a matching SimHub sound output profile
+- open the generated profile folder
+- use the SimHub Helper flow to import and apply the profile
+- analyze an existing sound output profile
 
-## Highlights
+That matters because a good haptics plugin is useless if people cannot route it correctly.
 
-- first supported public v1.0 release line
-- refined effect layering and priority handling
-- current String-Theory haptics approach in usable release form
-- built-in licensing flow for optional premium adaptive tools
-- groundwork for continued 1.x refinement
+### Plugin UI refresh
+
+The plugin UI now uses the new rig-view style and exposes the important controls in a cleaner way. The aim is not to hide everything. The aim is to make the useful controls easier to understand.
+
+### Haptics refinement
+
+v1.1 includes the latest String Theory Haptics baseline across:
+
+- Engine
+- Drivetrain
+- Tyre Scrub
+- Road Feel
+- Suspension Vibrations
+- Suspension Impacts
+- Brake Feel
+- ABS
+- TC
+- Clutch Freewheel
+- Gearshift
+- Chassis Load
+
+The haptics work focused on cross-title behaviour, clearer separation between cues, and avoiding constant “everything is buzzing” output.
+
+### MCP4H alignment
+
+The core/plugin split and compliance docs now make the MCP4H direction clearer. MCP4SH is still a SimHub plugin, but architecturally it is also a practical MCP4H-style haptic translation layer.
 
 ## Free vs licensed use
 
-The base plugin remains usable for personal sim-racing use.
+The free version includes the core MCP4SH String Theory Haptics experience and the Setup Assistant.
 
-The paid version adds the adaptive layer that gives MCP4SH more of its context-aware behaviour, including the premium balancing / learning / tensioning systems.
+A license unlocks the extra control layer:
 
-In plain English: the paid version is not “more shaking.”
-It is the part that helps the plugin decide what matters more, what should back off, and what should come through more clearly.
+- advanced haptic controls
+- deeper tuning options
+- future custom routing/configuration tools
+- continued support for development
 
-Current roadmap:
-- Pioneer — 12.99, up to 2 machines
-- Planned Supporter — 12.99, 1 machine
-- Possible Pro tier later — likely 19.99, with a higher machine allowance
+In plain English:
 
-Store availability is the source of truth for what is live.
+**Free gets the core experience working. A license gives you more control over how it feels on your rig.**
 
-## Expectations
+## Installer notes
 
-MCP4SH is highly dependent on:
-- sim title
-- telemetry quality
-- rig layout
-- transducer placement
-- amplifier chain
-- gain structure
-- personal preference
+The installer:
 
-So do not expect identical results on every setup out of the box.
+- installs the plugin into the normal SimHub plugin location
+- places a backup copy under `Program Files (x86)\TytoSensoryLabs\MCP4SH\SimHub Plugin`
+- installs Setup Assistant under `Program Files (x86)\TytoSensoryLabs\MCP4SH\Tools`
+- writes bundled/default SimHub user files to `Documents\SimHub\MCP4SH`
+- offers to launch Setup Assistant after install
 
-The goal is to give you a stronger, more portable baseline with less retuning, not to pretend every rig is the same.
+Close SimHub before installing or updating.
 
 ## Known realities
 
-- GT7 support is not yet where I want it to be
-- some sims expose weaker or noisier telemetry than others
-- certain effects will keep being refined based on real-world reports
-- older preview-era docs / profiles may still exist for archival reasons, but v1.0 is the supported line
+- rigs, transducer layouts, amps, and mounting still matter
+- some sims expose cleaner telemetry than others
+- the SimHub left-menu icon may fall back to SimHub’s default plugin icon in this build
+- the Setup Assistant helps with routing, but it cannot fix bad mounting or bad gain staging
 
 ## Integrity check
 
-A SHA-256 checksum is attached to the release.
-
-Verify the installer before running it.
+A SHA-256 checksum should be attached to the release.
 
 PowerShell:
-`Get-FileHash .\MCP4SH_v1.0_Setup.exe -Algorithm SHA256`
+
+```powershell
+Get-FileHash .\MCP4SH_v1.1_Setup.exe -Algorithm SHA256
+```
+
+If the checksum does not match, do not run the installer.
 
 ## Feedback
 
 If something feels brilliant, broken, too strong, too subtle, or just plain odd, say so.
 
 Best reports include:
+
 - game
 - car
 - track
@@ -99,9 +124,4 @@ Best reports include:
 - what you expected instead
 - relevant logs/screenshots if available
 
-## Thanks
-
-Thanks to everyone who tested, questioned, encouraged, or challenged the project enough to help get it to a real release point.
-
-v1.0 is not the end point.
-It is the point where MCP4SH properly starts in public.
+Thanks to everyone who tested, questioned, encouraged, or challenged the project enough to get it here.

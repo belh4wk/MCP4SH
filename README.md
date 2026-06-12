@@ -1,29 +1,30 @@
-# MCP4SH™ — SimHub Haptics Plugin built on MCP4H™
+# MCP4SH® ::: String Theory Haptics for SimHub
 
-MCP4SH™ is a SimHub plugin built to make haptics feel more coherent, more readable, and less like a pile of unrelated vibrations.
+MCP4SH® is a SimHub haptics plugin built to make tactile feedback easier to read, easier to set up, and more useful while driving.
 
-Instead of throwing effect spam at the rig, MCP4SH layers telemetry into a more connected chassis feel so grip, scrub, suspension, drivetrain, braking, and weight-transfer style cues are easier to read under load.
+Instead of throwing raw telemetry straight at your shakers, MCP4SH turns car behaviour into clearer haptic cues:
+engine, drivetrain, tyre scrub, road feel, suspension, braking, ABS, TC, clutch, gearshift, and chassis load.
 
-- Turns telemetry into clearer seat-of-the-pants cues
-- Normalises behaviour across different sims
-- Exposes a consistent property layer for haptics, dashboards, and related tooling
-- Includes a built-in FOV calculator in the MCP4SH settings UI
+The goal is simple:
+
+**less guessing, more driving.**
 
 ---
 
-## v1.0 status
+## v1.1 status
 
-**MCP4SH v1.0 is the current supported release.**
+**MCP4SH v1.1 is the current supported release line.**
 
-This is a real release, but still an iterative one. The goal for v1.0 was to get MCP4SH into a state that is installable, stable, usable, and worth wider real-world testing.
+v1.1 is the first release where MCP4SH is not just about the haptic codec. It also includes the new **Setup Assistant**, which is meant to make the whole SimHub shaker setup less painful.
 
-That means:
-- the installer is working
-- the public repo is the canonical home for notes, hashes, and updates
-- the plugin is ready for broader use
-- refinement will continue based on real rigs, real sims, and real feedback
+This is still an iterative project, but v1.1 is the new public baseline:
 
-This is not a “finished forever” build. It is the first proper public release baseline.
+- stronger cross-sim haptic behaviour
+- updated plugin UI
+- Setup Assistant for shaker layout and sound-output mapping
+- generated SimHub sound output profiles
+- installer support for the plugin and Setup Assistant
+- clearer MCP4H-aligned architecture and documentation
 
 ---
 
@@ -32,56 +33,119 @@ This is not a “finished forever” build. It is the first proper public releas
 MCP4SH is aimed at drivers who want more than “more shaking.”
 
 The focus is on:
+
 - clearer separation between useful cues
 - more coherent layering across effects
 - better signal-to-noise behaviour
 - less time wasted retuning every sim from scratch
+- a setup flow that does not expect you to be a SimHub wizard
 
 The guiding idea is simple: haptics should help you understand what the car is doing, not bury you in buzzing.
 
 ---
 
-## Free vs licensed use
+## Free version
 
-MCP4SH is usable without a paid license, but the licensed edition unlocks the adaptive layer that gives the plugin more of its “smart” behaviour.
+The free version is not a crippled demo.
 
-### Base / unlicensed use
-The unlicensed build keeps the core effect stack available for personal sim-racing use.
+Free gives you the core MCP4SH String Theory Haptics experience and the Setup Assistant.
 
-### Licensed value-add
-The paid version is not about making the rig louder. It is about making the output more context-aware.
+That means you can:
 
-In the current implementation, the licensed edition unlocks the premium adaptive tools, including:
-- **ST Tensioner** for priority-aware ducking and promotion of important cues
-- **ST Balancer** for cross-game output rebalancing
-- **ST Learner** for perceptual shaping of scrub and engine/tyre behaviour
+- run the main MCP4SH haptic effects in SimHub
+- use the Setup Assistant to select the shakers installed on your rig
+- test-pulse channels so you know what is physically connected where
+- generate a matching SimHub sound output profile
+- use the SimHub Helper guide to import and apply that profile
+- analyze existing sound output profiles
+- see mapped device/channel/effect information inside the plugin
 
-The free edition can expose a time-limited preview of part of that behaviour, but the licensed version is the intended full-use path. This is reflected directly in the plugin code and license UI.
+In plain English:
+
+**MCP4SH helps you get your rig working without needing to know every SimHub routing detail up front.**
+
+---
+
+## Licensed version
+
+A license unlocks the extra control layer.
+
+Free gets the core experience working.  
+The license gives you more ways to shape it around your own rig.
+
+Licensed features include advanced haptic controls and, over time, the more powerful configuration tools for custom routing, layout variants, and deeper tuning.
+
+It is for people who want to go beyond “this works” and move toward “this feels right for my setup.”
+
+It also directly supports continued MCP4SH development.
+
+Current early-adopter option:
+
+- **Pioneer** ::: 12.99, up to 2 machines
+
+Planned standardisation:
+
+- **Supporter** ::: planned at 12.99, 1 machine
+- **Pro** ::: may follow later, likely 19.99, with a higher machine allowance
+
+The store listing is the source of truth for what is actually live.
 
 See `docs/LICENSING.md` for the public-facing licensing overview.
 
 ---
 
-## Licensing roadmap
+## Download and installation
 
-Current / early-adopter plan:
-- **Pioneer** — 12.99, up to 2 machines
+1. Go to **GitHub Releases**.
+2. Download the current installer asset.
+3. Verify the SHA-256 checksum.
+4. Close SimHub before installing.
+5. Run the installer.
+6. Start SimHub and enable MCP4SH if needed.
+7. Launch the Setup Assistant and map your physical shaker layout.
 
-Planned standardisation:
-- **Supporter** — planned at 12.99, 1 machine
-- **Pro** — may follow later, likely 19.99, with a higher machine allowance
+The installer keeps the normal SimHub plugin install path and also places the Setup Assistant under:
 
-Store availability is the source of truth for what is actually live at any given moment.
+```text
+Program Files (x86)\TytoSensoryLabs\MCP4SH\Tools
+```
+
+Generated sound-output profiles are written to the user's real Documents folder:
+
+```text
+Documents\SimHub\MCP4SH
+```
 
 ---
 
-## Security & verification
+## First steps
+
+Start here:
+
+- `docs/GETTING_STARTED.md`
+- `docs/SETUP_ASSISTANT.md`
+- `docs/README_FIRST.txt`
+- `docs/KNOWN_ISSUES.md`
+- `docs/LOGGING.md`
+
+Important tuning rule:
+
+1. use the Setup Assistant to confirm routing first
+2. tune **MCP4SH plugin-side gains** second
+3. tune **SimHub master/global output** third
+4. only touch SimHub per-effect gains if you know why
+
+---
+
+## Security and verification
 
 This repo provides:
-- `SECURITY.md` — security policy and release verification guidance
-- `INSTALLER_SECURITY.md` — what the installer is expected to do and how to verify it
+
+- `SECURITY.md` ::: security policy and release verification guidance
+- `INSTALLER_SECURITY.md` ::: what the installer is expected to do and how to verify it
 
 Every public release should include:
+
 - the installer
 - a SHA-256 checksum file
 - release notes
@@ -90,39 +154,11 @@ Verify the installer hash before running it.
 
 ---
 
-## Download & installation
+## MCP4H context
 
-1. Go to **GitHub Releases**
-2. Download the current installer asset
-3. Verify the SHA-256 checksum
-4. Run the installer
-5. Read `docs/GETTING_STARTED.md` and `docs/README_FIRST.txt`
+MCP4SH is a practical implementation built on MCP4H® principles.
 
-GitHub remains the canonical home for:
-- releases
-- checksums / hashes
-- documentation
-- changelog / release notes
-
----
-
-## First steps
-
-Start here:
-- `docs/GETTING_STARTED.md`
-- `docs/README_FIRST.txt`
-- `docs/KNOWN_ISSUES.md`
-- `docs/LOGGING.md`
-
-Important tuning rule:
-- start with **MCP4SH plugin-side gains first**
-- only then adjust SimHub/global output to suit your rig
-
----
-
-## Architectural context
-
-MCP4SH is an implementation built on the architectural principles defined by MCP4H™.
+In MCP4H terms, MCP4SH takes fast, noisy sim telemetry and turns it into clearer human-facing haptic cues. It is not just an effect pack. It is a working test bed for normalized, priority-aware machine-to-human feedback.
 
 A public prior-art disclosure is available via Zenodo:
 
@@ -137,6 +173,7 @@ This disclosure covers architectural concepts only. MCP4SH’s specific implemen
 Useful feedback is specific feedback.
 
 Include:
+
 - game
 - car
 - track

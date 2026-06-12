@@ -1,150 +1,332 @@
-# MCP4SH™ — Recommended 4-Channel Setup (author reference layout)
+# MCP4SH 4-corner SimHub setup
 
-This document describes the reference layout used to tune the MCP4SH stack. It is a strong starting point, not a universal law.
+This page is for users who want to route MCP4SH effects to separate FL, FR, RL, and RR wheel script boxes in SimHub.
 
-------------------------------------------------------------
-1. Hardware overview
-------------------------------------------------------------
+The main v1.1 profile is still the recommended starting point. Use this page when you want a manual 4-corner profile, or when converting a front/rear profile into proper corner routing.
 
-Two stereo amplifiers, four transducers:
+## Where these formulas go
 
-**Amp A — TT25-16 style pucks**
+In SimHub ShakeIt Bass Shakers, open the effect you want to route, then place the matching script in the separate wheel output boxes:
 
-- Channel A1 → Backrest puck (seat back)
-- Channel A2 → Brake pedal puck
+- `FL` = front left
+- `FR` = front right
+- `RL` = rear left
+- `RR` = rear right
 
-**Amp B — BST-1 style shakers**
+Each formula returns `0..100`, which is what SimHub expects in these script fields.
 
-- Channel B1 → Rear chassis / rear seat frame shaker
-- Channel B2 → Front chassis / pedal plate shaker
+## Suspension vibration
 
-In SimHub you expose these as two custom outputs:
+Use these for the continuous suspension texture/oscillation lane.
 
-- Output `Backrest / Brake`
-- Output `Rear axle / Front axle`
+### FL
 
-------------------------------------------------------------
-2. Design philosophy
-------------------------------------------------------------
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Suspension.VibrationFL') || 0);
+```
 
-The rig is treated as one chassis with three broad domains:
+### FR
 
-- **Mechanical / resonance layer** — backrest
-  - engine harmonics
-  - drivetrain load
-  - selected gearbox-domain information
-- **Brake domain** — pedals
-  - brake feel
-  - ABS pulses
-  - slip spikes under braking
-- **Chassis / mass layer** — BST-1s
-  - tyre scrub
-  - road texture (front / rear split)
-  - suspension impacts and undulation
-  - base engine / drivetrain mass coupling
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Suspension.VibrationFR') || 0);
+```
 
-Some signal bands intentionally overlap to create a coherent perception of one car, not isolated actuators.
+### RL
 
-------------------------------------------------------------
-3. Effect routing — Amp A (Backrest & Brake)
-------------------------------------------------------------
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Suspension.VibrationRL') || 0);
+```
 
-Columns:
+### RR
 
-- `Backrest` = Amp A1 (seat-back TT25-16)
-- `Brake`    = Amp A2 (pedal TT25-16)
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Suspension.VibrationRR') || 0);
+```
 
-| Effect               | Row   | Backrest | Brake |
-|----------------------|-------|----------|-------|
-| ABS                  | Front | OFF      | ON    |
-|                      | Rear  | OFF      | ON    |
-| Brake and Slip       | Front | OFF      | ON    |
-|                      | Rear  | OFF      | ON    |
-| Brake Feel           | Front | OFF      | ON    |
-|                      | Rear  | OFF      | ON    |
-| Clutch Freewheel     | Front | OFF      | ON    |
-|                      | Rear  | ON       | OFF   |
-| Drivetrain           | Front | ON       | OFF   |
-|                      | Rear  | ON       | OFF   |
-| Engine               | Front | ON       | OFF   |
-|                      | Rear  | ON       | OFF   |
-| Engine & Tyres       | Front | ON       | OFF   |
-|                      | Rear  | ON       | OFF   |
-| Gearbox — Grinds     | Front | OFF      | OFF   |
-|                      | Rear  | OFF      | OFF   |
-| Gearbox — Shifts     | Front | ON       | ON    |
-|                      | Rear  | ON       | OFF   |
-| Road Feel — Front    | Front | OFF      | OFF   |
-|                      | Rear  | OFF      | OFF   |
-| Road Feel — Rear     | Front | OFF      | OFF   |
-|                      | Rear  | OFF      | OFF   |
-| Suspension Impacts   | Front | ON       | OFF   |
-|                      | Rear  | ON       | OFF   |
-| Suspension Vibration | Front | OFF      | OFF   |
-|                      | Rear  | OFF      | OFF   |
-| TC                   | Front | ON       | OFF   |
-|                      | Rear  | ON       | OFF   |
-| Tyre Scrub           | Front | ON       | OFF   |
-|                      | Rear  | ON       | OFF   |
+## Suspension impacts
 
-------------------------------------------------------------
-4. Effect routing — Amp B (Rear & Front BST-1s)
-------------------------------------------------------------
+Use these for the separate hard-hit / bottoming / impact lane.
 
-Columns:
+### FL
 
-- `Rear BST`  = Amp B1 (rear structure)
-- `Front BST` = Amp B2 (pedal plate)
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Suspension.ImpactFL') || 0);
+```
 
-| Effect               | Row   | Rear BST-1 | Front BST-1 |
-|----------------------|-------|------------|-------------|
-| ABS                  | Front | OFF        | ON          |
-|                      | Rear  | ON         | OFF         |
-| Brake and Slip       | Front | OFF        | ON          |
-|                      | Rear  | ON         | OFF         |
-| Brake Feel           | Front | OFF        | ON          |
-|                      | Rear  | ON         | OFF         |
-| Clutch Freewheel     | Front | OFF        | ON          |
-|                      | Rear  | ON         | OFF         |
-| Drivetrain           | Front | OFF        | ON          |
-|                      | Rear  | ON         | OFF         |
-| Engine               | Front | OFF        | ON          |
-|                      | Rear  | ON         | OFF         |
-| Engine & Tyres       | Front | OFF        | ON          |
-|                      | Rear  | ON         | OFF         |
-| Gearbox — Grinds     | Front | OFF        | OFF         |
-|                      | Rear  | OFF        | OFF         |
-| Gearbox — Shifts     | Front | OFF        | ON          |
-|                      | Rear  | ON         | OFF         |
-| Road Feel — Front    | Front | OFF        | ON          |
-|                      | Rear  | OFF        | OFF         |
-| Road Feel — Rear     | Front | OFF        | OFF         |
-|                      | Rear  | ON         | OFF         |
-| Suspension Impacts   | Front | OFF        | ON          |
-|                      | Rear  | ON         | OFF         |
-| Suspension Vibration | Front | OFF        | ON          |
-|                      | Rear  | ON         | OFF         |
-| TC                   | Front | OFF        | ON          |
-|                      | Rear  | ON         | OFF         |
-| Tyre Scrub           | Front | OFF        | ON          |
-|                      | Rear  | ON         | OFF         |
+### FR
 
-This arrangement preserves front/rear timing while letting the chassis behave like one connected system.
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Suspension.ImpactFR') || 0);
+```
 
-------------------------------------------------------------
-5. Adapting to other rigs
-------------------------------------------------------------
+### RL
 
-If you have fewer or more transducers:
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Suspension.ImpactRL') || 0);
+```
 
-- **2-channel rigs**
-  - combine backrest + rear into a broader “seat / chassis” channel
-  - combine brake + front into a broader “front / pedal” channel
-  - reduce gains aggressively to avoid masking
+### RR
 
-- **6- or 8-channel rigs**
-  - mirror the same logic into more specific corners or zones
-  - keep at least one dedicated brake-domain transducer if possible
-  - do not destroy the domain logic just because you have more channels
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Suspension.ImpactRR') || 0);
+```
 
-Always start conservative. Add intensity only after you understand what each domain is doing.
+## Tyre scrub
+
+Use these for the tyre scrub / tyre squeal / slide texture lane.
+
+### FL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.TyreScrub.FLIntensity') || 0);
+```
+
+### FR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.TyreScrub.FRIntensity') || 0);
+```
+
+### RL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.TyreScrub.RLIntensity') || 0);
+```
+
+### RR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.TyreScrub.RRIntensity') || 0);
+```
+
+## Road feel
+
+Use these for the road texture / surface feel lane.
+
+### FL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.RoadFeel.FLIntensity') || 0);
+```
+
+### FR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.RoadFeel.FRIntensity') || 0);
+```
+
+### RL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.RoadFeel.RLIntensity') || 0);
+```
+
+### RR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.RoadFeel.RRIntensity') || 0);
+```
+
+## Chassis load
+
+Use these for the sustained chassis tension / load lane.
+
+### FL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.ChassisLoad.FLIntensity') || 0);
+```
+
+### FR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.ChassisLoad.FRIntensity') || 0);
+```
+
+### RL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.ChassisLoad.RLIntensity') || 0);
+```
+
+### RR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.ChassisLoad.RRIntensity') || 0);
+```
+
+## Engine & Tyres
+
+Use these for MCP4SH's combined engine/tyre interaction lane.
+
+### FL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.EngineTyres.FLIntensity') || 0);
+```
+
+### FR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.EngineTyres.FRIntensity') || 0);
+```
+
+### RL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.EngineTyres.RLIntensity') || 0);
+```
+
+### RR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.EngineTyres.RRIntensity') || 0);
+```
+
+## Brake feel
+
+Use these for brake bite / brake texture.
+
+### FL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeFeel.FLIntensity') || 0);
+```
+
+### FR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeFeel.FRIntensity') || 0);
+```
+
+### RL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeFeel.RLIntensity') || 0);
+```
+
+### RR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeFeel.RRIntensity') || 0);
+```
+
+## ABS / brake lock
+
+Use these for ABS, brake lock, and lock-like braking events.
+
+### FL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeLock.FLIntensity') || 0);
+```
+
+### FR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeLock.FRIntensity') || 0);
+```
+
+### RL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeLock.RLIntensity') || 0);
+```
+
+### RR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeLock.RRIntensity') || 0);
+```
+
+## TC
+
+Use these for traction-control activity.
+
+### FL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.TC.FLActivity') || 0);
+```
+
+### FR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.TC.FRActivity') || 0);
+```
+
+### RL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.TC.RLActivity') || 0);
+```
+
+### RR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.TC.RRActivity') || 0);
+```
+
+## Engine
+
+Engine is not truly left/right by nature, so the per-wheel outputs mirror the front/rear engine lanes for easier 4-corner routing.
+
+### FL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Engine.FLIntensity') || 0);
+```
+
+### FR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Engine.FRIntensity') || 0);
+```
+
+### RL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Engine.RLIntensity') || 0);
+```
+
+### RR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Engine.RRIntensity') || 0);
+```
+
+## Drivetrain
+
+Drivetrain is also not truly left/right by nature, so the per-wheel outputs mirror the front/rear drivetrain lanes for easier 4-corner routing.
+
+### FL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Drivetrain.FLIntensity') || 0);
+```
+
+### FR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Drivetrain.FRIntensity') || 0);
+```
+
+### RL
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Drivetrain.RLIntensity') || 0);
+```
+
+### RR
+
+```js
+return 100 * ($prop('MCP4SHPlugin.MCP4SH.Drivetrain.RRIntensity') || 0);
+```
+
+## Notes
+
+The per-wheel properties are final public routing outputs, not raw telemetry.
+
+Where MCP4SH has real per-corner data, such as suspension and slip-derived tyre behaviour, the corner outputs use that data.
+
+Where an effect is naturally front/rear or whole-car, such as engine and drivetrain, the corner outputs keep the effect easy to route without pretending there is a separate left/right engine.

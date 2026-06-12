@@ -1,7 +1,7 @@
-MCP4SH™ — Trademark Notice
+MCP4SH® — Trademark Notice
 ===========================
 
-MCP4SH™ and MCP4H™ (Multimodal Communications Protocol For Humanity) are trademarks of **Dirk Van Echelpoel**.
+MCP4SH® and MCP4H® (Multimodal Communications Protocol For Humanity) are trademarks of **Dirk Van Echelpoel**.
 
 Use of this repository, release bundle, or plugin does **not** grant any right to:
 

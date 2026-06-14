@@ -1,5 +1,16 @@
 # MCP4SH Changelog
 
+## v1.1.1 Hotfix
+
+- Added Setup Assistant channel-count override: Auto / 2 / 4 / 6 / 8.
+- Fixed multichannel devices being limited to 2 channels when detection is wrong.
+- Updated canonical `.sichannels` templates used by generated profiles.
+- Fixed FOV view angle/info text clipping.
+- Fixed curved triples input visibility.
+- Added ShakeIt Motors usage guide for MCP4SH public properties.
+- No haptics tuning changed.
+
+
 ## v1.1.0
 
 - Added the MCP4SH Setup Assistant.

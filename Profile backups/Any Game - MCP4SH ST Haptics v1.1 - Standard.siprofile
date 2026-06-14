@@ -12,7 +12,7 @@
         {
           "ContainerType": "CustomEffectContainer",
           "IsEnabled": true,
-          "Gain": 80.0,
+          "Gain": 85.0,
           "Description": "Engine & Tyres",
           "FrontLeftFormula": {
             "JSExt": 2,
@@ -134,7 +134,7 @@
         {
           "ContainerType": "CustomEffectContainer",
           "IsEnabled": true,
-          "Gain": 89.714285714285737,
+          "Gain": 100.0,
           "Description": "ABS/Lock",
           "FrontLeftFormula": {
             "JSExt": 2,
@@ -181,12 +181,12 @@
           },
           "Output": {
             "UseHighFrequency": true,
-            "HighFrequency": 40,
+            "HighFrequency": 35,
             "WhiteNoise": 10,
             "UseWhiteNoise": false,
             "FrequencyBasedOnPreFilter": false,
             "UsePrehemptiveMode": false,
-            "Frequency": 45,
+            "Frequency": 40,
             "AssignToChannelGroup": true,
             "ChannelGroupName": "ABS/Lock",
             "OutputType": "ToneOutput"
@@ -195,7 +195,7 @@
         {
           "ContainerType": "CustomEffectContainer",
           "IsEnabled": true,
-          "Gain": 80.0,
+          "Gain": 75.0,
           "Description": "TC",
           "FrontLeftFormula": {
             "JSExt": 2,
@@ -267,7 +267,7 @@
         {
           "ContainerType": "CustomEffectContainer",
           "IsEnabled": true,
-          "Gain": 30.428571428571395,
+          "Gain": 33.428571428571395,
           "Description": "Chassis Load",
           "FrontLeftFormula": {
             "JSExt": 0,
@@ -328,7 +328,7 @@
         {
           "ContainerType": "CustomEffectContainer",
           "IsEnabled": true,
-          "Gain": 74.904761904761884,
+          "Gain": 79.904761904761884,
           "Description": "Tyre Scrub",
           "FrontLeftFormula": {
             "JSExt": 2,

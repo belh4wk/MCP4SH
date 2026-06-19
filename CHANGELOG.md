@@ -1,5 +1,16 @@
 # MCP4SH Changelog
 
+## v1.1.6
+
+- Added live read-only SimHub ShakeIt Bass Shakers Sound Output routing readout for mapped shakers.
+- Added the shared pulse visualization/status panel for MCP4SH-owned test pulses.
+- Moved the pulse visualization into shared UI for plugin and Setup Assistant use.
+- Dev-gated the internal routing probe and kept diagnostic exports compact and license-safe.
+- Cleaned up Setup Assistant/plugin routing and pulse panel visibility behaviour.
+- Removed noisy release-build warnings from unused diagnostic/pulse fields.
+- No haptics tuning changed.
+
+
 ## v1.1.1 Hotfix
 
 - Added Setup Assistant channel-count override: Auto / 2 / 4 / 6 / 8.

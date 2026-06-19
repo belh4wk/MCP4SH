@@ -6,3 +6,4 @@
 - The SimHub left-menu icon may fall back to SimHub’s default plugin icon in this build. This is cosmetic only.
 - “Out of the box” does not mean “identical on every rig.” Placement (mounting discipline regarding isolation especially), amplifier gains, seat construction, and transducer choice still matter.
 - Legacy preview files may still exist in the repo for archival reasons. v1.1 is the supported line.
+- Live Sound Output routing readout is read-only. MCP4SH can display what it can safely read, but it does not edit SimHub Sound Output routing.

@@ -13,7 +13,7 @@ The goal is simple:
 
 ## v1.1 status
 
-**MCP4SH v1.1 is the current supported release line.**
+**MCP4SH v1.1 is the current supported release line. Current public build target: v1.1.6.**
 
 v1.1 is the first release where MCP4SH is not just about the haptic codec. It also includes the new **Setup Assistant**, which is meant to make the whole SimHub shaker setup less painful.
 
@@ -23,6 +23,8 @@ This is still an iterative project, but v1.1 is the new public baseline:
 - updated plugin UI
 - Setup Assistant for shaker layout and sound-output mapping
 - generated SimHub sound output profiles
+- live read-only SimHub Sound Output routing readout for mapped shakers
+- shared pulse visualization for MCP4SH-owned test pulses
 - installer support for the plugin and Setup Assistant
 - clearer MCP4H-aligned architecture and documentation
 
@@ -59,6 +61,8 @@ That means you can:
 - use the SimHub Helper guide to import and apply that profile
 - analyze existing sound output profiles
 - see mapped device/channel/effect information inside the plugin
+- see live read-only SimHub Sound Output routing where available
+- use the shared pulse visualization while testing mapped shakers
 
 In plain English:
 

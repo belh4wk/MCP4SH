@@ -40,6 +40,8 @@ Free users can use the core setup flow:
 - SimHub Helper
 - profile analysis
 - plugin-side mapping/routing display
+- live read-only SimHub Sound Output routing readout where available
+- shared pulse visualization for MCP4SH-owned test pulses
 
 ## What licensed users get
 

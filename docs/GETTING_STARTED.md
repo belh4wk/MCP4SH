@@ -27,6 +27,7 @@ It helps you:
 - generate a matching SimHub sound output profile
 - open the profile folder
 - follow the SimHub Helper steps to import the profile
+- use the pulse visual and hover routing readout to sanity-check mapped shakers
 
 Generated profiles are written to:
 

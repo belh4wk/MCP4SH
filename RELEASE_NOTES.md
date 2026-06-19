@@ -1,85 +1,60 @@
-# MCP4SH® v1.1 ::: Setup Assistant Release
+# MCP4SH® v1.1.6 ::: routing readout and pulse visual polish
 
-MCP4SH v1.1 is the new supported public baseline.
+MCP4SH v1.1.6 is a usability and setup polish release on the v1.1 line.
 
-The headline change is simple:
+The haptic baseline is unchanged. If the current feel works for you, this update should mainly make setup, routing checks, and troubleshooting clearer.
 
-**Free gets you driving. The Setup Assistant helps you get there without wrestling SimHub routing for half the evening.**
+## What is new in v1.1.6
 
-## What MCP4SH is
+### Live SimHub Sound Output routing readout
 
-MCP4SH is a SimHub haptics plugin built to make feedback feel more coherent, more readable, and less chaotic.
+The plugin can now read SimHub's live ShakeIt Bass Shakers Sound Output routing state for mapped shakers.
 
-The aim is not just more effects.  
-It is better translation.
+That means the shaker hover panel can show what is currently routed to a mapped device/channel from SimHub's active Sound Output state, instead of relying only on generated profiles, exported snapshots, or stale saved settings.
 
-- clearer grip and scrub cues
-- more connected suspension and drivetrain feel
-- more readable braking behaviour
-- less noise, less overlap for the sake of overlap
-- a rig that feels more like one chassis and less like several unrelated buzzers
+This is read-only. MCP4SH does not write to SimHub Sound Output settings.
 
-## What is new in v1.1
+### Shared pulse visualization panel
 
-### Setup Assistant
+The plugin and Setup Assistant now use a shared pulse visualization/status panel for MCP4SH-owned test pulses.
 
-The new Setup Assistant is included with the free version.
+It shows mapped device/channel context while idle and switches to a subtle heartbeat-style pulse visual when MCP4SH sends a right-click test pulse or Setup Assistant mapping pulse.
 
-It lets you:
+This visualizes MCP4SH's own pulse timing. It does not try to read arbitrary SimHub test/playback state.
 
-- choose the shakers physically installed on your rig
-- test-pulse output channels
-- answer what you actually felt
-- generate a matching SimHub sound output profile
-- open the generated profile folder
-- use the SimHub Helper flow to import and apply the profile
-- analyze an existing sound output profile
+### Dev-gated diagnostics
 
-That matters because a good haptics plugin is useless if people cannot route it correctly.
+The internal ShakeIt routing probe is now hidden behind dev mode and produces a compact, license-safe diagnostic file.
 
-### Plugin UI refresh
+The broad exploratory probe paths used during development were removed from the normal diagnostic path because they could make SimHub sluggish.
 
-The plugin UI now uses the new rig-view style and exposes the important controls in a cleaner way. The aim is not to hide everything. The aim is to make the useful controls easier to understand.
+### Cleanup
 
-### Haptics refinement
+- Improved hover-panel exit behaviour.
+- Kept pulse visual behaviour consistent between plugin and Setup Assistant.
+- Cleaned up release-build warnings from unused diagnostic/pulse fields.
+- Updated build and installer identity to v1.1.6.
 
-v1.1 includes the latest String Theory Haptics baseline across:
+## What did not change
 
-- Engine
-- Drivetrain
-- Tyre Scrub
-- Road Feel
-- Suspension Vibrations
-- Suspension Impacts
-- Brake Feel
-- ABS
-- TC
-- Clutch Freewheel
-- Gearshift
-- Chassis Load
-
-The haptics work focused on cross-title behaviour, clearer separation between cues, and avoiding constant “everything is buzzing” output.
-
-### MCP4H alignment
-
-The core/plugin split and compliance docs now make the MCP4H direction clearer. MCP4SH is still a SimHub plugin, but architecturally it is also a practical MCP4H-style haptic translation layer.
+- No haptics tuning changed.
+- No SimHub settings are written by the live routing readout.
+- No public SDK/API was added.
+- No paid Configurator/routing editor is included yet.
 
 ## Free vs licensed use
 
 The free version includes the core MCP4SH String Theory Haptics experience and the Setup Assistant.
 
-A license unlocks the extra control layer:
-
-- advanced haptic controls
-- deeper tuning options
-- future custom routing/configuration tools
-- continued support for development
+A license unlocks the extra control layer: advanced haptic controls now, and deeper configuration/routing tools as they mature.
 
 In plain English:
 
 **Free gets the core experience working. A license gives you more control over how it feels on your rig.**
 
 ## Installer notes
+
+Close SimHub before installing or updating.
 
 The installer:
 
@@ -89,15 +64,6 @@ The installer:
 - writes bundled/default SimHub user files to `Documents\SimHub\MCP4SH`
 - offers to launch Setup Assistant after install
 
-Close SimHub before installing or updating.
-
-## Known realities
-
-- rigs, transducer layouts, amps, and mounting still matter
-- some sims expose cleaner telemetry than others
-- the SimHub left-menu icon may fall back to SimHub’s default plugin icon in this build
-- the Setup Assistant helps with routing, but it cannot fix bad mounting or bad gain staging
-
 ## Integrity check
 
 A SHA-256 checksum should be attached to the release.
@@ -105,23 +71,20 @@ A SHA-256 checksum should be attached to the release.
 PowerShell:
 
 ```powershell
-Get-FileHash .\MCP4SH_v1.1_Setup.exe -Algorithm SHA256
+Get-FileHash .\MCP4SH_v1.1.6_Setup.exe -Algorithm SHA256
 ```
 
 If the checksum does not match, do not run the installer.
 
 ## Feedback
 
-If something feels brilliant, broken, too strong, too subtle, or just plain odd, say so.
-
-Best reports include:
+Useful reports include:
 
 - game
 - car
 - track
 - rig layout
+- sound device/channel setup
 - what felt wrong
 - what you expected instead
 - relevant logs/screenshots if available
-
-Thanks to everyone who tested, questioned, encouraged, or challenged the project enough to get it here.

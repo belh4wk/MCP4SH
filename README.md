@@ -13,7 +13,7 @@ The goal is simple:
 
 ## v1.1 status
 
-**MCP4SH v1.1 is the current supported release line. Current public build target: v1.1.6.**
+**MCP4SH v1.1 is the current supported release line. Current public build target: v1.1.9.**
 
 v1.1 is the first release where MCP4SH is not just about the haptic codec. It also includes the new **Setup Assistant**, which is meant to make the whole SimHub shaker setup less painful.
 

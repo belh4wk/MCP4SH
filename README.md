@@ -134,6 +134,7 @@ Start here:
 - `docs/README_FIRST.txt`
 - `docs/KNOWN_ISSUES.md`
 - `docs/LOGGING.md`
+- `docs/CREDITS.md`
 
 Important tuning rule:
 
@@ -172,6 +173,16 @@ A public prior-art disclosure is available via Zenodo:
 **DOI:** https://doi.org/10.5281/zenodo.18223144
 
 This disclosure covers architectural concepts only. MCP4SH’s specific implementation details and signal-processing behaviour remain implementation-specific.
+
+---
+
+## Credits
+
+MCP4SH credits live in:
+
+- `docs/CREDITS.md`
+
+Public credits should stay short, accurate, and consent-based. Add individual names, handles, links, or company names only when the person or organisation has agreed to be credited that way.
 
 ---
 

@@ -70,3 +70,16 @@ For the actual usage restrictions, see:
 ## One-line framing
 
 **Free gives you the core MCP4SH String Theory Haptics experience. A license gives you the control to shape it around your rig.**
+
+
+## License restore and cache behaviour
+
+MCP4SH stores license/cache data locally so a valid license can be restored when SimHub starts. v1.1.10 hardens this flow so implausibly short/partial key text is ignored and an already valid cached license is not dropped because of an ambiguous online refresh failure.
+
+If you report a license issue, do not send the raw license key. Useful details are:
+
+- whether the license field is empty, partial, or still contains the full key
+- the exact status text shown
+- whether restarting SimHub restores the license
+- whether clicking Validate restores it
+- whether SimHub is sometimes run as administrator and sometimes not

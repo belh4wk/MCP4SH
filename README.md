@@ -13,7 +13,7 @@ The goal is simple:
 
 ## v1.1 status
 
-**MCP4SH v1.1 is the current supported release line. Current public build target: v1.1.6.**
+**MCP4SH v1.1 is the current supported release line. Current public build target: v1.1.10.**
 
 v1.1 is the first release where MCP4SH is not just about the haptic codec. It also includes the new **Setup Assistant**, which is meant to make the whole SimHub shaker setup less painful.
 
@@ -23,6 +23,7 @@ This is still an iterative project, but v1.1 is the new public baseline:
 - updated plugin UI
 - Setup Assistant for shaker layout and sound-output mapping
 - generated SimHub sound output profiles
+- refreshed bundled Standard SimHub effects profile for v1.1.10
 - live read-only SimHub Sound Output routing readout for mapped shakers
 - shared pulse visualization for MCP4SH-owned test pulses
 - installer support for the plugin and Setup Assistant
@@ -114,11 +115,13 @@ The installer keeps the normal SimHub plugin install path and also places the Se
 Program Files (x86)\TytoSensoryLabs\MCP4SH\Tools
 ```
 
-Generated sound-output profiles are written to the user's real Documents folder:
+Generated sound-output profiles and bundled MCP4SH SimHub profile assets are written to the user's real Documents folder:
 
 ```text
 Documents\SimHub\MCP4SH
 ```
+
+If a release includes an updated bundled Standard effects profile, the plugin and Setup Assistant will point you to the Updates tab and the installer will show the import reminder at the end of setup. MCP4SH does not silently import or activate SimHub profiles for you.
 
 ---
 

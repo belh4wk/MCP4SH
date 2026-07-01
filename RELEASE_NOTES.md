@@ -1,56 +1,69 @@
-# MCP4SH® v1.1.6 ::: routing readout and pulse visual polish
+# MCP4SH® v1.1.10 ::: final v1.1 haptics baseline and release polish
 
-MCP4SH v1.1.6 is a usability and setup polish release on the v1.1 line.
+MCP4SH v1.1.10 is the current v1.1 release-candidate/stable baseline. It consolidates the recent haptics tuning, refreshed canonical SimHub profiles, Setup Assistant polish, license-restore hardening, and release/docs cleanup.
 
-The haptic baseline is unchanged. If the current feel works for you, this update should mainly make setup, routing checks, and troubleshooting clearer.
+## What is new in v1.1.10
 
-## What is new in v1.1.6
+### Approved v1.1 haptics baseline
 
-### Live SimHub Sound Output routing readout
+The v1.1.10 line refines the approved haptics baseline across:
 
-The plugin can now read SimHub's live ShakeIt Bass Shakers Sound Output routing state for mapped shakers.
+- Load Breakaway / grip-snap twang
+- clutch engagement, clutch-in shudder, neutral/free-rev behaviour, and bite tail
+- Engine & Tyres throttle response and rear-drive pluck authority
+- Tyre Scrub and rFactor 2 / LMU straight-line slip-pedestal calming
+- Suspension Impact and Suspension Vibration kerb/rumble/sausage/dome-kerb authority
 
-That means the shaker hover panel can show what is currently routed to a mapped device/channel from SimHub's active Sound Output state, instead of relying only on generated profiles, exported snapshots, or stale saved settings.
+The suspension lane now uses a raw wheel-load edge sidechain to restore kerb tooth violence without mixing in the shaped public Load Breakaway output. Suspension remains suspension-proof led.
 
-This is read-only. MCP4SH does not write to SimHub Sound Output settings.
+### rFactor 2 / LMU input polish
 
-### Shared pulse visualization panel
+- Added filtered/unfiltered rF2 steering candidates.
+- Avoided dead-zero steering candidates masking later useful fallbacks.
+- Added condition-based high-speed straight slip-pedestal calming for E&T / Tyre Scrub without removing existing wheel slip candidates.
 
-The plugin and Setup Assistant now use a shared pulse visualization/status panel for MCP4SH-owned test pulses.
+### Canonical SimHub profile refresh
 
-It shows mapped device/channel context while idle and switches to a subtle heartbeat-style pulse visual when MCP4SH sends a right-click test pulse or Setup Assistant mapping pulse.
+The bundled SimHub Standard effects profile and Setup Assistant `.sichannels` templates were refreshed for v1.1.10.
 
-This visualizes MCP4SH's own pulse timing. It does not try to read arbitrary SimHub test/playback state.
+The installer copies the bundled profile to:
 
-### Dev-gated diagnostics
+```text
+Documents\SimHub\MCP4SH
+```
 
-The internal ShakeIt routing probe is now hidden behind dev mode and produces a compact, license-safe diagnostic file.
+Import it in SimHub via:
 
-The broad exploratory probe paths used during development were removed from the normal diagnostic path because they could make SimHub sluggish.
+```text
+ShakeIt Bass Shakers → Effects profile → Profiles manager → Import profile
+```
 
-### Cleanup
+### Profile update awareness
 
-- Improved hover-panel exit behaviour.
-- Kept pulse visual behaviour consistent between plugin and Setup Assistant.
-- Cleaned up release-build warnings from unused diagnostic/pulse fields.
-- Updated build and installer identity to v1.1.6.
+- The plugin shows a small profile-update notice when a bundled Standard profile is available and not yet acknowledged.
+- **Show details...** opens Setup Assistant directly to SimHub Helper → Updates and marks the notice as seen for that bundled profile version.
+- Setup Assistant's Updates tab shows profile import guidance and changelog information.
+- The Updates tab tries the online `CHANGELOG.md` first and falls back to the bundled local changelog if offline.
+
+### License restore hardening
+
+License restore now ignores implausibly short/partial key text, avoids letting bad stores mask better cached values, and preserves a cached valid license during ambiguous online refresh failures.
+
+### Local state consolidation
+
+Setup Assistant local state now lives under:
+
+```text
+%LOCALAPPDATA%\TytoSensoryLabs\MCP4SH\SetupAssistant
+```
+
+Existing state under the older `%LOCALAPPDATA%\MCP4SH\SetupAssistant` path is migrated on startup.
 
 ## What did not change
 
-- No haptics tuning changed.
-- No SimHub settings are written by the live routing readout.
-- No public SDK/API was added.
-- No paid Configurator/routing editor is included yet.
-
-## Free vs licensed use
-
-The free version includes the core MCP4SH String Theory Haptics experience and the Setup Assistant.
-
-A license unlocks the extra control layer: advanced haptic controls now, and deeper configuration/routing tools as they mature.
-
-In plain English:
-
-**Free gets the core experience working. A license gives you more control over how it feels on your rig.**
+- No automatic/silent SimHub profile import is performed. Users stay in control of which SimHub profiles they import or activate.
+- Existing SimHub user data and generated profiles are not deleted.
+- The Setup Assistant remains part of the free setup flow.
 
 ## Installer notes
 
@@ -63,6 +76,7 @@ The installer:
 - installs Setup Assistant under `Program Files (x86)\TytoSensoryLabs\MCP4SH\Tools`
 - writes bundled/default SimHub user files to `Documents\SimHub\MCP4SH`
 - offers to launch Setup Assistant after install
+- displays a finish-page reminder when a bundled Standard profile is included
 
 ## Integrity check
 
@@ -71,7 +85,7 @@ A SHA-256 checksum should be attached to the release.
 PowerShell:
 
 ```powershell
-Get-FileHash .\MCP4SH_v1.1.6_Setup.exe -Algorithm SHA256
+Get-FileHash .\MCP4SH_v1.1.10_Setup.exe -Algorithm SHA256
 ```
 
 If the checksum does not match, do not run the installer.

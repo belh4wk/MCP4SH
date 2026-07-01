@@ -37,3 +37,10 @@ Use this when:
 - When reporting an issue, include game, car, track, what felt wrong, and whether you changed gains or routing first
 
 Files are rotated automatically after they grow beyond a reasonable size so they do not expand forever.
+
+
+## Load Breakaway / suspension kerb diagnostics
+
+v1.1.10 adds additional replay/log columns used during haptics validation, including Load Breakaway output columns and suspension kerb/edge diagnostics such as kerb edge, tooth overlay, tall obstacle, and raw load-edge values.
+
+These columns are diagnostic. They help identify whether a kerb, rumble strip, sausage kerb, dome kerb, or off-road chop is being detected as suspension proof, raw edge timing, or final impact output.

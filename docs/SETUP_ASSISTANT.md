@@ -62,3 +62,30 @@ A license gives you more control.
 Setup Assistant helps with routing. It does not fix bad mounting, loose rig parts, clipping amps, or bad gain structure.
 
 If you can hear the shaker more than you feel it, check the physical install first.
+
+
+## Updates and bundled profile notices
+
+When an MCP4SH update includes a refreshed bundled Standard SimHub effects profile, Setup Assistant shows the details under **SimHub Helper → Updates**.
+
+The profile itself is copied locally by the installer and is normally available at:
+
+```text
+Documents\SimHub\MCP4SH
+```
+
+MCP4SH does not silently import or activate the profile inside SimHub. Import it manually from SimHub:
+
+```text
+ShakeIt Bass Shakers → Effects profile → Profiles manager → Import profile
+```
+
+The Updates tab tries to load the latest online `CHANGELOG.md` first and falls back to the bundled local changelog when offline.
+
+Setup Assistant local state is stored under:
+
+```text
+%LOCALAPPDATA%\TytoSensoryLabs\MCP4SH\SetupAssistant
+```
+
+Older state from `%LOCALAPPDATA%\MCP4SH\SetupAssistant` is migrated automatically when found.

@@ -8,13 +8,13 @@ This file is intentionally kept public-safe and easy to maintain. Add individual
 - r/Rover1312 for testing and confirming the initial fix for device listing in the Setup Assistant
 - Wotever for the SimHub platform, enabling further development to push sim racing to new limits
 
----
+
 
 ## Project and development
 
 - **Tyto Sensory Labs** ::: MCP4SH concept, design, development, release packaging, and documentation.
 
----
+
 
 ## Testing and feedback
 
@@ -30,7 +30,7 @@ Thanks to the early users, testers, and community members who have helped shape 
 
 That feedback directly improves MCP4SH’s haptics, setup flow, documentation, and support tooling.
 
----
+
 
 ## Ecosystem acknowledgements
 
@@ -38,18 +38,3 @@ That feedback directly improves MCP4SH’s haptics, setup flow, documentation, a
 - **The sim-racing haptics community** ::: for years of experimentation around tactile feedback, transducers, actuators, profile design, rig mounting, and practical setup knowledge.
 
 MCP4SH is an independent project. Mentions of third-party tools, sims, hardware, or platforms are acknowledgements of compatibility, testing context, or ecosystem relevance; they do not imply endorsement or affiliation unless explicitly stated.
-
----
-
-## Credit policy
-
-Public credits should stay short, accurate, and consent-based.
-
-Before adding a person, tester, contributor, creator, company, or link:
-
-1. ask whether they want to be credited publicly
-2. confirm the exact name, handle, or URL they want used
-3. avoid sharing private details, license details, order details, email addresses, or support conversations
-4. keep entries relevant to MCP4SH
-
-When in doubt, credit the contribution category instead of the individual.

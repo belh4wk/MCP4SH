@@ -1,5 +1,21 @@
 # MCP4SH Changelog
 
+## v1.1.11
+
+- Promoted the D360-D371 haptics refinement line into the release baseline, with stronger cross-title suspension impact hierarchy, cleaner noisy-impact-bed demotion for F1/R3E/Grid-style telemetry, and preserved AC/DR2.0 behaviour.
+- Refined Brake Feel / ABS-Lock separation after D363-D365 testing, keeping the improved progressive brake bed while restoring stricter lock proof.
+- Added EA WRC steering candidate support via `DataCorePlugin.GameRawData.SessionUpdate.vehicle_steering` and verified Wreckfest 2 / RaceRoom steering candidates.
+- Added balanced Engine & Tyres articulation improvements through D374/D375 so throttle/tyre tension speaks more clearly without changing front/rear driven-axle truth.
+- Hardened license input and cache handling so obvious bad pasted text, Lemon Squeezy URLs, and incomplete one-character entries do not overwrite a valid saved license.
+- Consolidated MCP4SH local state under `%LOCALAPPDATA%\TytoSensoryLabs\MCP4SH`, with legacy MCP4SH-only folders used only as read-only migration fallbacks and installer migration cleanup for the old trail.
+- Improved redirected/OneDrive Documents handling for SimHub profile lookup/generation.
+- Added Setup Assistant layout presets to preselect common shaker layouts while keeping device/channel mapping hardware-specific.
+- Refreshed the bundled SimHub Standard `.siprofile` and canonical generated `.sichannels` templates for v1.1.11.
+- Added front-shaker fallback routing for pedal/front effects when a rig has front shakers but no dedicated pedal shaker.
+- Added the local/online `MCP4SH.GameCatalog.json` groundwork for FOV metadata and TSCER/ST Haptics ratings.
+- Moved MCP4SH credits to the MCP4SH repo docs path and updated SimHub Helper credit links.
+- Pointed plugin purchase navigation at the stable MCP4SH website page rather than a direct Lemon Squeezy checkout UUID.
+
 ## v1.1.10
 
 - Refined and approved the v1.1 haptics baseline across Load Breakaway, clutch engagement/free-rev behaviour, Engine & Tyres, Tyre Scrub, and Suspension Impact.

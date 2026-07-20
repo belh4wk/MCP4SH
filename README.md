@@ -1,39 +1,69 @@
-# MCP4SH® ::: String Theory Haptics for SimHub
+# MCP4SH® — String Theory Haptics for SimHub
 
-MCP4SH® is a SimHub haptics plugin built to make tactile feedback easier to read, easier to set up, and more useful while driving.
+**Less buzz. More car. Easier setup.**
 
-Instead of throwing raw telemetry straight at your shakers, MCP4SH turns car behaviour into clearer haptic cues:
-engine, drivetrain, tyre scrub, road feel, suspension, braking, ABS, TC, clutch, gearshift, and chassis load.
+MCP4SH® is a SimHub haptics plugin that turns racing-sim telemetry into clearer tactile feedback for bass shakers, transducers, haptic pads, and similar hardware.
+
+Instead of sending raw telemetry straight to your rig, MCP4SH processes, cleans up, shapes, and balances the signals first.
 
 The goal is simple:
 
-**less guessing, more driving.**
+**You should feel more of what the car is doing, and less random buzzing.**
+
+MCP4SH is built around the **String Theory Haptics** approach: engine, tyres, braking, suspension, drivetrain, gearshift, and chassis-style load cues working together as one connected system rather than a pile of unrelated vibrations.
 
 ---
 
-## v1.1 status
+## What MCP4SH helps you feel
 
-**MCP4SH v1.1 is the current supported release line. Current public build target: v1.1.10.**
+MCP4SH can provide telemetry-driven haptic feedback for:
 
-v1.1 is the first release where MCP4SH is not just about the haptic codec. It also includes the new **Setup Assistant**, which is meant to make the whole SimHub shaker setup less painful.
+- road texture
+- tyre scrub
+- suspension vibration
+- bumps and impacts
+- brake feel
+- ABS / brake lock
+- traction control
+- engine and drivetrain activity
+- clutch / freewheel behaviour
+- gearshifts
+- chassis load and weight transfer
+- combined engine and tyre tension cues
 
-This is still an iterative project, but v1.1 is the new public baseline:
+The goal is not simply **more vibration**.
 
-- stronger cross-sim haptic behaviour
-- updated plugin UI
-- Setup Assistant for shaker layout and sound-output mapping
-- generated SimHub sound output profiles
-- refreshed bundled Standard SimHub effects profile for v1.1.10
-- live read-only SimHub Sound Output routing readout for mapped shakers
-- shared pulse visualization for MCP4SH-owned test pulses
-- installer support for the plugin and Setup Assistant
-- clearer MCP4H-aligned architecture and documentation
+The goal is clearer feedback: making different parts of the car feel different, so your tactile setup becomes easier to understand while driving.
+
+---
+
+## Current supported release
+
+**MCP4SH v1.1.11 is the current supported public baseline.**
+
+v1.1.11 focuses on a cleaner and more stable ST Haptics baseline, safer release handling, and clearer setup expectations.
+
+Highlights include:
+
+- cleaner suspension impact and noisy-source handling
+- improved handling of titles with very active suspension / impact telemetry
+- better Brake Feel vs ABS / Lock separation
+- clearer Engine & Tyres articulation without changing drivetrain balance
+- steering-source improvements for several titles
+- updated canonical SimHub profile and channel assets
+- initial layout preset groundwork
+- safer license input handling
+- unified local state under `TytoSensoryLabs\MCP4SH`
+- OneDrive / redirected Documents support
+- TCR — Telemetry Clarity Rating — for title clarity expectations
+
+Older releases may remain available for archival purposes, but the latest release is the supported baseline.
 
 ---
 
 ## What makes MCP4SH different
 
-MCP4SH is aimed at drivers who want more than “more shaking.”
+MCP4SH is aimed at drivers who want more than a rig that simply shakes harder.
 
 The focus is on:
 
@@ -43,7 +73,145 @@ The focus is on:
 - less time wasted retuning every sim from scratch
 - a setup flow that does not expect you to be a SimHub wizard
 
-The guiding idea is simple: haptics should help you understand what the car is doing, not bury you in buzzing.
+The guiding idea is simple:
+
+**Haptics should help you understand what the car is doing, not bury you in buzzing.**
+
+---
+
+## Not a standard SimHub effects profile
+
+MCP4SH should not be treated like a standard SimHub effects profile where each effect is just a raw standalone formula.
+
+The plugin works more like a **telemetry-to-haptics codec**.
+
+Before the public outputs reach SimHub, MCP4SH performs internal processing such as:
+
+- telemetry normalization
+- signal cleanup
+- gating
+- routing
+- effect balancing
+- source prioritization
+- ST tensioning / shaping
+
+Because of that, individual graphs or manually separated formulas may not represent the full intended behaviour of the plugin.
+
+Some MCP4SH effects are designed to work together. Looking at one signal in isolation can be misleading, especially in titles where the raw telemetry is noisy, sparse, unusually hot, or different between cars.
+
+---
+
+## Supported reference setup
+
+The supported reference setup is:
+
+- the current MCP4SH plugin build
+- the supplied MCP4SH SimHub effects profile
+- the supplied or generated channel map
+- the MCP4SH Setup Assistant workflow
+
+Manual formula edits, heavily modified profiles, separated effect experiments, or custom routing can be useful for personal testing, but they are outside the normal support baseline.
+
+In plain English:
+
+**If you change the formulas or routing yourself, you are no longer testing the supplied MCP4SH setup.**
+
+---
+
+## Setup Assistant
+
+MCP4SH includes the **Setup Assistant**, which helps with the practical side of getting a tactile rig working.
+
+The Setup Assistant helps you:
+
+- choose the shakers / haptic zones on your rig
+- test-pulse output channels
+- map what you physically feel
+- generate a matching SimHub sound output profile
+- open the generated profile folder
+- follow the SimHub Helper import flow
+- analyze existing sound output profiles
+
+In plain English:
+
+**MCP4SH helps you set the thing up instead of just giving you effects and leaving you to fight audio routing by yourself.**
+
+You do not need a huge rig to use it. Smaller setups can still benefit, and larger rigs can use more detailed routing for pedals, seat, backrest, four corners, or other shaker positions.
+
+---
+
+## Typical hardware setups
+
+MCP4SH works with tactile hardware driven through SimHub, including:
+
+- bass shakers
+- tactile transducers
+- haptic pads
+- USB amps
+- multi-channel sound cards
+- HDMI / audio-interface output chains
+- 2-channel, 4-channel, and larger tactile layouts
+
+Common layouts include:
+
+- single seat shaker
+- seat + pedal setup
+- front / rear setup
+- pedal plate + seat setup
+- four-corner setup
+- seat, backrest, pedals, and corners
+- mixed DIY tactile rigs
+
+The Setup Assistant is intended to help map what you physically feel, because real-world channel wiring can vary a lot from one rig to another.
+
+---
+
+## Main haptic effect groups
+
+MCP4SH includes the following main haptic effect groups:
+
+- Engine
+- Drivetrain
+- Tyre Scrub
+- Road Feel
+- Suspension Vibrations
+- Suspension Impacts
+- Brake Feel
+- ABS / Brake Lock
+- TC
+- Clutch Engagement / Freewheel
+- Gearshift
+- Chassis Load
+- Engine & Tyres
+
+Some effects are simple to understand on their own. Others are designed to work together as part of the broader ST Haptics layer.
+
+For example, Tyre Scrub is not meant to be read as a pure outside-tyre load signal. It reflects tyre scrub / slip activity, so it may not always mirror chassis load direction in a corner.
+
+---
+
+## TCR — Telemetry Clarity Rating
+
+**TCR** means **Telemetry Clarity Rating**.
+
+TCR is a practical expectation label for how clearly a title's telemetry translates into MCP4SH ST Haptics.
+
+It is not a ranking of which sim is **best**.
+
+It is a clarity label for the kind of telemetry signal MCP4SH receives and can work with.
+
+Current labels:
+
+| Tier | Label | What it means |
+| --- | --- | --- |
+| Titanium | Clean | Clean telemetry with strong signal separation. Core cues translate clearly and predictably. |
+| Platinum | Balanced | Well-behaved telemetry with minor texture or noise. Most cues stay easy to read. |
+| Gold | Rough but Usable | More active or rough telemetry, but surface changes and important cues remain distinguishable. |
+| Silver | Busy / Noisy | Dense or noisy telemetry. Expect a busier baseline and less separation between some effects. |
+| Bronze | Sparse | Limited or incomplete telemetry. Some cues may be inferred, simplified, or subtle. |
+| Grey | Unknown | Not enough MCP4SH validation yet. Feedback may still work, but the title has not been classified. |
+
+TCR is there to set expectations. Different games, cars, and telemetry sources can behave differently.
 
 ---
 
@@ -61,13 +229,12 @@ That means you can:
 - generate a matching SimHub sound output profile
 - use the SimHub Helper guide to import and apply that profile
 - analyze existing sound output profiles
-- see mapped device/channel/effect information inside the plugin
-- see live read-only SimHub Sound Output routing where available
+- see mapped device / channel / effect information inside the plugin
 - use the shared pulse visualization while testing mapped shakers
 
 In plain English:
 
-**MCP4SH helps you get your rig working without needing to know every SimHub routing detail up front.**
+**Free gets you driving.**
 
 ---
 
@@ -75,45 +242,43 @@ In plain English:
 
 A license unlocks the extra control layer.
 
-Free gets the core experience working.  
-The license gives you more ways to shape it around your own rig.
+Free gets the core experience working. The license gives you more ways to shape it around your own rig.
 
-Licensed features include advanced haptic controls and, over time, the more powerful configuration tools for custom routing, layout variants, and deeper tuning.
+Licensed features include advanced haptic controls and, over time, more powerful configuration tools for custom routing, layout variants, and deeper tuning.
 
-It is for people who want to go beyond “this works” and move toward “this feels right for my setup.”
+It is for people who want to go beyond:
 
-It also directly supports continued MCP4SH development.
+> This works.
 
-Current early-adopter option:
+and move toward:
 
-- **Pioneer** ::: 12.99, up to 2 machines
+> This feels right for my setup.
 
-Planned standardisation:
+A license also directly supports continued MCP4SH development.
 
-- **Supporter** ::: planned at 12.99, 1 machine
-- **Pro** ::: may follow later, likely 19.99, with a higher machine allowance
+The store listing is the source of truth for what is currently included.
 
-The store listing is the source of truth for what is actually live.
-
-See `docs/LICENSING.md` for the public-facing licensing overview.
+**Free gets you driving.  
+A license gives you control.**
 
 ---
 
 ## Download and installation
 
-1. Go to **GitHub Releases**.
-2. Download the current installer asset.
-3. Verify the SHA-256 checksum.
-4. Close SimHub before installing.
+1. Go to GitHub Releases.
+2. Download the current MCP4SH installer asset.
+3. Verify the SHA-256 checksum if desired.
+4. Close SimHub before installing or updating.
 5. Run the installer.
-6. Start SimHub and enable MCP4SH if needed.
-7. Launch the Setup Assistant and map your physical shaker layout.
-
-The installer keeps the normal SimHub plugin install path and also places the Setup Assistant under:
-
-```text
-Program Files (x86)\TytoSensoryLabs\MCP4SH\Tools
-```
+6. Start SimHub.
+7. Enable MCP4SH if SimHub prompts you.
+8. Open the MCP4SH plugin tab.
+9. Launch the Setup Assistant.
+10. Select your rig layout / shaker zones.
+11. Run the test pulses.
+12. Generate a sound output profile.
+13. Import / apply it in SimHub using the SimHub Helper guidance.
+14. Go drive.
 
 Generated sound-output profiles and bundled MCP4SH SimHub profile assets are written to the user's real Documents folder:
 
@@ -121,68 +286,26 @@ Generated sound-output profiles and bundled MCP4SH SimHub profile assets are wri
 Documents\SimHub\MCP4SH
 ```
 
-If a release includes an updated bundled Standard effects profile, the plugin and Setup Assistant will point you to the Updates tab and the installer will show the import reminder at the end of setup. MCP4SH does not silently import or activate SimHub profiles for you.
+MCP4SH does not silently import or activate SimHub profiles for you.
 
 ---
 
-## First steps
+## Important install notes
 
-Start here:
-
-- `docs/GETTING_STARTED.md`
-- `docs/SETUP_ASSISTANT.md`
-- `docs/README_FIRST.txt`
-- `docs/KNOWN_ISSUES.md`
-- `docs/LOGGING.md`
-- `docs/CREDITS.md`
-
-Important tuning rule:
-
-1. use the Setup Assistant to confirm routing first
-2. tune **MCP4SH plugin-side gains** second
-3. tune **SimHub master/global output** third
-4. only touch SimHub per-effect gains if you know why
+- Close SimHub before installing or updating.
+- Restart SimHub after installation.
+- Use the supplied MCP4SH profile / channel map as the supported reference setup.
+- Generated profile files are placed in `Documents\SimHub\MCP4SH`.
+- If your Documents folder is redirected through OneDrive or another Windows location, MCP4SH attempts to use the real user Documents path.
+- Older releases may remain available for archival purposes, but the latest release is the supported baseline.
 
 ---
 
-## Security and verification
+## Website
 
-This repo provides:
+More information, documentation, FAQ, and purchase links:
 
-- `SECURITY.md` ::: security policy and release verification guidance
-- `INSTALLER_SECURITY.md` ::: what the installer is expected to do and how to verify it
-
-Every public release should include:
-
-- the installer
-- a SHA-256 checksum file
-- release notes
-
-Verify the installer hash before running it.
-
----
-
-## MCP4H context
-
-MCP4SH is a practical implementation built on MCP4H® principles.
-
-In MCP4H terms, MCP4SH takes fast, noisy sim telemetry and turns it into clearer human-facing haptic cues. It is not just an effect pack. It is a working test bed for normalized, priority-aware machine-to-human feedback.
-
-A public prior-art disclosure is available via Zenodo:
-
-**DOI:** https://doi.org/10.5281/zenodo.18223144
-
-This disclosure covers architectural concepts only. MCP4SH’s specific implementation details and signal-processing behaviour remain implementation-specific.
-
----
-
-## Credits
-
-MCP4SH credits live in:
-
-- `docs/CREDITS.md`
-
-Public credits should stay short, accurate, and consent-based. Add individual names, handles, links, or company names only when the person or organisation has agreed to be credited that way.
+<https://tytosensorylabs.com/mcp4sh.html>
 
 ---
 
@@ -190,14 +313,39 @@ Public credits should stay short, accurate, and consent-based. Add individual na
 
 Useful feedback is specific feedback.
 
-Include:
+When reporting behaviour, please include:
 
 - game
 - car
 - track
+- MCP4SH version
+- SimHub version
 - rig / transducer layout
+- whether the supplied profile / channel map was used
+- whether formulas or routing were modified
 - what you expected to feel
 - what you actually felt
-- any logs if relevant
 
-That is how the next updates get better.
+This is how future updates get better.
+
+General comments like **it feels wrong** are hard to act on. A short, specific report with the setup and context is much more useful.
+
+---
+
+## Development notes
+
+MCP4SH is developed around a normalization-first approach.
+
+The aim is not to make every game feel identical. Different titles expose different telemetry, and even different cars inside the same title can vary.
+
+The aim is to make the useful information more readable and more consistent where possible, without forcing users to manually rebuild their tactile setup for every sim.
+
+---
+
+## Disclaimer
+
+MCP4SH is an independent SimHub plugin.
+
+Game names, hardware names, and third-party product names are the property of their respective owners.
+
+Use sensible volume and gain levels with tactile hardware. Strong bass shakers and transducers can be powerful enough to damage hardware, loosen rig components, or become uncomfortable if driven too hard.

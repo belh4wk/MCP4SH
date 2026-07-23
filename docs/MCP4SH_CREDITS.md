@@ -4,9 +4,11 @@ MCP4SH® is developed by **Tyto Sensory Labs**.
 
 This file is intentionally kept public-safe and easy to maintain. Add individual names, handles, links, or company names only when the person or organisation has agreed to be credited that way.
 
+- RangeyRover for his work for the Slipangle plugin which helped fill gaps in my own logic
 - Bruno Silva for helping me figure out how to read live sound output status from SimHub
-- r/Rover1312 for testing and confirming the initial fix for device listing in the Setup Assistant
-- Wotever for the SimHub platform, enabling further development to push sim racing to new limits
+- u/Rover1312 for testing and confirming the initial fix for device listing in the Setup Assistant
+- Viper4gh for his work on the Slipangle plugin, MCP4SH benefits from having it installed, so definitely check it out and i highly recommend installing
+- Wotever for the SimHub platform, enabling further development to push sim racing to new levels
 
 
 

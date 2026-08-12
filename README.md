@@ -1,4 +1,4 @@
-# MCP4SH® — String Theory Haptics for SimHub
+﻿# MCP4SH® — String Theory Haptics for SimHub
 
 **Less buzz. More car. Easier setup.**
 
@@ -39,23 +39,22 @@ The goal is clearer feedback: making different parts of the car feel different, 
 
 ## Current supported release
 
-**MCP4SH v1.1.11 is the current supported public baseline.**
+**MCP4SH v1.1.12 is the current supported public baseline.**
 
-v1.1.11 focuses on a cleaner and more stable ST Haptics baseline, safer release handling, and clearer setup expectations.
+v1.1.12 focuses on clearer cross-title tactile contrast, stronger setup/onboarding, a matched Standard + 4 Corners profile set, broader localization, and safer update delivery.
 
 Highlights include:
 
-- cleaner suspension impact and noisy-source handling
-- improved handling of titles with very active suspension / impact telemetry
-- better Brake Feel vs ABS / Lock separation
-- clearer Engine & Tyres articulation without changing drivetrain balance
-- steering-source improvements for several titles
-- updated canonical SimHub profile and channel assets
-- initial layout preset groundwork
-- safer license input handling
-- unified local state under `TytoSensoryLabs\MCP4SH`
-- OneDrive / redirected Documents support
-- TCR — Telemetry Clarity Rating — for title clarity expectations
+- improved Engine & Tyres dynamic headroom and presence
+- better suspension/tyre readability in dense high-speed telemetry
+- improved subtle wheel-lock onset detection
+- stronger spatial/heave Chassis Load behaviour
+- Standard and 4 Corners SimHub profiles with a shared tuning baseline
+- English, German, French, Spanish, and Simplified Chinese UI/localized Helper guides
+- improved Setup Assistant routing/profile diagnostics and onboarding
+- safer license handling with masked key presentation
+- manifest-driven plugin/profile/content update awareness
+- locally generated `.sichannels` kept separate from remotely distributed profiles
 
 Older releases may remain available for archival purposes, but the latest release is the supported baseline.
 

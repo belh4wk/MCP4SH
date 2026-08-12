@@ -1,30 +1,38 @@
-# MCP4SH Changelog
+﻿# MCP4SH Changelog
+
+## v1.1.12
+
+- Improved Engine & Tyres clarity and presence across titles, including better dynamic headroom when telemetry stays persistently hot.
+- Improved suspension and tyre readability in dense/high-speed telemetry by preventing noisy impact beds from constantly taking tactile priority.
+- Improved subtle wheel-lock onset detection while keeping the established conservative full-lock and ABS behaviour.
+- Refined clutch engagement, tyre-work readability, Road Feel speed character, and Chassis Load spatial/heave feedback.
+- Added a matched **Standard** and **4 Corners** SimHub profile set. The 4 Corners profile uses FL/FR/RL/RR tyre and suspension lanes while physical output routing remains Setup Assistant generated.
+- Expanded the shared MCP4SH interface localization to English, German, French, Spanish, and Simplified Chinese, including localized SimHub Helper guides and more translation-safe layouts.
+- Improved Setup Assistant and SimHub Helper onboarding, routing visibility, profile/channel generation diagnostics, and generated-profile guidance.
+- Improved license validation resilience and now masks saved license keys in the normal plugin view.
+- Added manifest-driven update delivery. MCP4SH can detect newer plugin releases, profile revisions, and supported content on launch; downloads are verified and staged locally, with installer/profile changes remaining user-controlled.
+- Remote `.sichannels` delivery is intentionally not supported. Physical channel maps remain generated locally by Setup Assistant for the user's actual hardware.
 
 ## v1.1.11
 
-- Promoted the D360-D371 haptics refinement line into the release baseline, with stronger cross-title suspension impact hierarchy, cleaner noisy-impact-bed demotion for F1/R3E/Grid-style telemetry, and preserved AC/DR2.0 behaviour.
-- Refined Brake Feel / ABS-Lock separation after D363-D365 testing, keeping the improved progressive brake bed while restoring stricter lock proof.
-- Added EA WRC steering candidate support via `DataCorePlugin.GameRawData.SessionUpdate.vehicle_steering` and verified Wreckfest 2 / RaceRoom steering candidates.
-- Added balanced Engine & Tyres articulation improvements through D374/D375 so throttle/tyre tension speaks more clearly without changing front/rear driven-axle truth.
-- Hardened license input and cache handling so obvious bad pasted text, Lemon Squeezy URLs, and incomplete one-character entries do not overwrite a valid saved license.
-- Consolidated MCP4SH local state under `%LOCALAPPDATA%\TytoSensoryLabs\MCP4SH`, with legacy MCP4SH-only folders used only as read-only migration fallbacks and installer migration cleanup for the old trail.
-- Improved redirected/OneDrive Documents handling for SimHub profile lookup/generation.
-- Added Setup Assistant layout presets to preselect common shaker layouts while keeping device/channel mapping hardware-specific.
-- Refreshed the bundled SimHub Standard `.siprofile` and canonical generated `.sichannels` templates for v1.1.11.
-- Added front-shaker fallback routing for pedal/front effects when a rig has front shakers but no dedicated pedal shaker.
-- Added the local/online `MCP4SH.GameCatalog.json` groundwork for FOV metadata and TSCER/ST Haptics ratings.
-- Moved MCP4SH credits to the MCP4SH repo docs path and updated SimHub Helper credit links.
-- Pointed plugin purchase navigation at the stable MCP4SH website page rather than a direct Lemon Squeezy checkout UUID.
+- Improved cross-title suspension impact hierarchy and handling of titles with very active/noisy impact telemetry.
+- Refined Brake Feel and ABS/Lock separation while preserving stricter lock proof.
+- Improved steering-source support and Engine & Tyres articulation across several titles.
+- Hardened license input/cache behaviour and consolidated MCP4SH local state under `%LOCALAPPDATA%\TytoSensoryLabs\MCP4SH`.
+- Improved redirected/OneDrive Documents handling for SimHub profile lookup and generation.
+- Added Setup Assistant layout presets and improved front-shaker fallback routing for common layouts.
+- Refreshed the bundled Standard `.siprofile` and generated `.sichannels` baseline.
+- Added the MCP4SH game catalog/TCR groundwork and updated support/navigation links.
 
 ## v1.1.10
 
 - Refined and approved the v1.1 haptics baseline across Load Breakaway, clutch engagement/free-rev behaviour, Engine & Tyres, Tyre Scrub, and Suspension Impact.
-- Added a raw wheel-load sidechain for suspension kerb/rumble/sausage/dome kerb tooth authority without using the shaped public Load Breakaway output.
-- Improved high-speed rumble strip tooth contrast, slow tall sausage/dome kerb punch, and Spa-style isolated kerb/runoff hit violence while keeping the suspension lane suspension-proof led.
+- Improved suspension kerb, rumble-strip and isolated-impact detail while keeping load/breakaway cues cleanly separated.
+- Improved high-speed rumble-strip contrast, tall kerb impact clarity, and isolated runoff/landing response across supported titles.
 - Improved rFactor 2 / LMU steering input handling by adding filtered/unfiltered steering candidates and avoiding dead-zero steering candidates masking useful fallbacks.
-- Added rFactor 2 style high-speed straight slip-pedestal calming for E&T / Tyre Scrub without removing existing wheel slip candidates.
+- Improved high-speed straight-line calm for Engine & Tyres and Tyre Scrub while preserving genuine tyre-work response.
 - Restored rear-drive E&T throttle pluck authority while preserving the calmer straight-line behaviour.
-- Added Load Breakaway and suspension kerb/edge diagnostic columns to replay/log output for easier validation.
+- Expanded replay/log diagnostics for easier support and validation of load/breakaway and suspension behaviour.
 - Refreshed the bundled canonical SimHub Standard effects profile and canonical Setup Assistant `.sichannels` templates.
 - Added plugin and Setup Assistant guidance for updated bundled SimHub Standard profile imports, including a plugin banner that opens Setup Assistant directly to the Updates tab.
 - Changed the Setup Assistant Updates tab to use the online `CHANGELOG.md` first, with the bundled local changelog as fallback.
@@ -59,14 +67,14 @@
 - Added live read-only SimHub ShakeIt Bass Shakers Sound Output routing readout for mapped shakers.
 - Added the shared pulse visualization/status panel for MCP4SH-owned test pulses.
 - Moved the pulse visualization into shared UI for plugin and Setup Assistant use.
-- Dev-gated the internal routing probe and kept diagnostic exports compact and license-safe.
+- Kept advanced routing diagnostics out of the normal user flow and made diagnostic exports more compact and licence-safe.
 - Cleaned up Setup Assistant/plugin routing and pulse panel visibility behaviour.
 - Removed noisy release-build warnings from unused diagnostic/pulse fields.
 - No haptics tuning changed.
 
 ## v1.1.5
 
-- Continued internal cleanup around Setup Assistant routing, generated profile analysis, and shared UI handoff.
+- Continued cleanup around Setup Assistant routing, generated profile analysis, and shared interface behaviour.
 - Improved robustness of mapped shaker hover panels and SimHub Helper profile-analysis tabs.
 - Kept haptics behaviour stable while setup/readout tooling matured.
 

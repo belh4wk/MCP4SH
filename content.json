@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "profiles": {
+    "revision": "1",
+    "files": [
+      {
+        "fileName": "Any Game - MCP4SH® ST Haptics v1.1.12 - 4 Corners.siprofile",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/profiles/Any%20Game%20-%20MCP4SH%C2%AE%20ST%20Haptics%20v1.1.12%20-%204%20Corners.siprofile",
+        "sha256": "422a58a230492f15f8ada8edbcf7bebb6aecdf701c2d2f7bcc487b6c5b8051e7",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "fileName": "Any Game - MCP4SH® ST Haptics v1.1.12 - Standard.siprofile",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/profiles/Any%20Game%20-%20MCP4SH%C2%AE%20ST%20Haptics%20v1.1.12%20-%20Standard.siprofile",
+        "sha256": "65f0abc542a5453581dc9721f1adfbeb42b04e76f3146a547eec10f7bb06930d",
+        "minPluginVersion": "1.1.12"
+      }
+    ]
+  },
+  "docs": {
+    "revision": "1",
+    "files": [
+      {
+        "relativePath": "MCP4SH_CREDITS.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/MCP4SH_CREDITS.md",
+        "sha256": "0ee20243cf7a588688fe4ab0ec8124b2d694063bc22ec3213459f4482fa12e33",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "SETUP_4CH.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/SETUP_4CH.md",
+        "sha256": "ddb5a027e795265024e2aec882c79d119cdfb8ed9498da0e231ac6ad6429482a",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "SHAKEIT_MOTORS.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/SHAKEIT_MOTORS.md",
+        "sha256": "e28373cf9d1edbc8c2b5091b66d3423a09f9abd4de7439f20f1ab0aa6bc650d7",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "SIMHUB_SETUP.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/SIMHUB_SETUP.md",
+        "sha256": "325992c0167835fc7ed7759bd751b6a1c4efbf66eddf04aa8f8590024f33a857",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "de/SETUP_4CH.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/de/SETUP_4CH.md",
+        "sha256": "f908329080ba24df084e404c4ad711b2b17913a9b42e154bba8bbdbbe8174fa8",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "de/SHAKEIT_MOTORS.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/de/SHAKEIT_MOTORS.md",
+        "sha256": "a8412b21013b55700dfd9cb1fe4ba28df404ded03e8352276c245b7a3ec0cf05",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "de/SIMHUB_SETUP.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/de/SIMHUB_SETUP.md",
+        "sha256": "efec10913ab5fd7d60da89e1dcd879aa3edd01135565fdbd4f396bc4364f905e",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "es/SETUP_4CH.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/es/SETUP_4CH.md",
+        "sha256": "ab49516b25990ec8d725849cdd2e77ec4ec1640b52cbee5aa676ae2c475558f6",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "es/SHAKEIT_MOTORS.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/es/SHAKEIT_MOTORS.md",
+        "sha256": "c5620f053908f7bb99a3c58b7aad3a3bce0d3ae8b22ab1f5bd5704385bff49fe",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "es/SIMHUB_SETUP.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/es/SIMHUB_SETUP.md",
+        "sha256": "e84a49fae7d18003c89221f2b27e5ac2a3e11ee337d102404b860732f986ecba",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "fr/SETUP_4CH.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/fr/SETUP_4CH.md",
+        "sha256": "8b683a6986ddad35bac8b6faa5cdb3d3e819e3120a2db87e0e1463e7696e9708",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "fr/SHAKEIT_MOTORS.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/fr/SHAKEIT_MOTORS.md",
+        "sha256": "961cd6ba06dfe67c1b5a916d9dd6cacd63188095cdafa3d2d9ff2bad4921c99e",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "fr/SIMHUB_SETUP.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/fr/SIMHUB_SETUP.md",
+        "sha256": "d77ab96f1746ad2f2546a81741dcd814a3d188c533db56be15f1d42552da3009",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "zh-Hans/SETUP_4CH.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/zh-Hans/SETUP_4CH.md",
+        "sha256": "4daf60dde0101fcba08fd13734a16769d8f1e6d127d303b3255c783bda96b6c1",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "zh-Hans/SHAKEIT_MOTORS.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/zh-Hans/SHAKEIT_MOTORS.md",
+        "sha256": "097d99acb13b46844e5f135d70cb7acb3ae1e6e56f52d8e28db7c6c0b858ee1c",
+        "minPluginVersion": "1.1.12"
+      },
+      {
+        "relativePath": "zh-Hans/SIMHUB_SETUP.md",
+        "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/zh-Hans/SIMHUB_SETUP.md",
+        "sha256": "9a2a6c6635ffa0cc34e8de37fa18d83b06d5c8c3eec7253a28bfb22301ca3298",
+        "minPluginVersion": "1.1.12"
+      }
+    ]
+  }
+}

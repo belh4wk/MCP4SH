@@ -1,104 +1,54 @@
-# MCP4SH® v1.1.10 ::: final v1.1 haptics baseline and release polish
+﻿# MCP4SH® v1.1.12 — clearer haptics, 4-corner profile support and safer updates
 
-MCP4SH v1.1.10 is the current v1.1 release-candidate/stable baseline. It consolidates the recent haptics tuning, refreshed canonical SimHub profiles, Setup Assistant polish, license-restore hardening, and release/docs cleanup.
+MCP4SH v1.1.12 builds on the established v1.1 baseline with stronger cross-title tactile readability, more complete setup/localization work, a matched Standard + 4 Corners profile set, and a new user-controlled update delivery path.
 
-## What is new in v1.1.10
+## Haptics
 
-### Approved v1.1 haptics baseline
+- Engine & Tyres now keeps more useful dynamic headroom in telemetry-heavy titles and has a little more overall presence.
+- Dense/noisy suspension telemetry is less able to dominate the whole tactile mix, improving high-speed suspension and tyre readability.
+- Subtle wheel-lock onset detection is more sensitive to credible individual-wheel collapse while preserving conservative full-lock/ABS behaviour.
+- Chassis Load has stronger left/right, front/rear and heave expression, including true four-corner output.
+- Clutch engagement, tyre-work readability and Road Feel speed character have received further refinement.
 
-The v1.1.10 line refines the approved haptics baseline across:
+## Profiles and setup
 
-- Load Breakaway / grip-snap twang
-- clutch engagement, clutch-in shudder, neutral/free-rev behaviour, and bite tail
-- Engine & Tyres throttle response and rear-drive pluck authority
-- Tyre Scrub and rFactor 2 / LMU straight-line slip-pedestal calming
-- Suspension Impact and Suspension Vibration kerb/rumble/sausage/dome-kerb authority
+Two reference SimHub profiles are supplied:
 
-The suspension lane now uses a raw wheel-load edge sidechain to restore kerb tooth violence without mixing in the shaped public Load Breakaway output. Suspension remains suspension-proof led.
+- **Standard** — front/rear spatialization where appropriate.
+- **4 Corners** — per-corner Tyre Scrub and Suspension lanes, with Chassis Load in its native four-corner form.
 
-### rFactor 2 / LMU input polish
+Both profiles share the same tuning baseline.
 
-- Added filtered/unfiltered rF2 steering candidates.
-- Avoided dead-zero steering candidates masking later useful fallbacks.
-- Added condition-based high-speed straight slip-pedestal calming for E&T / Tyre Scrub without removing existing wheel slip candidates.
+Physical sound-output/channel routing remains separate from the `.siprofile`. Run MCP4SH Setup Assistant to map your actual hardware and generate the matching `.sichannels` files.
 
-### Canonical SimHub profile refresh
+## Setup Assistant and localization
 
-The bundled SimHub Standard effects profile and Setup Assistant `.sichannels` templates were refreshed for v1.1.10.
+- Expanded shared UI localization: English, German, French, Spanish and Simplified Chinese.
+- Localized SimHub Helper guides with English fallback.
+- Improved mapping/profile-generation guidance, routing visibility and diagnostics.
+- Improved translated-layout handling and general UI polish.
+- Saved licence keys are masked during normal display while remaining fully editable when deliberately focused.
 
-The installer copies the bundled profile to:
+## Update delivery
 
-```text
-Documents\SimHub\MCP4SH
-```
+v1.1.12 introduces manifest-driven update awareness.
 
-Import it in SimHub via:
+MCP4SH can check for:
 
-```text
-ShakeIt Bass Shakers → Effects profile → Profiles manager → Import profile
-```
+- newer plugin releases
+- newer `.siprofile` revisions
+- supported documentation/content updates
 
-### Profile update awareness
+Downloads are staged and SHA-256 verified. MCP4SH does **not** silently run an installer or import/overwrite a SimHub effects profile.
 
-- The plugin shows a small profile-update notice when a bundled Standard profile is available and not yet acknowledged.
-- **Show details...** opens Setup Assistant directly to SimHub Helper → Updates and marks the notice as seen for that bundled profile version.
-- Setup Assistant's Updates tab shows profile import guidance and changelog information.
-- The Updates tab tries the online `CHANGELOG.md` first and falls back to the bundled local changelog if offline.
+`.sichannels` files are never remotely distributed; they remain generated locally for the user's mapped hardware.
 
-### License restore hardening
+## Updating from an older build
 
-License restore now ignores implausibly short/partial key text, avoids letting bad stores mask better cached values, and preserves a cached valid license during ambiguous online refresh failures.
+1. Close SimHub.
+2. Run `MCP4SH_v1.1.12_Setup.exe`.
+3. Launch Setup Assistant after installation.
+4. Import either the Standard or 4 Corners `.siprofile` in SimHub.
+5. Generate/import the `.sichannels` files that match your physical shaker mapping.
 
-### Local state consolidation
-
-Setup Assistant local state now lives under:
-
-```text
-%LOCALAPPDATA%\TytoSensoryLabs\MCP4SH\SetupAssistant
-```
-
-Existing state under the older `%LOCALAPPDATA%\MCP4SH\SetupAssistant` path is migrated on startup.
-
-## What did not change
-
-- No automatic/silent SimHub profile import is performed. Users stay in control of which SimHub profiles they import or activate.
-- Existing SimHub user data and generated profiles are not deleted.
-- The Setup Assistant remains part of the free setup flow.
-
-## Installer notes
-
-Close SimHub before installing or updating.
-
-The installer:
-
-- installs the plugin into the normal SimHub plugin location
-- places a backup copy under `Program Files (x86)\TytoSensoryLabs\MCP4SH\SimHub Plugin`
-- installs Setup Assistant under `Program Files (x86)\TytoSensoryLabs\MCP4SH\Tools`
-- writes bundled/default SimHub user files to `Documents\SimHub\MCP4SH`
-- offers to launch Setup Assistant after install
-- displays a finish-page reminder when a bundled Standard profile is included
-
-## Integrity check
-
-A SHA-256 checksum should be attached to the release.
-
-PowerShell:
-
-```powershell
-Get-FileHash .\MCP4SH_v1.1.10_Setup.exe -Algorithm SHA256
-```
-
-If the checksum does not match, do not run the installer.
-
-## Feedback
-
-Useful reports include:
-
-- game
-- car
-- track
-- rig layout
-- sound device/channel setup
-- what felt wrong
-- what you expected instead
-- relevant logs/screenshots if available
+Existing MCP4SH user state and generated mappings are kept unless you deliberately replace them.

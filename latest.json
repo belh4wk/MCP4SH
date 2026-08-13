@@ -1,6 +1,13 @@
 {
-  "version": "1.1.11",
+  "schemaVersion": 1,
+  "version": "1.1.12",
   "channel": "stable",
   "archived": false,
-  "releaseNotesUrl": "https://github.com/belh4wk/MCP4SH/releases/tag/v1.1.11"
+  "releaseNotesUrl": "https://github.com/belh4wk/MCP4SH/blob/main/RELEASE_NOTES.md",
+  "installer": {
+    "fileName": "MCP4SH_v1.1.12_Setup.exe",
+    "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/installer/MCP4SH_v1.1.12_Setup.exe",
+    "sha256": e61e4c4e2446d7b2c3b6ddf44d8e1ee97072ae3986d2a4e69fd09205f2ac7f5"
+  },
+  "contentManifestUrl": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/content.json"
 }

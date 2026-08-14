@@ -1,4 +1,4 @@
-﻿# MCP4SH® — String Theory Haptics for SimHub
+﻿# MCP4SH® - String Theory Haptics for SimHub
 
 **Less buzz. More car. Easier setup.**
 

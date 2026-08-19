@@ -1,4 +1,21 @@
-﻿# MCP4SH Changelog
+# MCP4SH Changelog
+
+## v1.1.13
+
+- Added weight-transfer-assisted Load Breakaway articulation while keeping normal sustained weight transfer in Chassis Load.
+- Improved Chassis Load directional isolation and heave/compression/crest expression.
+- Refined Engine & Tyres, Road Feel, Tyre Scrub, ABS/Lock, drivetrain/limiter and suspension-priority output behaviour.
+- Rebuilt Frequency Sweeper into a guided feel-first calibration instrument with mapped-device defaults, whole-Hz tuning, transport controls, interactive markers and canonical-aware frequency mapping.
+- Added non-destructive tuned `.siprofile` generation from the current canonical Standard / 4 Corners reference profile.
+- Added shared shaker activity/pulse treatment across plugin and Setup Assistant test surfaces.
+- Added Dutch and Brazilian Portuguese to the shared UI localization set; English remains the fallback for guide content that is not yet localized.
+- Made the normal Setup Assistant UI single-instance and improved mapping-aware defaults/navigation.
+- Standardized drawer/disclosure and contextual radial controls around the shared Tyto Sensory Labs visual language.
+- Added clean updater-to-installer SimHub shutdown/restart handoff without force-killing the host.
+- Added clearer updater/installer error dialogs and optional locally generated diagnostic reports; reports are never uploaded automatically.
+- Reduced the ST Premium preview window from 15 minutes to 10 minutes while retaining its existing cooldown/safeguards.
+- Moved recent final-output projection and suspension-priority feel logic into MCP4SH.Core so the SimHub adapter remains focused on host integration and public property mirroring.
+- Kept the supplied v1.1.12 Standard and 4 Corners `.siprofile` files as the canonical v1.1.13 reference profiles rather than renaming unchanged profile assets.
 
 ## v1.1.12
 

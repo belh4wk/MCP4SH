@@ -1,6 +1,6 @@
 {
   "schema": "MCP4SH.GameCatalog.v1",
-  "generatedFor": "1.1.12",
+  "generatedFor": "1.1.13",
   "games": [
     {
       "gameId": "ATS",

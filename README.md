@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 ﻿# MCP4SH® - String Theory Haptics for SimHub
+=======
+# MCP4SH® — String Theory Haptics for SimHub
+>>>>>>> Stashed changes
 
 **Less buzz. More car. Easier setup.**
 
@@ -39,22 +43,24 @@ The goal is clearer feedback: making different parts of the car feel different, 
 
 ## Current supported release
 
-**MCP4SH v1.1.12 is the current supported public baseline.**
+**MCP4SH v1.1.13 is the current supported public baseline.**
 
-v1.1.12 focuses on clearer cross-title tactile contrast, stronger setup/onboarding, a matched Standard + 4 Corners profile set, broader localization, and safer update delivery.
+v1.1.13 focuses on guided hardware-aware frequency calibration, improved load/breakaway articulation, a cleaner portable Core boundary, broader shared UI/localization work, and a clean updater-to-installer handoff.
 
 Highlights include:
 
-- improved Engine & Tyres dynamic headroom and presence
-- better suspension/tyre readability in dense high-speed telemetry
-- improved subtle wheel-lock onset detection
-- stronger spatial/heave Chassis Load behaviour
-- Standard and 4 Corners SimHub profiles with a shared tuning baseline
-- English, German, French, Spanish, and Simplified Chinese UI/localized Helper guides
-- improved Setup Assistant routing/profile diagnostics and onboarding
-- safer license handling with masked key presentation
-- manifest-driven plugin/profile/content update awareness
-- locally generated `.sichannels` kept separate from remotely distributed profiles
+- weight-transfer-assisted Load Breakaway articulation without turning normal load transfer into a breakaway cue
+- improved Chassis Load directional/heave expression
+- additional Engine & Tyres, Road Feel, Tyre Scrub, ABS/Lock and drivetrain readability refinements
+- a rebuilt Frequency Sweeper with feel-first guidance, whole-Hz tuning and hardware-aware frequency mapping
+- non-destructive generation of tuned `.siprofile` candidates from the canonical MCP4SH profile
+- single-instance Setup Assistant and mapping-aware Sweeper defaults
+- English, German, French, Spanish, Dutch, Brazilian Portuguese and Simplified Chinese shared UI localization
+- clean SimHub shutdown/install/restart handoff with SHA-256 verification and no force-kill fallback
+- optional user-reviewed diagnostic reports for updater/install failures
+- a cleaner MCP4SH.Core / SimHub-adapter boundary for future portability
+
+The supplied **v1.1.12 Standard and 4 Corners `.siprofile` files remain the canonical v1.1.13 reference profiles**. Their filenames are intentionally unchanged.
 
 Older releases may remain available for archival purposes, but the latest release is the supported baseline.
 
@@ -267,9 +273,9 @@ A license gives you control.**
 1. Go to GitHub Releases.
 2. Download the current MCP4SH installer asset.
 3. Verify the SHA-256 checksum if desired.
-4. Close SimHub before installing or updating.
-5. Run the installer.
-6. Start SimHub.
+4. For a manual install, close SimHub normally. The built-in updater can request the clean shutdown itself after elevation succeeds.
+5. Run the installer, or use Setup Assistant → SimHub Helper → Updates.
+6. Start SimHub if it was not restarted automatically by the updater.
 7. Enable MCP4SH if SimHub prompts you.
 8. Open the MCP4SH plugin tab.
 9. Launch the Setup Assistant.
@@ -291,8 +297,8 @@ MCP4SH does not silently import or activate SimHub profiles for you.
 
 ## Important install notes
 
-- Close SimHub before installing or updating.
-- Restart SimHub after installation.
+- For a manual install, close SimHub normally before replacing plugin files.
+- The built-in updater can request a clean SimHub shutdown and restart after a verified installer is launched; it does not force-kill SimHub.
 - Use the supplied MCP4SH profile / channel map as the supported reference setup.
 - Generated profile files are placed in `Documents\SimHub\MCP4SH`.
 - If your Documents folder is redirected through OneDrive or another Windows location, MCP4SH attempts to use the real user Documents path.

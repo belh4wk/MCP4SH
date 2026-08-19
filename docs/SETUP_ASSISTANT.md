@@ -23,12 +23,30 @@ That is the boring part of haptics setup, but it is also the part that breaks ev
 5. When a channel pulses, click the shaker you felt.
 6. Generate the sound output profile.
 7. Use SimHub Helper to import/apply the generated `.sichannels` file.
+8. Optionally open Frequency Sweeper to calibrate a mapped output and generate a separate tuned `.siprofile` candidate.
 
 Generated files are placed in:
 
 ```text
 Documents\SimHub\MCP4SH
 ```
+
+
+## Frequency Sweeper
+
+Frequency Sweeper is a guided tactile calibration tool for a mapped physical output. It uses the same mapping strength and prefers the first device already present in the user's mapping.
+
+The normal flow is:
+
+1. Output
+2. Heavy / rumble
+3. Rumble / buzz
+4. Buzz / whine
+5. Generate
+
+Judge the **physical sensation through the shaker**, not the audible pitch. Mark useful tactile landmarks for each feel range; MCP4SH then builds an effect-frequency map that stays as close as practical to the canonical MCP4SH orchestration while adapting to the hardware that was actually tested.
+
+Generated `.siprofile` files are new files. The canonical supplied profile is never overwritten or silently imported.
 
 ## What free users get
 
@@ -66,7 +84,7 @@ If you can hear the shaker more than you feel it, check the physical install fir
 
 ## Updates and bundled profile notices
 
-When an MCP4SH update includes a refreshed bundled Standard SimHub effects profile, Setup Assistant shows the details under **SimHub Helper → Updates**.
+Setup Assistant shows plugin/content update status under **SimHub Helper → Updates**. For plugin updates it can stage and SHA-256 verify the installer, launch it, then request a clean SimHub shutdown only after elevation succeeds. SimHub is never force-killed by this handoff.
 
 The profile itself is copied locally by the installer and is normally available at:
 
@@ -80,7 +98,7 @@ MCP4SH does not silently import or activate the profile inside SimHub. Import it
 ShakeIt Bass Shakers → Effects profile → Profiles manager → Import profile
 ```
 
-The Updates tab tries to load the latest online `CHANGELOG.md` first and falls back to the bundled local changelog when offline.
+The Updates tab tries to load the latest online `CHANGELOG.md` first and falls back to the bundled local changelog when offline. Update/install failures surface a user-facing message and can generate a local diagnostic report for the user to review before optionally reporting the issue; reports are not uploaded automatically.
 
 Setup Assistant local state is stored under:
 
@@ -89,3 +107,7 @@ Setup Assistant local state is stored under:
 ```
 
 Older state from `%LOCALAPPDATA%\MCP4SH\SetupAssistant` is migrated automatically when found.
+
+## Process behaviour
+
+The normal interactive Setup Assistant UI is single-instance. Starting it again brings the existing window forward instead of opening a second full UI. Intentional headless pulse/helper operations remain available where required by MCP4SH.

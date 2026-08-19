@@ -6,8 +6,8 @@ This is the shortest sensible path to a first drive.
 
 - Download the release from the official GitHub release page.
 - Verify the SHA-256 checksum first.
-- Close SimHub.
-- Run the installer.
+- For a manual install, close SimHub normally and run the installer.
+- For an in-app update, use **Setup Assistant → SimHub Helper → Updates**; the verified installer can request a clean SimHub shutdown and restart without force-killing it.
 - Start SimHub and enable **MCP4SH** in Add/remove features if needed.
 
 Read:
@@ -46,7 +46,20 @@ In SimHub:
 
 Do not assume any profile is perfectly tuned for your rig before checking the physical routing.
 
-## 4) Set gains in the right order
+
+## 4) Optional: calibrate the shaker frequency range
+
+After routing works, open **Frequency Sweeper** if you want a hardware-aware frequency map.
+
+Tune by what you physically **feel through the shaker**, not by audible pitch. The guided passes are:
+
+1. Heavy / rumble
+2. Rumble / buzz
+3. Buzz / whine
+
+MCP4SH can use those tactile landmarks to generate a new tuned `.siprofile` candidate while staying close to the supplied canonical effect-frequency relationships. The canonical profile is not overwritten or silently imported.
+
+## 5) Set gains in the right order
 
 This is the bit people get wrong.
 
@@ -55,7 +68,7 @@ This is the bit people get wrong.
 3. Tune **SimHub master/global output** second.
 4. Touch **SimHub ShakeIt Bass Shaker Effect Profile per-effect gains** last, only if needed.
 
-## 5) First test session
+## 6) First test session
 
 Use one sim and one car you know well.
 
@@ -67,7 +80,7 @@ Look for:
 - tyre scrub that feels informative rather than random
 - suspension vibration that feels like surface/body texture, not constant impact spam
 
-## 6) If it feels wrong
+## 7) If it feels wrong
 
 Do not immediately nuke every slider.
 
@@ -85,4 +98,4 @@ See `docs/LOGGING.md`.
 
 If the plugin shows an updated profile notice, choose **Show details...** to open Setup Assistant directly to **SimHub Helper → Updates**. That page shows the local profile filename and the SimHub import steps.
 
-MCP4SH does not automatically activate or overwrite your SimHub profiles. Import the refreshed Standard profile manually when you want to use it.
+MCP4SH does not automatically activate or overwrite your SimHub profiles. The current v1.1.12 Standard / 4 Corners files remain the canonical v1.1.13 references; import them manually when needed, or generate a separate tuned derivative with Frequency Sweeper.

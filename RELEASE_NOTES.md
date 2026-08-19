@@ -1,54 +1,80 @@
-﻿# MCP4SH® v1.1.12 — clearer haptics, 4-corner profile support and safer updates
+# MCP4SH® v1.1.13: guided frequency calibration, clearer dynamics and cleaner updates
 
-MCP4SH v1.1.12 builds on the established v1.1 baseline with stronger cross-title tactile readability, more complete setup/localization work, a matched Standard + 4 Corners profile set, and a new user-controlled update delivery path.
+MCP4SH v1.1.13 closes the v1.1 line with a substantial Setup Assistant calibration upgrade, further haptic articulation work, a cleaner portable Core boundary, broader localization, and a safer end-to-end update handoff.
 
-## Haptics
+## Haptics and dynamics
 
-- Engine & Tyres now keeps more useful dynamic headroom in telemetry-heavy titles and has a little more overall presence.
-- Dense/noisy suspension telemetry is less able to dominate the whole tactile mix, improving high-speed suspension and tyre readability.
-- Subtle wheel-lock onset detection is more sensitive to credible individual-wheel collapse while preserving conservative full-lock/ABS behaviour.
-- Chassis Load has stronger left/right, front/rear and heave expression, including true four-corner output.
-- Clutch engagement, tyre-work readability and Road Feel speed character have received further refinement.
+- **Load Breakaway** now gains short directional weight-transfer articulation when credible grip-edge evidence is already present. Weight transfer alone does not fire the breakaway effect.
+- **Chassis Load** has improved directional isolation and heave/compression/crest expression while keeping sustained body-load feedback separate from the transient breakaway lane.
+- Engine & Tyres, Road Feel, Tyre Scrub, ABS/Lock, drivetrain/limiter and suspension-priority behaviour received additional clarity and authority refinements.
+- Recent final-output shaping and suspension-priority logic were moved into **MCP4SH.Core** without intended tuning changes, keeping the SimHub plugin focused on host integration and public property mirroring.
 
-## Profiles and setup
+## Frequency calibration and generated profiles
 
-Two reference SimHub profiles are supplied:
+Setup Assistant now includes a rebuilt **Frequency Sweeper / calibration instrument**.
 
-- **Standard** — front/rear spatialization where appropriate.
-- **4 Corners** — per-corner Tyre Scrub and Suspension lanes, with Chassis Load in its native four-corner form.
+The guided flow asks the user to tune by what is physically felt through the shaker, not by audible pitch:
 
-Both profiles share the same tuning baseline.
+1. Output
+2. Heavy / rumble
+3. Rumble / buzz
+4. Buzz / whine
+5. Generate
 
-Physical sound-output/channel routing remains separate from the `.siprofile`. Run MCP4SH Setup Assistant to map your actual hardware and generate the matching `.sichannels` files.
+The instrument includes mapped-device defaults, shared mapping/sweeper strength, whole-Hz tuning, an LCD/dial/rail interface, direct transport controls, marked-frequency comparison, and canonical-aware effect-map generation.
 
-## Setup Assistant and localization
+When enough useful feel anchors have been identified, MCP4SH can generate:
 
-- Expanded shared UI localization: English, German, French, Spanish and Simplified Chinese.
-- Localized SimHub Helper guides with English fallback.
-- Improved mapping/profile-generation guidance, routing visibility and diagnostics.
-- Improved translated-layout handling and general UI polish.
-- Saved licence keys are masked during normal display while remaining fully editable when deliberately focused.
+- an effect-frequency map derived from the user's hardware response while staying close to MCP4SH's original orchestration; and
+- a **new tuned `.siprofile`** based on the supplied canonical profile.
 
-## Update delivery
+Generated profiles are non-destructive. MCP4SH does not overwrite or silently import the supplied canonical profile.
 
-v1.1.12 introduces manifest-driven update awareness.
+## Setup Assistant and shared UI
 
-MCP4SH can check for:
+- Setup Assistant is now single-instance for the normal interactive UI.
+- The Sweeper prefers the first device already present in the user's mapping.
+- Shared shaker pulse/activity visuals are used across plugin and Setup Assistant testing surfaces.
+- Drawer/disclosure controls and contextual radial controls use the current shared Tyto Sensory Labs UI language.
+- Dutch and Brazilian Portuguese join English, German, French, Spanish and Simplified Chinese in the shared application UI; English remains the fallback where localized guide content is not yet available.
 
-- newer plugin releases
-- newer `.siprofile` revisions
-- supported documentation/content updates
+## Update delivery and diagnostics
 
-Downloads are staged and SHA-256 verified. MCP4SH does **not** silently run an installer or import/overwrite a SimHub effects profile.
+The updater can now complete a clean, controlled handoff:
 
-`.sichannels` files are never remotely distributed; they remain generated locally for the user's mapped hardware.
+1. download and SHA-256 verify the staged installer;
+2. launch the installer and wait for successful elevation;
+3. request a normal SimHub shutdown through the supported host exit path;
+4. let the installer replace files only after SimHub has exited;
+5. restart SimHub after a successful install when appropriate.
 
-## Updating from an older build
+MCP4SH does **not** force-kill SimHub. Cancelling UAC leaves SimHub running and no update is installed.
 
-1. Close SimHub.
-2. Run `MCP4SH_v1.1.12_Setup.exe`.
+Updater and installer failures now produce clearer user-facing messages and can create a privacy-conscious diagnostic report for the user to review before submitting an issue. Reports are not uploaded automatically.
+
+## Premium preview
+
+The ST Premium test window is now **10 minutes**. The existing cooldown and activation safeguards remain unchanged.
+
+## Canonical SimHub profiles
+
+The supplied **v1.1.12 Standard and 4 Corners `.siprofile` files remain the canonical reference profiles for v1.1.13**. They are intentionally not renamed simply to match the plugin version.
+
+The Frequency Sweeper can generate separate tuned derivatives from those canonical files without modifying the originals.
+
+## Updating
+
+### Built-in updater
+
+Use **Setup Assistant → SimHub Helper → Updates**. The updater verifies the installer before it is allowed to run and uses the clean shutdown/restart handoff described above.
+
+### Manual installer
+
+1. Close SimHub normally.
+2. Run `MCP4SH_v1.1.13_Setup.exe`.
 3. Launch Setup Assistant after installation.
-4. Import either the Standard or 4 Corners `.siprofile` in SimHub.
-5. Generate/import the `.sichannels` files that match your physical shaker mapping.
+4. Keep/import the supplied Standard or 4 Corners canonical profile as appropriate.
+5. Generate/import the `.sichannels` mapping for the actual physical rig.
+6. Optionally use Frequency Sweeper to create a separate hardware-tuned `.siprofile` candidate.
 
-Existing MCP4SH user state and generated mappings are kept unless you deliberately replace them.
+Existing MCP4SH user state and generated mappings are retained unless deliberately replaced.

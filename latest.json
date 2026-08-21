@@ -7,7 +7,7 @@
   "installer": {
     "fileName": "MCP4SH_v1.1.13.1_Setup.exe",
     "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/installer/MCP4SH_v1.1.13.1_Setup.exe",
-    "sha256": "577D7A11A3A131893F0703BD099A383C5D214C516849AAA9E811FF7DBC6CA964"
+    "sha256": "E15BB5C241EB618D64B7843F14ECD8EBF0DFBF3919B67B30E7BFC9429AE282DF"
   },
   "contentManifestUrl": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/content.json"
 }

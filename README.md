@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-﻿# MCP4SH® - String Theory Haptics for SimHub
-=======
-# MCP4SH® — String Theory Haptics for SimHub
->>>>>>> Stashed changes
-
 **Less buzz. More car. Easier setup.**
 
 MCP4SH® is a SimHub haptics plugin that turns racing-sim telemetry into clearer tactile feedback for bass shakers, transducers, haptic pads, and similar hardware.
@@ -43,9 +37,9 @@ The goal is clearer feedback: making different parts of the car feel different, 
 
 ## Current supported release
 
-**MCP4SH v1.1.13 is the current supported public baseline.**
+**MCP4SH v1.1.13.1 is the current supported public baseline.**
 
-v1.1.13 focuses on guided hardware-aware frequency calibration, improved load/breakaway articulation, a cleaner portable Core boundary, broader shared UI/localization work, and a clean updater-to-installer handoff.
+v1.1.13.1 focuses on guided hardware-aware frequency calibration, improved load/breakaway articulation, a cleaner portable Core boundary, broader shared UI/localization work, and a clean updater-to-installer handoff.
 
 Highlights include:
 

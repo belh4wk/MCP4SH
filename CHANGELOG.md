@@ -1,5 +1,37 @@
 # MCP4SH Changelog
 
+## v1.1.13.3
+
+- Fixed individual mapped shaker proof pulses so the completed physical device/channel map is authoritative.
+- Prevented unrelated same-numbered channels on other audio devices from pulsing through a parallel semantic route.
+- Preserved intentional multi-location pulsing when multiple mapped locations genuinely share one physical output channel.
+- Restored Setup Assistant output-device selection memory.
+- Fixed Advanced Settings sliders so values update live, persist correctly and support mouse-wheel adjustment.
+- Significantly reduced plugin-side mapped-shaker pulse latency with a pre-warmed local pulse host and lower-latency WASAPI proof-pulse setup.
+- Improved exact mapped-device matching and multichannel WASAPI routing.
+- Hardened WinMM individual-channel fallback so invalid targets fail closed rather than broadening to all channels.
+- Aligned v1.1.13.3 release/version metadata and hardened release/content integrity checks.
+- Updated public licensing terminology from the retired Pioneer offer to MCP4SH Premium while preserving existing Pioneer entitlements.
+- No haptic-effect tuning change is intended by this hotfix.
+
+## v1.1.13.2
+
+- Fixed release identity drift that could make an installed 1.1.13.1 build report itself as 1.1.13 and re-offer the same update; plugin and Setup Assistant runtime versions now follow their compiled file versions.
+- Improved multichannel Setup Assistant pulse routing for Creative/C-Media-style 5.1/7.1 devices: when a WASAPI shared endpoint exposes only stereo but the same hardware has a WinMM route, Ch3+ proof pulses now fall back to a WAVEFORMATEXTENSIBLE multichannel stream instead of being forced through the stereo WASAPI route.
+- Saved/headless mapped-channel pulses now choose a channel-capable matching backend and tolerate WinMM-friendly-name truncation.
+- No haptic effect/tuning changes are intended in this maintenance release.
+
+- Hardened generated `.sichannels` export across local, OneDrive-redirected, and managed Windows profiles by checking the Windows Known Folder, registry Personal path, physical `%USERPROFILE%\Documents`, and OneDrive variants before choosing the SimHub tree.
+- Added a verified LocalAppData rescue copy for every generated channel map plus an emergency **Save As** fallback if both normal Documents and rescue writes are blocked.
+- **Open profile folder** now follows the exact last successful generated file instead of recalculating the Documents path, with the rescue copy as a fallback.
+- Added **Undo export** to restore overwritten generated profiles/readme files or remove files created by the most recent export.
+- Added the integrated Frequency Sweeper workspace below Map Wizard, with selectable device/channel, a 20–80 Hz default range, adjustable strength, and 2/5/10 Hz inspection steps.
+- Reworked the sweeper around a continuous tone session: Start now ramps smoothly through the range, Mark pauses on a snapped candidate, Previous/Replay/Next react immediately, and Confirm/Ignore resumes the sweep.
+- Added Slow/Normal/Fast sweep speeds and simple confirmed-frequency marking.
+- Reused the existing WASAPI/WinMM device/channel routing while keeping the audio device open for smooth frequency changes and rapid inspection.
+- Added shared rig-output activity feedback: mapped/known shaker zones pulse from gold toward white while Setup Assistant-owned test output is active.
+- Refined the existing shared WPF material/control resources so Setup Assistant dropdowns, Mapping Wizard popups, and new tooling use the same dark neutral control surfaces instead of Windows light/system popup colours.
+
 ## v1.1.13
 
 - Added weight-transfer-assisted Load Breakaway articulation while keeping normal sustained weight transfer in Chassis Load.
@@ -16,6 +48,12 @@
 - Reduced the ST Premium preview window from 15 minutes to 10 minutes while retaining its existing cooldown/safeguards.
 - Moved recent final-output projection and suspension-priority feel logic into MCP4SH.Core so the SimHub adapter remains focused on host integration and public property mirroring.
 - Kept the supplied v1.1.12 Standard and 4 Corners `.siprofile` files as the canonical v1.1.13 reference profiles rather than renaming unchanged profile assets.
+
+## v1.1.12.1
+
+- Hotfix: corrected production Lemon Squeezy product validation so valid live MCP4SH licences are accepted.
+- Production licence validation remains bound to the MCP4SH store/product identity and stays variant-agnostic for Founder/Pioneer/Supporter licences.
+- No haptic profile or effect changes in this hotfix; the v1.1.12 Standard and 4 Corners profiles remain current.
 
 ## v1.1.12
 

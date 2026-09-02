@@ -2,6 +2,7 @@
 
 MCP4SH® is developed by **Tyto Sensory Labs**.
 
+- Graeme for his help in providing logs that helped support multi-channel fixes
 - RangeyRover for his work for the Slipangle plugin which helped fill gaps in my own logic
 - Bruno Silva for helping me figure out how to read live sound output status from SimHub
 - u/Rover1312 for testing and confirming the initial fix for device listing in the Setup Assistant

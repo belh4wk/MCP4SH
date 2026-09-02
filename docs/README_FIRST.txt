@@ -17,13 +17,12 @@ Typical domains include:
 
 Bonus: MCP4SH also includes a built-in FOV calculator in the settings UI.
 
-This build is part of the **v1.0 soft release line**.
-That means it is public-facing and meant to be usable, but tuning and coverage are still evolving.
+This build is part of the current supported MCP4SH release line.
+It is public-facing and supported, while tuning, hardware coverage and title coverage continue to evolve.
 
 ======================================================================
-MCP4SH™ ST Haptics — soft release notes
+MCP4SH™ ST Haptics — setup notes
 ======================================================================
-
 This stack is designed to simulate:
 - tyre phases (grip, slip, scrub)
 - suspension compression and undulation
@@ -32,11 +31,12 @@ This stack is designed to simulate:
 - braking surface cues (feel, slip, ABS)
 - engine mass and harmonic layers
 
-Soft-release focus:
-- cleaner public-facing documentation
-- clearer first-run setup guidance
+Current release focus:
+- clearer public-facing documentation
+- guided first-run setup and physical channel mapping
 - preserved layered “single chassis” haptics philosophy
 - continued real-world validation across rigs and sims
+- exact multichannel proof-pulse routing for mapped shaker locations
 
 Effects are designed to overlap intentionally in some bandwidths so the rig behaves like one coherent mass rather than isolated shakers.
 
@@ -46,10 +46,10 @@ IMPORTANT GAIN RULE:
 - Then tune SimHub global/master output for your rig.
 - Only after that should you touch per-effect gains, if needed.
 
-Reference hardware used during development (example 4-channel BST + TT25 system):
+Reference hardware used during development (example BST + TT25 system):
 - Front: BST-1 under pedal plate, TT25-16 on brake pedal
 - Rear: BST-1 on rear seat frame / structure, TT25-16 in the backrest
-- Optional extra: TT25-16 on the handbrake side for dedicated use cases
+- Optional extra: TT25-16 on the handbrake/shifter side for dedicated use cases
 
 Global gain must be tuned per rig.
 
@@ -60,8 +60,7 @@ DR2.0, PC2, R3E, Forza Horizon titles, LMU, GRID Legends, Wreckfest, and multipl
 1. Reference layout philosophy
 ------------------------------------------------------------------
 
-The supplied routing logic assumes a layered rig:
-
+The supplied effect-routing logic assumes a layered rig:
 - Backrest domain:
   - engine note and harmonics
   - drivetrain load
@@ -83,7 +82,7 @@ The point is clarity through structure.
 2. Installing the plugin
 ------------------------------------------------------------------
 
-1) Install the MCP4SH release package into your SimHub environment.
+1) Install the current MCP4SH release package into your SimHub environment.
 2) Start SimHub.
 3) Go to Add/remove features and enable **MCP4SH**.
 4) Restart SimHub if prompted.
@@ -94,25 +93,27 @@ See:
 - `INSTALLER_SECURITY.md`
 
 ------------------------------------------------------------------
-3. Importing profiles and routing
+3. Importing profiles and mapping physical outputs
 ------------------------------------------------------------------
 
-If your release package includes profile backups and routing presets:
+Use Setup Assistant to create routing for the actual physical rig:
 
-1) Open **ShakeIt Bass Shakers** in SimHub.
-2) Import the supplied effect profile.
-3) Import the supplied routing presets.
-4) Verify the device/channel assignments match your actual hardware.
+1) Open **MCP4SH Setup Assistant**.
+2) Select the shaker / haptic locations present on your rig.
+3) Select the intended output device and use test pulses to identify the physical channels.
+4) Complete the mapping and generate the matching SimHub `.sichannels` output profile.
+5) Use SimHub Helper to import/apply the generated output profile and the supplied canonical MCP4SH effects profile.
+6) Verify the resulting device/channel assignments match what you physically mapped.
 
-Do not assume the profile is perfect for your rig on first import.
-Treat it as a tuned starting point, not gospel.
+Physical channel maps are generated locally for the user's hardware; MCP4SH does not ship a generic remote `.sichannels` map as authoritative routing.
+
+The supplied v1.1.12 Standard and 4 Corners `.siprofile` files remain the canonical v1.1.13.x effects-profile baseline. Treat them as the supported starting point and use the locally generated physical mapping for your rig.
 
 ------------------------------------------------------------------
 4. What you should feel
 ------------------------------------------------------------------
 
 MCP4SH is built around a layered harmonics model:
-
 - Backrest / seat-back style transducers:
   - engine harmonics
   - drivetrain load
@@ -156,7 +157,6 @@ There are two main logging modes:
 Use them when something feels wrong or when comparing how different sims behave.
 
 When sending a report, include:
-
 - game
 - car
 - track
@@ -172,10 +172,12 @@ See `docs/LOGGING.md` for more detail.
 By using this build you agree to the terms in:
 
 - `LICENSE_PLUGIN.txt`
-- `LICENSE_SOFT_RELEASE.txt`
+
+For the public plain-English licensing overview, see:
+
+- `docs/LICENSING.md`
 
 In plain English:
-
 - personal use only unless separately agreed
 - do not redistribute the package or DLL without permission
 - do not rebrand it

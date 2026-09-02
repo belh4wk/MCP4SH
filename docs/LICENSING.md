@@ -21,37 +21,43 @@ The free version includes:
 
 The free version is meant to get people driving, not trap the useful setup flow behind a paywall.
 
-## What the paid version adds
+## What Premium adds
 
-A license unlocks the extra control layer.
+**MCP4SH Premium** unlocks the extra control layer.
 
-Free gets the core experience working.  
-The license gives you more ways to shape it around your own rig.
+Free gets the core experience working.
+Premium gives you more ways to shape it around your own rig.
 
-Licensed value is aimed at:
+Current Premium value includes:
 
-- advanced haptic controls
+- advanced haptic fine-tuning controls
+- the **ST Tensioner**, which dynamically prioritizes effects to help reduce unnecessary/unwanted buzzing while preserving useful tactile information
 - deeper tuning options
-- future custom routing/configuration tools (Configurator is coming)
-- multiple saved layouts/profile variants
 - continued MCP4SH codec and effects development
+- room for additional licensed configuration tools as MCP4SH evolves
 
 In plain English:
 
-**Free gets you driving. A license gives you control.**
+**Free gets you driving. Premium gives you control.**
 
-## Licensing roadmap
+## Licensing tiers
 
-### Current / early-adopter
+### Current
 
-- **Pioneer** ::: 12.99, up to 2 machines
+- **Premium** — €12.99 standard price, perpetual personal license for 1 machine
 
-### Planned
+Temporary promotions or discounts may be offered from time to time. The store listing remains the source of truth for the price and entitlement currently being sold.
 
-- **Supporter** ::: planned at 12.99, 1 machine
-- **Pro** ::: may follow later, likely 19.99, with a higher machine allowance
+### Legacy / grandfathered
 
-Exact availability depends on what is live in the store.
+- **Pioneer** — early-supporter offer, no longer sold to new customers. Existing Pioneer licenses retain their original grandfathered entitlement, including the original machine allowance.
+- **Founder** — legacy/early entitlement where applicable; existing issued licenses retain their original entitlement.
+
+### Possible future
+
+- **Pro** may follow later with a higher machine allowance and/or additional licensed capabilities.
+
+Exact availability, pricing and entitlement depend on what is live in the store.
 
 ## Important usage boundaries
 
@@ -69,15 +75,13 @@ For the actual usage restrictions, see:
 
 ## One-line framing
 
-**Free gives you the core MCP4SH String Theory Haptics experience. A license gives you the control to shape it around your rig.**
-
+**Free gives you the core MCP4SH String Theory Haptics experience. Premium gives you the control to shape it around your rig.**
 
 ## License restore and cache behaviour
 
-MCP4SH stores license/cache data locally so a valid license can be restored when SimHub starts. v1.1.10 hardens this flow so implausibly short/partial key text is ignored and an already valid cached license is not dropped because of an ambiguous online refresh failure.
+MCP4SH stores license/cache data locally so a valid license can be restored when SimHub starts. The current licensing flow ignores implausibly short/partial key text and avoids dropping an already-valid cached license because of an ambiguous online refresh failure.
 
 If you report a license issue, do not send the raw license key. Useful details are:
-
 - whether the license field is empty, partial, or still contains the full key
 - the exact status text shown
 - whether restarting SimHub restores the license

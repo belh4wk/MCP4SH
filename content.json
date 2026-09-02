@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
   "profiles": {
-    "revision": "2",
+    "revision": "3",
     "files": [
       {
         "fileName": "Any Game - MCP4SH® ST Haptics v1.1.12 - 4 Corners.siprofile",
         "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/Profiles/Any%20Game%20-%20MCP4SH%C2%AE%20ST%20Haptics%20v1.1.12%20-%204%20Corners.siprofile",
-        "sha256": "a6d15c80c86e9f66165c0ad01db4e7206a63bbffdfca4d1933089e546d49c28c",
+        "sha256": "24FCD31533A04B6A9CDC05C1BC0B1F24AC837D680697D2AB35C6187523C8E202",
         "minPluginVersion": "1.1.12"
       },
       {
         "fileName": "Any Game - MCP4SH® ST Haptics v1.1.12 - Standard.siprofile",
         "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/Profiles/Any%20Game%20-%20MCP4SH%C2%AE%20ST%20Haptics%20v1.1.12%20-%20Standard.siprofile",
-        "sha256": "09eb1aeace92f47148f962a2a076c0513e38e6044166e2644b83b9e46e0d21fa",
+        "sha256": "2245EBCBD1FF924A1E87639C0DE6B625A934F5E49AC273CB2A15B3488222B277",
         "minPluginVersion": "1.1.12"
       }
     ]

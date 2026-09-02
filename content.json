@@ -18,12 +18,12 @@
     ]
   },
   "docs": {
-    "revision": "1",
+    "revision": "2",
     "files": [
       {
         "relativePath": "MCP4SH_CREDITS.md",
         "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/docs/MCP4SH_CREDITS.md",
-        "sha256": "0ee20243cf7a588688fe4ab0ec8124b2d694063bc22ec3213459f4482fa12e33",
+        "sha256": "d3e6297dd8a962fc70f3ee4e60858144025775f13fb43a500e1f36269862122a",
         "minPluginVersion": "1.1.12"
       },
       {

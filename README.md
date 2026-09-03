@@ -33,7 +33,7 @@ The goal is clearer feedback: making different parts of the car feel different, 
 ---
 ## Current supported release
 
-**MCP4SH v1.1.13.3.3.3 is the current supported public baseline.**
+**MCP4SH v1.1.13.3.3 is the current supported public baseline.**
 
 v1.1.13.3 carries forward the v1.1.13 haptics and calibration baseline while closing the v1.1.x line with Setup Assistant, multichannel-routing, UI and release-integrity fixes.
 

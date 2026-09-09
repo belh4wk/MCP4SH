@@ -3,10 +3,10 @@
   "version": "1.1.13.3.3",
   "channel": "stable",
   "archived": false,
-  "releaseNotesUrl": "https://github.com/belh4wk/MCP4SH/releases/tag/1.1.13.3",
+  "releaseNotesUrl": "https://github.com/belh4wk/MCP4SH/releases/tag/1.1.13.3.3",
   "installer": {
     "fileName": "MCP4SH_v1.1.13.3.3_Setup.exe",
-    "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/installer/MCP4SH_v1.1.13.3_Setup.exe",
+    "url": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/installer/MCP4SH_v1.1.13.3.3_Setup.exe",
     "sha256": "F0BE072D2020F1CAAB7A63C7A933B8919457735CCDDD34532176D5AB18103A03"
   },
   "contentManifestUrl": "https://raw.githubusercontent.com/belh4wk/MCP4SH/main/content.json"

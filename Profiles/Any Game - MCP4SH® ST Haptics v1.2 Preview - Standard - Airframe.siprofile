@@ -1,0 +1,844 @@
+{
+  "CarChoices": [],
+  "IncludeOutputSettingsInProfile": false,
+  "UnmuteEffectsAfterSimhubRestart": true,
+  "EffectsContainers": [
+    {
+      "ContainerType": "GroupContainer",
+      "IsEnabled": true,
+      "Gain": 100.0,
+      "Description": "Flight Envelope",
+      "EffectsContainers": [
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 30.428571428571395,
+          "Description": "Airframe Load",
+          "FrontLeftFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.ChassisLoad.FLIntensity') || 0);"
+          },
+          "FrontRightFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.ChassisLoad.FRIntensity') || 0);"
+          },
+          "RearLeftFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.ChassisLoad.RLIntensity') || 0);"
+          },
+          "RearRightFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.ChassisLoad.RRIntensity') || 0);"
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "0dbbca0d-0610-49e5-8cc9-eae689215a0f",
+          "AggregationMode": "Corners",
+          "Filter": {
+            "GammaValue": 1.0,
+            "InputGain": 100.0,
+            "MinimumForce": 0,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 25,
+            "WhiteNoise": 10,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 125,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "Airframe Load",
+            "OutputType": "ToneOutput"
+          }
+        },
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 54.6666666666667,
+          "Description": "High AoA Buffet",
+          "FrontLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.TyreScrub.FrontIntensity') || 0;"
+          },
+          "FrontRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.TyreScrub.FrontIntensity') || 0;"
+          },
+          "RearLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.TyreScrub.RearIntensity') || 0;"
+          },
+          "RearRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.TyreScrub.RearIntensity') || 0;"
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "4ba20bc0-bcaa-4cf5-8cca-9535467a6fb6",
+          "AggregationMode": "Front/Rear",
+          "Filter": {
+            "GammaValue": 1.0,
+            "InputGain": 100.0,
+            "MinimumForce": 0,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 50,
+            "WhiteNoise": 10,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 60,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "High AoA Buffet",
+            "OutputType": "ToneOutput"
+          }
+        },
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 49.90476190476183,
+          "Description": "Airframe Buffet",
+          "FrontLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Suspension.VibrationFront') || 0;"
+          },
+          "FrontRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Suspension.VibrationFront') || 0;"
+          },
+          "RearLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Suspension.VibrationRear') || 0;"
+          },
+          "RearRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Suspension.VibrationRear') || 0;"
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "61a0ec4b-63f9-4944-a50b-89b3f988c862",
+          "AggregationMode": "Front/Rear",
+          "Filter": {
+            "GammaValue": 1.0000000000000098,
+            "InputGain": 100.0,
+            "MinimumForce": 0,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 35,
+            "WhiteNoise": 10,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 55,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "Airframe Buffet",
+            "OutputType": "ToneOutput"
+          }
+        },
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 100.0,
+          "Description": "Stall/Departure",
+          "FrontLeftFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.LoadBreakaway.FrontIntensity') || 0);"
+          },
+          "FrontRightFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.LoadBreakaway.FrontIntensity') || 0);"
+          },
+          "RearLeftFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.LoadBreakaway.RearIntensity') || 0);"
+          },
+          "RearRightFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.LoadBreakaway.RearIntensity') || 0);"
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "b5658f50-5b3c-4844-bcbe-b5b1a0a238d6",
+          "AggregationMode": "Front/Rear",
+          "Filter": {
+            "GammaValue": 1.0,
+            "InputGain": 100.0,
+            "MinimumForce": 0,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 29,
+            "WhiteNoise": 10,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 59,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "Stall/Departure",
+            "OutputType": "ToneOutput"
+          }
+        }
+      ],
+      "ContainerId": "623706f2-4a37-46c8-b914-88c84ace1457",
+      "Filter": null,
+      "Output": null
+    },
+    {
+      "ContainerType": "GroupContainer",
+      "IsEnabled": true,
+      "Gain": 100.0,
+      "Description": "Airframe",
+      "EffectsContainers": [
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 100.0,
+          "Description": "Airframe Transients",
+          "FrontLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Suspension.ImpactFront') || 0;"
+          },
+          "FrontRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Suspension.ImpactFront') || 0;"
+          },
+          "RearLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Suspension.ImpactRear') || 0;"
+          },
+          "RearRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Suspension.ImpactRear') || 0;"
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "863fb568-a61d-45aa-b274-c7396470460c",
+          "AggregationMode": "Front/Rear",
+          "Filter": {
+            "GammaValue": 1.0,
+            "InputGain": 100.0,
+            "MinimumForce": 0,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 35,
+            "WhiteNoise": 10,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 25,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "Airframe Transients",
+            "OutputType": "ToneOutput"
+          }
+        },
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 30.333333333333243,
+          "Description": "Airflow - Forward",
+          "FrontLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.RoadFeel.FrontIntensity') || 0;"
+          },
+          "FrontRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.RoadFeel.FrontIntensity') || 0;"
+          },
+          "RearLeftFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": ""
+          },
+          "RearRightFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": ""
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "98f3a1b1-404b-4bfa-8a75-7e10043d385e",
+          "AggregationMode": "Front/Rear",
+          "Filter": {
+            "GammaValue": 1.0000000000000009,
+            "InputGain": 100.0,
+            "MinimumForce": 0,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 110,
+            "WhiteNoise": 10,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 55,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "Airflow - Forward",
+            "OutputType": "ToneOutput"
+          }
+        },
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 34.619047619047564,
+          "Description": "Airframe Rumble - Aft",
+          "FrontLeftFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": ""
+          },
+          "FrontRightFormula": {
+            "JSExt": 0,
+            "Interpreter": 1,
+            "Expression": ""
+          },
+          "RearLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.RoadFeel.RearIntensity') || 0;"
+          },
+          "RearRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.RoadFeel.RearIntensity') || 0;"
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "486cd6ae-fa05-4e92-b1c2-6b884c488dea",
+          "AggregationMode": "Front/Rear",
+          "Filter": {
+            "GammaValue": 1.0000000000000009,
+            "InputGain": 100.0,
+            "MinimumForce": 0,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 90,
+            "WhiteNoise": 10,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 45,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "Airframe Rumble - Aft",
+            "OutputType": "ToneOutput"
+          }
+        }
+      ],
+      "ContainerId": "fc76449c-6e57-48a9-9da3-b9a88fca321a",
+      "Filter": null,
+      "Output": null
+    },
+    {
+      "ContainerType": "GroupContainer",
+      "IsEnabled": true,
+      "Gain": 100.0,
+      "Description": "Powerplant & Systems",
+      "EffectsContainers": [
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 95.0,
+          "Description": "Mechanical Systems/Gear",
+          "FrontLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.GearShift.FwdKick') || 0;"
+          },
+          "FrontRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.GearShift.FwdKick') || 0;"
+          },
+          "RearLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.GearShift.BackKick') || 0;"
+          },
+          "RearRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.GearShift.BackKick') || 0;"
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "386153dd-21f2-4209-ba68-d9185a0de26f",
+          "AggregationMode": "Front/Rear",
+          "Filter": {
+            "GammaValue": 1.0,
+            "InputGain": 100.0,
+            "MinimumForce": 0,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 33,
+            "WhiteNoise": 10,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 90,
+            "Delay": 10,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "Mechanical Systems/Gear",
+            "OutputType": "ToneOutput"
+          }
+        },
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 100.0,
+          "Description": "Flaps/Speedbrake",
+          "FrontLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Drivetrain.ClutchFreeIntensity') || 0;\r\n"
+          },
+          "FrontRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Drivetrain.ClutchFreeIntensity') || 0;\r\n"
+          },
+          "RearLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Drivetrain.ClutchFreeIntensity') || 0;\r\n"
+          },
+          "RearRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Drivetrain.ClutchFreeIntensity') || 0;\r\n"
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "94daffbe-6f71-4003-8fb9-6eae07e25c25",
+          "AggregationMode": "Front/Rear",
+          "Filter": {
+            "GammaValue": 1.0,
+            "InputGain": 100.0,
+            "MinimumForce": 0,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 29,
+            "WhiteNoise": 10,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 39,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "Flaps/Speedbrake",
+            "OutputType": "ToneOutput"
+          }
+        },
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 75.0,
+          "Description": "Thrust Feel",
+          "FrontLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Drivetrain.FrontIntensity') || 0;"
+          },
+          "FrontRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Drivetrain.FrontIntensity') || 0;"
+          },
+          "RearLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Drivetrain.RearIntensity') || 0;"
+          },
+          "RearRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Drivetrain.RearIntensity') || 0;"
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "12a3420e-22c0-4223-bf5f-b5b8f5e32b05",
+          "AggregationMode": "Front/Rear",
+          "Filter": {
+            "GammaValue": 1.0,
+            "InputGain": 100.0,
+            "MinimumForce": 0,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 111,
+            "WhiteNoise": 10,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 33,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "Thrust Feel",
+            "OutputType": "ToneOutput"
+          }
+        },
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 30.0,
+          "Description": "Powerplant",
+          "FrontLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Engine.FrontIntensity') || 0;"
+          },
+          "FrontRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Engine.FrontIntensity') || 0;"
+          },
+          "RearLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Engine.FrontIntensity') || 0;"
+          },
+          "RearRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * $prop('MCP4SHPlugin.MCP4SH.Engine.FrontIntensity') || 0;"
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "4d40e24a-e739-45ed-af6e-ba12771d81cc",
+          "AggregationMode": "Front/Rear",
+          "Filter": {
+            "GammaValue": 1.0,
+            "InputGain": 100.0,
+            "MinimumForce": 10,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 93,
+            "WhiteNoise": 10,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 39,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "Powerplant",
+            "OutputType": "ToneOutput"
+          }
+        },
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 29.761904761904844,
+          "Description": "Wheel Brake",
+          "FrontLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeFeel.FrontIntensity') || 0);"
+          },
+          "FrontRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeFeel.FrontIntensity') || 0);"
+          },
+          "RearLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeFeel.RearIntensity') || 0);"
+          },
+          "RearRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeFeel.RearIntensity') || 0);"
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "0ac03bc2-8f0c-41be-ac47-18f29c8f5a2e",
+          "AggregationMode": "Front/Rear",
+          "Filter": {
+            "GammaValue": 1.0,
+            "InputGain": 100.0,
+            "MinimumForce": 0,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 92,
+            "WhiteNoise": 0,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 129,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "Wheel Brake",
+            "OutputType": "ToneOutput"
+          }
+        },
+        {
+          "ContainerType": "CustomEffectContainer",
+          "IsEnabled": true,
+          "Gain": 100.0,
+          "Description": "Lock/Anti-Skid",
+          "FrontLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeLock.FrontIntensity') || 0);"
+          },
+          "FrontRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeLock.FrontIntensity') || 0);"
+          },
+          "RearLeftFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeLock.RearIntensity') || 0);"
+          },
+          "RearRightFormula": {
+            "JSExt": 2,
+            "Interpreter": 1,
+            "Expression": "return 100 * ($prop('MCP4SHPlugin.MCP4SH.BrakeLock.RearIntensity') || 0);"
+          },
+          "ForceFrequencies": false,
+          "FrontLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "FrontRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearLeftFrequencyFormula": {
+            "Expression": ""
+          },
+          "RearRightFrequencyFormula": {
+            "Expression": ""
+          },
+          "AlwaysExecute": false,
+          "ContainerId": "a0bc1036-110f-49ea-ae75-904fd19757de",
+          "AggregationMode": "Front/Rear",
+          "Filter": {
+            "GammaValue": 1.0,
+            "InputGain": 100.0,
+            "MinimumForce": 0,
+            "Threshold": 0,
+            "FilterType": "GammaFilter"
+          },
+          "Output": {
+            "UseHighFrequency": true,
+            "HighFrequency": 37,
+            "WhiteNoise": 10,
+            "UseWhiteNoise": false,
+            "FrequencyBasedOnPreFilter": false,
+            "UsePrehemptiveMode": false,
+            "Frequency": 47,
+            "AssignToChannelGroup": true,
+            "ChannelGroupName": "Lock/Anti-Skid",
+            "OutputType": "ToneOutput"
+          }
+        }
+      ],
+      "ContainerId": "0fffbfdb-ccc6-4f38-b5e3-2e2d74a5fe42",
+      "Filter": null,
+      "Output": null
+    }
+  ],
+  "AutoCalibrationRatio2": 0,
+  "OutputMode": 1,
+  "GlobalGain": 50.0,
+  "UseProfileGain": false,
+  "LastLoaded": "0001-01-01T00:00:00",
+  "Description": "MCP4SH® ST Haptics v1.2 Preview - standard airframe profile.\r\n\r\nAn experimental flight-oriented ShakeIt profile bundled with MCP4SH v1.1.13.4 as a preview of the upcoming v1.2 aerospace track. The layout is organised around Flight Envelope, Airframe, and Powerplant & Systems.\r\n\r\nSeveral lanes intentionally reuse current MCP4SH outputs so the useful early DCS feel can be tested while native Powerplant and Airframe Load semantics are developed. Behaviour, naming and tuning may change before the final v1.2 release.",
+  "Name": "MCP4SH® ST Haptics v1.2 Preview - Standard - Airframe",
+  "ProfileId": "b8fc01f5-bcb8-443f-be10-15e3dca72c3e",
+  "GameCode": null,
+  "CarChoice": null
+}

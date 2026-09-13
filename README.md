@@ -7,6 +7,7 @@ Instead of sending raw telemetry straight to your rig, MCP4SH processes, cleans 
 The goal is simple:
 
 **You should feel more of what the car is doing, and less random buzzing.**
+
 MCP4SH is built around the **String Theory Haptics** approach: engine, tyres, braking, suspension, drivetrain, gearshift, and chassis-style load cues working together as one connected system rather than a pile of unrelated vibrations.
 
 ---
@@ -28,22 +29,29 @@ MCP4SH can provide telemetry-driven haptic feedback for:
 - combined engine and tyre tension cues
 
 The goal is not simply **more vibration**.
+
 The goal is clearer feedback: making different parts of the car feel different, so your tactile setup becomes easier to understand while driving.
 
 ---
 ## Current supported release
 
-**MCP4SH v1.1.13.3.3 is the current supported public baseline.**
+**MCP4SH v1.1.13.4 is the current supported public baseline.**
 
-v1.1.13.3 carries forward the v1.1.13 haptics and calibration baseline while closing the v1.1.x line with Setup Assistant, multichannel-routing, UI and release-integrity fixes.
+v1.1.13.4 carries forward the established v1.1.13 haptics and calibration baseline while tightening routing, endpoint identity, proof-pulse behaviour, update noise, and day-to-day UI usability.
 
 Highlights include:
+
 - exact physical device/channel routing for individual mapped shaker proof pulses
 - multiple mapped locations only pulsing together when they intentionally share the same physical output channel
+- effectively instant plugin-GUI proof pulses using a persistent local renderer
+- improved WASAPI multichannel endpoint handling with duplicate endpoint identity cleanup
+- safer fail-closed WinMM fallback behaviour
+- profile manifest-only changes no longer being shown as new profile updates
+- persistent UI text scaling
+- light/dark presentation controls
+- refined Advanced hierarchy and ST Tensioner Premium presentation
 - restored Setup Assistant output-device selection memory
 - fixed Advanced Settings sliders with live value updates, persistence and mouse-wheel adjustment
-- significantly lower-latency mapped-shaker proof pulses from the plugin UI
-- improved WASAPI multichannel endpoint handling and safer fail-closed WinMM fallback behaviour
 - guided hardware-aware frequency calibration and non-destructive tuned `.siprofile` generation
 - weight-transfer-assisted Load Breakaway articulation and improved Chassis Load directional/heave expression
 - clean SimHub shutdown/install/restart handoff with SHA-256 verification and no force-kill fallback
@@ -70,6 +78,33 @@ The focus is on:
 The guiding idea is simple:
 
 **Haptics should help you understand what the car is doing, not bury you in buzzing.**
+
+---
+## Designed to scale
+
+MCP4SH is built around a simple architectural idea:
+
+**Specialise at the edges. Standardise the meaning.**
+
+Different simulators expose different telemetry. Different hardware has different capabilities. MCP4SH does not try to pretend those inputs and outputs are identical.
+
+Instead, the aim is to keep simulator-specific and device-specific work at the edges while preserving a shared interpretation layer in between:
+
+```text
+Sim / host telemetry
+→ specialised input / normalization
+→ semantic interpretation
+→ orchestration
+→ specialised projection / output
+```
+
+That means a title can use the best telemetry it exposes without forcing the rest of the haptic stack to become title-specific.
+
+It also means a new output device should not require every supported simulator to be reinterpreted from scratch.
+
+**Normalize meaning, not information.**
+
+The current public implementation runs through SimHub, but the architecture is deliberately separated so the interpretation and orchestration logic is not intended to remain tied to one host, one renderer, or one class of haptic hardware.
 
 ---
 ## Not a standard SimHub effects profile
@@ -105,6 +140,7 @@ The supported reference setup is:
 Manual formula edits, heavily modified profiles, separated effect experiments, or custom routing can be useful for personal testing, but they are outside the normal support baseline.
 
 In plain English:
+
 **If you change the formulas or routing yourself, you are no longer testing the supplied MCP4SH setup.**
 
 ---
@@ -123,6 +159,7 @@ The Setup Assistant helps you:
 - analyze existing sound output profiles
 
 In plain English:
+
 **MCP4SH helps you set the thing up instead of just giving you effects and leaving you to fight audio routing by yourself.**
 
 You do not need a huge rig to use it. Smaller setups can still benefit, and larger rigs can use more detailed routing for pedals, seat, backrest, four corners, or other shaker positions.
@@ -172,6 +209,7 @@ MCP4SH includes the following main haptic effect groups:
 - Engine & Tyres
 
 Some effects are simple to understand on their own. Others are designed to work together as part of the broader ST Haptics layer.
+
 For example, Tyre Scrub is not meant to be read as a pure outside-tyre load signal. It reflects tyre scrub / slip activity, so it may not always mirror chassis load direction in a corner.
 
 ---
@@ -206,6 +244,7 @@ The free version is not a crippled demo.
 Free gives you the core MCP4SH String Theory Haptics experience and the Setup Assistant.
 
 That means you can:
+
 - run the main MCP4SH haptic effects in SimHub
 - use the Setup Assistant to select the shakers installed on your rig
 - test-pulse channels so you know what is physically connected where
@@ -216,6 +255,7 @@ That means you can:
 - use the shared pulse visualization while testing mapped shakers
 
 In plain English:
+
 **Free gets you driving.**
 
 ---
@@ -238,9 +278,10 @@ and move toward:
 > This feels right for my setup.
 
 A Premium license also directly supports continued MCP4SH development.
+
 The store listing is the source of truth for the current price, entitlement and included licensed features.
 
-**Free gets you driving.
+**Free gets you driving.  
 Premium gives you control.**
 
 ---
@@ -271,6 +312,7 @@ MCP4SH does not silently import or activate SimHub profiles for you.
 
 ---
 ## Important install notes
+
 - For a manual install, close SimHub normally before replacing plugin files.
 - The built-in updater can request a clean SimHub shutdown and restart after a verified installer is launched; it does not force-kill SimHub.
 - Use the supplied MCP4SH profile / channel map as the supported reference setup.
@@ -310,11 +352,27 @@ General comments like **it feels wrong** are hard to act on. A short, specific r
 ---
 ## Development notes
 
-MCP4SH is developed around a normalization-first approach.
+MCP4SH is developed around a normalization-first, semantic interpretation approach.
 
 The aim is not to make every game feel identical. Different titles expose different telemetry, and even different cars inside the same title can vary.
 
-The aim is to make the useful information more readable and more consistent where possible, without forcing users to manually rebuild their tactile setup for every sim.
+The aim is to make useful information more readable and more consistent where possible, without forcing users to manually rebuild their tactile setup for every sim.
+
+The codebase is increasingly structured around a clearer boundary:
+
+```text
+Sim / host adapter
+→ adapter-normalized inputs
+→ MCP4SH.Core interpretation and stateful haptic logic
+→ core outputs
+→ host / renderer mapping
+```
+
+The current SimHub plugin is the public host implementation today.
+
+The longer-term direction is to keep the reusable interpretation and orchestration logic portable enough for additional adapters, replay/conformance tooling, standalone runtimes, and future hardware integrations without turning every new target into a separate haptic engine.
+
+This is an architectural direction, not yet a public SDK/API promise.
 
 ---
 ## Disclaimer

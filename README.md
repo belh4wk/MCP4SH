@@ -35,11 +35,20 @@ The goal is clearer feedback: making different parts of the car feel different, 
 ---
 ## Current supported release
 
-**MCP4SH v1.1.13.4 is the current supported public baseline.**
+**MCP4SH v1.1.14 is the current supported public baseline.**
 
-v1.1.13.4 carries forward the established v1.1.13 haptics and calibration baseline while tightening routing, endpoint identity, proof-pulse behaviour, update noise, and day-to-day UI usability.
+v1.1.14 is a focused stable maintenance release for the install and update path. It carries forward the established v1.1.13.x haptics, calibration, routing, and UI baseline without retuning the effects.
 
-Highlights include:
+v1.1.14 specifically improves:
+
+- safer application-in-use detection before MCP4SH executables and DLLs are replaced
+- manual-install checks for both known SimHub process names and MCP4SH Setup Assistant
+- the clean staged-update handoff used to close SimHub normally before replacement
+- explicit close-application handling when Setup Assistant launches a staged installer
+- installer logging and additional diagnostics for blocked or failed updates
+- release/version consistency across the stable plugin, Core, UI, Setup Assistant, installer, and update manifest
+
+The 1.1.13.x baseline carried forward into 1.1.14 already includes:
 
 - exact physical device/channel routing for individual mapped shaker proof pulses
 - multiple mapped locations only pulsing together when they intentionally share the same physical output channel
@@ -47,18 +56,17 @@ Highlights include:
 - improved WASAPI multichannel endpoint handling with duplicate endpoint identity cleanup
 - safer fail-closed WinMM fallback behaviour
 - profile manifest-only changes no longer being shown as new profile updates
-- persistent UI text scaling
-- light/dark presentation controls
+- persistent UI text scaling and light/dark presentation controls
 - refined Advanced hierarchy and ST Tensioner Premium presentation
 - restored Setup Assistant output-device selection memory
 - fixed Advanced Settings sliders with live value updates, persistence and mouse-wheel adjustment
 - guided hardware-aware frequency calibration and non-destructive tuned `.siprofile` generation
 - weight-transfer-assisted Load Breakaway articulation and improved Chassis Load directional/heave expression
-- clean SimHub shutdown/install/restart handoff with SHA-256 verification and no force-kill fallback
-- release/version metadata and documentation-integrity hardening
 - a cleaner MCP4SH.Core / SimHub-adapter boundary for future portability
 
-The supplied **v1.1.12 Standard and 4 Corners `.siprofile` files remain the canonical v1.1.13.x reference profiles**. Their filenames are intentionally unchanged.
+The supplied **v1.1.12 Standard and 4 Corners `.siprofile` files remain the canonical v1.1.14 reference profiles**. Their filenames are intentionally unchanged because v1.1.14 does not alter the haptics/profile baseline.
+
+Existing v1.2 Chassis/Airframe preview assets remain previews. The v1.2 development runtime is not part of the v1.1.14 stable release.
 
 Older releases may remain available for archival purposes, but the latest release is the supported baseline.
 
@@ -290,17 +298,18 @@ Premium gives you control.**
 1. Go to GitHub Releases.
 2. Download the current MCP4SH installer asset.
 3. Verify the SHA-256 checksum if desired.
-4. For a manual install, close SimHub normally. The built-in updater can request the clean shutdown itself after elevation succeeds.
-5. Run the installer, or use Setup Assistant → SimHub Helper → Updates.
-6. Start SimHub if it was not restarted automatically by the updater.
-7. Enable MCP4SH if SimHub prompts you.
-8. Open the MCP4SH plugin tab.
-9. Launch the Setup Assistant.
-10. Select your rig layout / shaker zones.
-11. Run the test pulses.
-12. Generate a sound output profile.
-13. Import / apply it in SimHub using the SimHub Helper guidance.
-14. Go drive.
+4. Run the installer, or use Setup Assistant → SimHub Helper → Updates.
+5. If SimHub or MCP4SH Setup Assistant is still open, the v1.1.14 installer/update path now performs safer application-in-use handling before replacing MCP4SH files.
+6. The built-in updater can request a normal SimHub shutdown after elevation succeeds; it does not force-kill SimHub.
+7. Start SimHub if it was not restarted automatically by the updater.
+8. Enable MCP4SH if SimHub prompts you.
+9. Open the MCP4SH plugin tab.
+10. Launch the Setup Assistant.
+11. Select your rig layout / shaker zones.
+12. Run the test pulses.
+13. Generate a sound output profile.
+14. Import / apply it in SimHub using the SimHub Helper guidance.
+15. Go drive.
 
 Generated sound-output profiles and bundled MCP4SH SimHub profile assets are written to the user's real Documents folder:
 
@@ -313,8 +322,9 @@ MCP4SH does not silently import or activate SimHub profiles for you.
 ---
 ## Important install notes
 
-- For a manual install, close SimHub normally before replacing plugin files.
+- For a manual install, it is still good practice to close SimHub normally first; v1.1.14 also adds safer application-in-use handling if SimHub or Setup Assistant is still open.
 - The built-in updater can request a clean SimHub shutdown and restart after a verified installer is launched; it does not force-kill SimHub.
+- Installer/update diagnostics are retained locally when possible under `%LOCALAPPDATA%\TytoSensoryLabs\MCP4SH\Updates`.
 - Use the supplied MCP4SH profile / channel map as the supported reference setup.
 - Generated profile files are placed in `Documents\SimHub\MCP4SH`.
 - If your Documents folder is redirected through OneDrive or another Windows location, MCP4SH attempts to use the real user Documents path.

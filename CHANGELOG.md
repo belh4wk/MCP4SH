@@ -1,5 +1,35 @@
 # MCP4SH Changelog
 
+## v1.1.14.1
+
+- Added an explicit **Swap saved seat L/R** repair action for completed physical maps containing both `SeatBottom.Side.Left` and `SeatBottom.Side.Right`.
+- Added a safe, device-scoped **Swap saved front/rear** action for eligible simple front/rear layouts.
+- Preserved intentional shared-channel assignments when qualifying saved routes are swapped.
+- Excluded dedicated seat-side and ambiguous/multichannel layouts from the front/rear convenience action rather than guessing.
+- Added mapping backup and atomic replacement before saved-route changes.
+- Updated Setup Assistant Audio Diagnostics for the P019 mapping-repair path.
+- Kept the v1.1.14 haptics/profile baseline unchanged; no effect tuning changes are intended in this hotfix.
+
+## v1.1.14
+
+- Hardened the MCP4SH self-update flow so SimHub and Setup Assistant are cleanly released before installer-managed files are replaced; no force-close path is used.
+- Enabled installer file-in-use detection and persistent installer diagnostics for clearer update failures.
+- Added pre-update Setup Assistant state backup, restore and verification so existing physical shaker mapping/routing remains authoritative across upgrades.
+- Protected key Setup Assistant mapping/state files with atomic writes and sibling backup recovery.
+- Corrected Setup Assistant startup restore ordering so saved mapping state is evaluated only after persisted state flags are loaded.
+- Aligned the stable plugin, Core, UI, Setup Assistant, installer and update-manifest identity on v1.1.14.
+- No haptic interpretation, tuning or profile-content changes are intended in this maintenance release.
+
+## v1.1.13.4
+
+- Removed the remaining plugin-GUI proof-pulse startup lag by caching audio discovery and pre-opening exact mapped route streams.
+- Tightened mapped proof-pulse routing so individual rig/shaker tests stay on the exact saved physical endpoint and channel, with explicit same-channel sharing only when requested.
+- Suppressed false profile-update prompts when the manifest revision changes but the actual `.siprofile` payload hashes are unchanged.
+- Added persistent UI text scaling and a host-integrated light/dark presentation control.
+- Reworked the plugin command strip and refined the Advanced hierarchy around ST Haptic Effects, ST Tensioner, ST Balancer, priority weights and diagnostics.
+- Improved Setup Assistant mapping safety and exact endpoint identity handling.
+- No haptic-effect tuning change is intended in this maintenance release.
+
 ## v1.1.13.3
 
 - Fixed individual mapped shaker proof pulses so the completed physical device/channel map is authoritative.

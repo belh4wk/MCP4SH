@@ -28,12 +28,16 @@ It helps you:
 - open the profile folder
 - follow the SimHub Helper steps to import the profile
 - use the pulse visual and hover routing readout to sanity-check mapped shakers
+- repair a saved seat left/right assignment without rerunning the full mapping wizard
+- swap simple saved front/rear assignments on eligible layouts
 
 Generated profiles are written to:
 
 ```text
 Documents\SimHub\MCP4SH
 ```
+
+The saved-map swap tools are deliberate repair/convenience actions. They do not globally invert audio channels, and the front/rear action leaves ambiguous or dedicated seat-side layouts alone rather than guessing.
 
 ## 3) Import the supplied effect profile
 
@@ -45,7 +49,6 @@ In SimHub:
 4. Check that each channel hits the shaker you expect.
 
 Do not assume any profile is perfectly tuned for your rig before checking the physical routing.
-
 
 ## 4) Optional: calibrate the shaker frequency range
 
@@ -87,15 +90,15 @@ Do not immediately nuke every slider.
 Instead:
 
 - verify routing first
+- use the saved seat L/R or front/rear swap tools only when the completed physical map is genuinely reversed
 - lower gains a bit
 - check `docs/KNOWN_ISSUES.md`
 - enable logging for a short test if needed
 
 See `docs/LOGGING.md`.
 
-
 ## Updated bundled profiles
 
 If the plugin shows an updated profile notice, choose **Show details...** to open Setup Assistant directly to **SimHub Helper → Updates**. That page shows the local profile filename and the SimHub import steps.
 
-MCP4SH does not automatically activate or overwrite your SimHub profiles. The current v1.1.12 Standard / 4 Corners files remain the canonical v1.1.13 references; import them manually when needed, or generate a separate tuned derivative with Frequency Sweeper.
+MCP4SH does not automatically activate or overwrite your SimHub profiles. The current v1.1.12 Standard / 4 Corners files remain the canonical v1.1.14.1 references. Their filenames are intentionally unchanged because v1.1.14.1 does not retune the stable haptics baseline; import them manually when needed, or generate a separate tuned derivative with Frequency Sweeper.

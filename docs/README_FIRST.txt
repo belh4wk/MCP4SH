@@ -37,6 +37,7 @@ Current release focus:
 - preserved layered “single chassis” haptics philosophy
 - continued real-world validation across rigs and sims
 - exact multichannel proof-pulse routing for mapped shaker locations
+- optional saved seat L/R and safe front/rear mapping correction tools
 
 Effects are designed to overlap intentionally in some bandwidths so the rig behaves like one coherent mass rather than isolated shakers.
 
@@ -105,9 +106,11 @@ Use Setup Assistant to create routing for the actual physical rig:
 5) Use SimHub Helper to import/apply the generated output profile and the supplied canonical MCP4SH effects profile.
 6) Verify the resulting device/channel assignments match what you physically mapped.
 
+If a completed physical map is simply reversed, v1.1.14.1 also provides optional saved-map correction tools for seat left/right and eligible simple front/rear layouts. These tools repair the saved semantic assignment; they do not globally reverse an audio device's channel order.
+
 Physical channel maps are generated locally for the user's hardware; MCP4SH does not ship a generic remote `.sichannels` map as authoritative routing.
 
-The supplied v1.1.12 Standard and 4 Corners `.siprofile` files remain the canonical v1.1.13.x effects-profile baseline. Treat them as the supported starting point and use the locally generated physical mapping for your rig.
+The supplied v1.1.12 Standard and 4 Corners `.siprofile` files remain the canonical v1.1.14.1 effects-profile baseline. Their filenames are intentionally unchanged because v1.1.14.1 does not alter the stable haptics tuning. Treat them as the supported starting point and use the locally generated physical mapping for your rig.
 
 ------------------------------------------------------------------
 4. What you should feel

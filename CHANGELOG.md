@@ -1,5 +1,13 @@
 # MCP4SH Changelog
 
+## Installer-only hotfix for v1.1.14.1 (release tag `1.1.14.1-installer-hotfix.1`)
+
+- Updated installer process detection to require exact executable-name/PID matches, instead of ambiguous text searching.
+- When Windows process detection fails, added a **user-initiated protected recovery check** for manual installs: recheck known processes and confirm exclusive write access to installed application/plugin files before continuing.
+- No bypass is offered for a confirmed running SimHub or Setup Assistant, or for inaccessible/locked files. Silent updates and automatic handoffs cannot use manual recovery.
+- Improved blocked-install diagnostics, corrected the download URL to the repository's lowercase `installer/` path, and refreshed the release artifacts/checksums.
+- **No change to the bundled v1.1.14.1 plugin, Setup Assistant, profiles, effects, telemetry, licensing or existing user state.** Application version remains v1.1.14.1; this is a separate installer-only release.
+
 ## v1.1.14.1
 
 - Added an explicit **Swap saved seat L/R** repair action for completed physical maps containing both `SeatBottom.Side.Left` and `SeatBottom.Side.Right`.

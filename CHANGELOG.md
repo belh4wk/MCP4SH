@@ -1,6 +1,6 @@
 # MCP4SH Changelog
 
-## Installer-only hotfix for v1.1.14.1 (release tag `1.1.14.1-installer-hotfix.1`)
+## Installer-only hotfix for v1.1.14.1 (release tag `1.1.14.1.1`)
 
 - Updated installer process detection to require exact executable-name/PID matches, instead of ambiguous text searching.
 - When Windows process detection fails, added a **user-initiated protected recovery check** for manual installs: recheck known processes and confirm exclusive write access to installed application/plugin files before continuing.
